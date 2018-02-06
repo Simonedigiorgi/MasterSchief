@@ -47,7 +47,7 @@ public class HealthBar : MonoBehaviour {
         enemyHealth.rectTransform.localScale = new Vector3(enemyratio, 1, 1);
     }
 
-    private void TakeDamage()
+    public void TakeDamage()
     {
         hitpoint -= damage;
 
@@ -60,7 +60,7 @@ public class HealthBar : MonoBehaviour {
         UpdateHealthBar();
     }
 
-    private void EnemyDamage()
+    public void EnemyDamage()
     {
         enemyhitpoint -= damage;
 

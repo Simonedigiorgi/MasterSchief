@@ -56,12 +56,10 @@ public class ObjectsCollisions : MonoBehaviour {
             }
             else if(type == SpawnColor.RED)
             {
-                manager.ChangeValue(type);
                 Destroy(this.gameObject);
             }
             else if(type == SpawnColor.BLUE)
             {
-                manager.ChangeValue(type);
                 Destroy(this.gameObject);
             }
         }
