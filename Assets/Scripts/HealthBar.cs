@@ -15,6 +15,7 @@ public class HealthBar : MonoBehaviour {
     private float enemymaxHitpoint = 100;
 
     public float damage = 20;
+    public float yScale = 0.5f;
 
 	void Start () {
         UpdateHealthBar();
@@ -38,13 +39,13 @@ public class HealthBar : MonoBehaviour {
     private void UpdateHealthBar()
     {
         float ratio = hitpoint / maxHitpoint;
-        heroHealth.rectTransform.localScale = new Vector3(ratio, 1, 1);
+        heroHealth.rectTransform.localScale = new Vector3(ratio, 0.5f, 1);
     }
 
     private void EnemyHealthBar()
     {
         float enemyratio = enemyhitpoint / enemymaxHitpoint;
-        enemyHealth.rectTransform.localScale = new Vector3(enemyratio, 1, 1);
+        enemyHealth.rectTransform.localScale = new Vector3(enemyratio, 0.5f, 1);
     }
 
     public void TakeDamage()
