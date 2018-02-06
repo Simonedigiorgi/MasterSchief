@@ -38,12 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -492,7 +492,7 @@ Transform:
   - {fileID: 722163165}
   - {fileID: 36513360}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &722163164
 GameObject:
@@ -888,8 +888,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -343.8, y: 1.9}
-  m_SizeDelta: {x: 20, y: 160}
+  m_AnchoredPosition: {x: 13, y: 207}
+  m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1105422595
 MonoBehaviour:
@@ -928,7 +928,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 763194183}
   m_HandleRect: {fileID: 763194182}
-  m_Direction: 2
+  m_Direction: 0
   m_Value: 0.5
   m_Size: 0.064
   m_NumberOfSteps: 0
@@ -1000,13 +1000,12 @@ MonoBehaviour:
   rb:
   - {fileID: 50750921393306596, guid: 7e8a708e3fe37b840a51dc09fc8e4e1f, type: 2}
   - {fileID: 50750921393306596, guid: 6d01057899313f04ebd497a47b0f0c77, type: 2}
-  - {fileID: 50750921393306596, guid: 443b0e43715277146bb126c2881088cb, type: 2}
   objectSpeed: 5
-  minSpeed: 50
-  maxSpeed: 70
+  minSpeed: 40
+  maxSpeed: 100
   secondsBeforeSpawning: 3
-  spawnRate: 1
-  spawnAmount: 2
+  spawnRate: 2
+  spawnAmount: 1
 --- !u!4 &1156434397
 Transform:
   m_ObjectHideFlags: 0
@@ -1122,7 +1121,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1775052363
 Prefab:
@@ -1168,6 +1167,11 @@ Prefab:
       propertyPath: maincamera
       value: 
       objectReference: {fileID: 638528980}
+    - target: {fileID: 114255504887824572, guid: c2ff704978ff0194c9d4eaebc3d2265a,
+        type: 2}
+      propertyPath: FOV
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2ff704978ff0194c9d4eaebc3d2265a, type: 2}
   m_IsPrefabParent: 0
