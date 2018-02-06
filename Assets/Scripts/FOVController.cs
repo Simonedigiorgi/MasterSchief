@@ -8,7 +8,7 @@ public class FOVController : MonoBehaviour {
     public float FOV, speed;
 
 	void Update () {
-        maincamera.fieldOfView = Mathf.MoveTowards(maincamera.fieldOfView, FOV, Time.deltaTime * speed);
+        maincamera.orthographicSize = Mathf.MoveTowards(maincamera.orthographicSize, FOV, Time.deltaTime * speed);
     }
 
 }

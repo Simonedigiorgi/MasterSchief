@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Type
+public enum SpawnColor
 {
     RED,
     BLUE,
@@ -11,10 +11,10 @@ public enum Type
 
 public class ObjectsCollisions : MonoBehaviour {
 
-
    
 
-    public Type type;
+
+    public SpawnColor type;
 
     GameManager manager;
 
@@ -33,7 +33,7 @@ public class ObjectsCollisions : MonoBehaviour {
     {
         if(other.gameObject.tag == "Red")
         {
-            if(type == Type.RED)
+            if(type == SpawnColor.RED)
             {
                 Destroy(this.gameObject);
             }
@@ -42,7 +42,7 @@ public class ObjectsCollisions : MonoBehaviour {
 
         if(other.gameObject.tag == "Blue")
         {
-            if(type == Type.BLUE)
+            if(type == SpawnColor.BLUE)
             {
                 Destroy(this.gameObject);
             }
@@ -50,16 +50,16 @@ public class ObjectsCollisions : MonoBehaviour {
 
         if(other.gameObject.tag == "Core")
         {
-            if(type == Type.OBJECT)
+            if(type == SpawnColor.OBJECT)
             {
                 //arrrivato al centro yay
             }
-            else if(type == Type.RED)
+            else if(type == SpawnColor.RED)
             {
                 manager.ChangeValue(type);
                 Destroy(this.gameObject);
             }
-            else if(type == Type.BLUE)
+            else if(type == SpawnColor.BLUE)
             {
                 manager.ChangeValue(type);
                 Destroy(this.gameObject);

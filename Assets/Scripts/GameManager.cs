@@ -19,12 +19,12 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-    public void ChangeValue(Type type)
+    public void ChangeValue(SpawnColor type)
     {
-        if (type == Type.RED)
+        if (type == SpawnColor.RED)
             bar.value -= barChangeAmount / maxBarLength;
 
-        else if (type == Type.BLUE)
+        else if (type == SpawnColor.BLUE)
             bar.value += barChangeAmount / maxBarLength;
     }
 
