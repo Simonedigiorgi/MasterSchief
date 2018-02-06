@@ -11,4 +11,5 @@ public class FOVController : MonoBehaviour {
         maincamera.orthographicSize = Mathf.MoveTowards(maincamera.orthographicSize, FOV, Time.deltaTime * speed);
     }
 
+    
 }
