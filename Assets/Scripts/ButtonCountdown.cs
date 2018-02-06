@@ -14,6 +14,7 @@ public class ButtonCountdown : MonoBehaviour {
     {
         hb = GameObject.Find("Background").GetComponent<HealthBar>();
     }
+
     // Use this for initialization
     void OnEnable () {
         timer = 0;

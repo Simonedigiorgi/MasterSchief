@@ -16,7 +16,8 @@ public class PlayerActions : MonoBehaviour {
     float parryTimer = 0;
 
     bool canParry = true;
-    float canParryTimer = 0;
+    [HideInInspector]
+    public float canParryTimer = 0;
 
     HealthBar hb;
 
@@ -32,7 +33,6 @@ public class PlayerActions : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        Debug.Log("VISUAL STUYDIOOOOOOOOOOOOOOddOOOOO");
 
         Debug.DrawRay(Camera.main.ScreenToWorldPoint(Input.mousePosition), Camera.main.transform.forward, Color.red);
 
@@ -43,7 +43,6 @@ public class PlayerActions : MonoBehaviour {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10)), Camera.main.transform.forward, buttonMask);
                 if (hit.collider != null)
                 {
-                    Debug.Log(hit.collider.gameObject.name);
                     if (hit.collider.tag == "ButtonLeft")
                     {
                         leftArmAnimator.SetTrigger("punch");
@@ -68,7 +67,6 @@ public class PlayerActions : MonoBehaviour {
                 {
                     enemyAnimator.SetTrigger("punch");
                     hb.TakeDamage();
-
                 }
             }
         }

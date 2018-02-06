@@ -510,6 +510,7 @@ MonoBehaviour:
   isParrying: 0
   parryTime: 0.5
   parryCooldown: 1
+  canParryTimer: 0
 --- !u!4 &310749224
 Transform:
   m_ObjectHideFlags: 0
@@ -1399,9 +1400,10 @@ MonoBehaviour:
   - {fileID: 1998291264}
   - {fileID: 182708458}
   secondsBeforeStart: 3
-  minDelay: 1
-  maxDelay: 3
-  buttonEventChance: 0.711
+  delayBetweenButtons: 1
+  buttonActiveTime: 2
+  buttonEventChance: 0
+  maxButtonSpawnAmountPerEvent: 5
 --- !u!4 &1763533213
 Transform:
   m_ObjectHideFlags: 0
