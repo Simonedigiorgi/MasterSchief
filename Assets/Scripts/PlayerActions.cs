@@ -72,13 +72,11 @@ public class PlayerActions : MonoBehaviour {
                     else
                     {
                         enemyAnimator.SetTrigger("punch");
-                        hb.TakeDamage();
                     }
                 }
                 else
                 {
                     enemyAnimator.SetTrigger("punch");
-                    hb.TakeDamage();
                 }
             }
         }
@@ -88,6 +86,7 @@ public class PlayerActions : MonoBehaviour {
             {
                 isParrying = true;
                 canParry = false;
+                canParryTimer = 0;
             }
         }
         
@@ -97,7 +96,6 @@ public class PlayerActions : MonoBehaviour {
             if(parryTimer>=parryTime)
             {
                 isParrying = false;
-                canParryTimer = 0;
                 parryTimer = 0;
             }
         }
@@ -112,10 +110,7 @@ public class PlayerActions : MonoBehaviour {
         {
             canParry = true;
         }
-        else
-        {
-            canParry = false;
-        }
+        
 	}
 
 

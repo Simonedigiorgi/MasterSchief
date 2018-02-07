@@ -99,21 +99,24 @@ public class GameManager : MonoBehaviour
         bool trigger = false;
         bool trigger2 = false;
 
+        if (player.isParrying)
+        {
+            trigger2 = true;
+            Debug.Log("PORCO DIO DAIIIIIIIIIIIIIIIIII");
+        }
+        else if (!trigger)
+        {
+            trigger = true;
+            hb.TakeDamage();
+        }
+
         while (!player.canParry)
         {
-            if (player.isParrying && trigger2)
-            {
-                trigger2 = false;
-                Debug.Log("PARATOH!!!!!!!!!!!!!");
-            }
-            else if(!trigger)
-            {
-                trigger = true;
-                hb.TakeDamage();
-            }
+            Debug.Log("cnaparry: " + player.canParry);
             yield return null;
         }
-        
+
+        yield return null;
 
         if (Random.value <= buttonEventChance)
         {
@@ -124,13 +127,14 @@ public class GameManager : MonoBehaviour
         {
             currentCoroutine = YouParry();
             StartCoroutine(currentCoroutine);
-          
+
         }
     }
 
 
     public void BlockCoroutine()
     {
+        Debug.Log(currentCoroutine.ToString());
         StopCoroutine(currentCoroutine);
     }
 }

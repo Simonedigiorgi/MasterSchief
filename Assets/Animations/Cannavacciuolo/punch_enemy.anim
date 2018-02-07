@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: charge_punch_enemy
+  m_Name: punch_enemy
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -19,18 +19,26 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 7333827f12b11b84089b3f58d404e592, type: 3}
-    - time: 0.3
-      value: {fileID: 21300000, guid: 7333827f12b11b84089b3f58d404e592, type: 3}
-    - time: 0.9
-      value: {fileID: 21300000, guid: 8f844f098c69708498ea31c81bf90d83, type: 3}
-    - time: 1.3
-      value: {fileID: 21300000, guid: 8f844f098c69708498ea31c81bf90d83, type: 3}
+      value: {fileID: 21300000, guid: 0fb36e6415c72174cacab82ce542d350, type: 3}
+    - time: 0.125
+      value: {fileID: 21300002, guid: 0fb36e6415c72174cacab82ce542d350, type: 3}
+    - time: 0.25
+      value: {fileID: 21300004, guid: 0fb36e6415c72174cacab82ce542d350, type: 3}
+    - time: 0.375
+      value: {fileID: 21300006, guid: 0fb36e6415c72174cacab82ce542d350, type: 3}
+    - time: 0.5
+      value: {fileID: 21300008, guid: 0fb36e6415c72174cacab82ce542d350, type: 3}
+    - time: 0.625
+      value: {fileID: 21300010, guid: 0fb36e6415c72174cacab82ce542d350, type: 3}
+    - time: 0.75
+      value: {fileID: 21300012, guid: 0fb36e6415c72174cacab82ce542d350, type: 3}
+    - time: 0.875
+      value: {fileID: 21300014, guid: 0fb36e6415c72174cacab82ce542d350, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 10
+  m_SampleRate: 8
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -45,16 +53,20 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 7333827f12b11b84089b3f58d404e592, type: 3}
-    - {fileID: 21300000, guid: 7333827f12b11b84089b3f58d404e592, type: 3}
-    - {fileID: 21300000, guid: 8f844f098c69708498ea31c81bf90d83, type: 3}
-    - {fileID: 21300000, guid: 8f844f098c69708498ea31c81bf90d83, type: 3}
+    - {fileID: 21300000, guid: 0fb36e6415c72174cacab82ce542d350, type: 3}
+    - {fileID: 21300002, guid: 0fb36e6415c72174cacab82ce542d350, type: 3}
+    - {fileID: 21300004, guid: 0fb36e6415c72174cacab82ce542d350, type: 3}
+    - {fileID: 21300006, guid: 0fb36e6415c72174cacab82ce542d350, type: 3}
+    - {fileID: 21300008, guid: 0fb36e6415c72174cacab82ce542d350, type: 3}
+    - {fileID: 21300010, guid: 0fb36e6415c72174cacab82ce542d350, type: 3}
+    - {fileID: 21300012, guid: 0fb36e6415c72174cacab82ce542d350, type: 3}
+    - {fileID: 21300014, guid: 0fb36e6415c72174cacab82ce542d350, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.4
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -75,8 +87,8 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: 0.9
-    functionName: CheckIfPlayerIsParrying
+  - time: 0.625
+    functionName: DamagePlayer
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
