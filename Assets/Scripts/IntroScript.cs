@@ -85,7 +85,7 @@ public class IntroScript : MonoBehaviour {
 
         yield return new WaitForSeconds(29.0f);
 
-        source.volume = 0.5f;
+        source.volume = 0.7f;
         chara1.enabled = true;
         testo1.enabled = true;
         chara1.rectTransform.DOMoveY(-40, 15);

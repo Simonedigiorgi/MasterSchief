@@ -12,7 +12,12 @@ public class MenuManager : MonoBehaviour {
     private AudioSource source;
     public AudioClip smash;
     public AudioClip punch;
+    public AudioClip voice1;
+    public AudioClip voice2;
+    public AudioClip voice3;
+    public AudioClip voice4;
     public AudioClip music;
+
 
     public Button newGame;
     public Button controls;
@@ -35,6 +40,7 @@ public class MenuManager : MonoBehaviour {
         source = GetComponent<AudioSource>();
         fade.enabled = false;
         fade.DOFade(0, 0);
+        source.PlayOneShot(music, 0.3f);
 	}
 	
 	void Update () {
@@ -45,6 +51,7 @@ public class MenuManager : MonoBehaviour {
 
     public void StartGame()
     {
+        source.PlayOneShot(voice1, 5.5f);
         source.PlayOneShot(punch, 0.4f);
         source.PlayOneShot(smash, 0.3f);
         StartCoroutine(StartGameRoutine());
@@ -52,6 +59,7 @@ public class MenuManager : MonoBehaviour {
 
     public void Controls()
     {
+        source.PlayOneShot(voice2, 5.5f);
         source.PlayOneShot(punch, 0.4f);
         source.PlayOneShot(smash, 0.3f);
         StartCoroutine(ControlsRoutine());
@@ -59,6 +67,7 @@ public class MenuManager : MonoBehaviour {
 
     public void Credits()
     {
+        source.PlayOneShot(voice3, 5.5f);
         source.PlayOneShot(punch, 0.4f);
         source.PlayOneShot(smash, 0.3f);
         StartCoroutine(CreditsRoutine());
@@ -66,9 +75,20 @@ public class MenuManager : MonoBehaviour {
 
     public void Quit()
     {
+        source.PlayOneShot(voice4, 5.5f);
         source.PlayOneShot(punch, 0.4f);
         source.PlayOneShot(smash, 0.3f);
         StartCoroutine(QuitRoutine());
+    }
+
+    public void Back()
+    {
+        StartCoroutine(BackCoroutine());
+    }
+
+    public void ReturnCredits()
+    {
+        StartCoroutine(BackCreditsCoroutine());
     }
 
     public IEnumerator StartGameRoutine()
@@ -78,6 +98,8 @@ public class MenuManager : MonoBehaviour {
         newGame.enabled = false;
         controls.enabled = false;
         quit.enabled = false;
+
+        newGame.image.enabled = false;
         newGameHand.enabled = true;
         yield return new WaitForSeconds(2.0f);
         fade.DOFade(1, 2);
@@ -92,11 +114,12 @@ public class MenuManager : MonoBehaviour {
         credits.enabled = false;
         quit.enabled = false;
 
+        controls.image.enabled = false;
         controlHand.enabled = true;
         controlClick.enabled = true;
-        yield return new WaitForSeconds(2.0f);
-        startgamePivot.DOMoveY(-350, 0.8f);
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
+        startgamePivot.DOMoveY(-850, 0.8f);
+        yield return new WaitForSeconds(1.0f);
     }
 
     public IEnumerator CreditsRoutine()
@@ -106,11 +129,12 @@ public class MenuManager : MonoBehaviour {
         credits.enabled = false;
         quit.enabled = false;
 
+        credits.image.enabled = false;
         creditsHand.enabled = true;
         creditsClick.enabled = true;
-        yield return new WaitForSeconds(2.0f);
-        startgamePivot.DOMoveX(-320, 0.8f);
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
+        startgamePivot.DOMoveX(-900, 0.8f);
+        yield return new WaitForSeconds(1.0f);
 
     }
 
@@ -121,6 +145,7 @@ public class MenuManager : MonoBehaviour {
         controls.enabled = false;
         quit.enabled = false;
 
+        quit.image.enabled = false;
         quitHand.enabled = true;
         quitClick.enabled = true;
         yield return new WaitForSeconds(2.0f);
@@ -128,5 +153,31 @@ public class MenuManager : MonoBehaviour {
         yield return null;
     }
 
+    public IEnumerator BackCoroutine()
+    {
+        newGame.enabled = true;
+        controls.enabled = true;
+        credits.enabled = true;
+        quit.enabled = true;
 
+        controls.image.enabled = true;
+        controlHand.enabled = false;
+        controlClick.enabled = false;
+        startgamePivot.DOMoveY(500, 0.8f);
+        yield return null;
+    }
+
+    public IEnumerator BackCreditsCoroutine()
+    {
+        newGame.enabled = true;
+        controls.enabled = true;
+        credits.enabled = true;
+        quit.enabled = true;
+
+        credits.image.enabled = true;
+        creditsHand.enabled = false;
+        creditsClick.enabled = false;
+        startgamePivot.DOMoveX(800, 0.8f);
+        yield return null;
+    }
 }
