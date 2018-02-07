@@ -12,6 +12,7 @@ public class MenuManager : MonoBehaviour {
     private AudioSource source;
     public AudioClip smash;
     public AudioClip punch;
+    public AudioClip music;
 
     public Button newGame;
     public Button controls;
@@ -77,10 +78,11 @@ public class MenuManager : MonoBehaviour {
         newGame.enabled = false;
         controls.enabled = false;
         quit.enabled = false;
+        newGameHand.enabled = true;
         yield return new WaitForSeconds(2.0f);
         fade.DOFade(1, 2);
         yield return new WaitForSeconds(2.0f);
-        SceneManager.LoadScene("Barbieri");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public IEnumerator ControlsRoutine()
@@ -90,6 +92,7 @@ public class MenuManager : MonoBehaviour {
         credits.enabled = false;
         quit.enabled = false;
 
+        controlHand.enabled = true;
         controlClick.enabled = true;
         yield return new WaitForSeconds(2.0f);
         startgamePivot.DOMoveY(-350, 0.8f);
@@ -103,6 +106,7 @@ public class MenuManager : MonoBehaviour {
         credits.enabled = false;
         quit.enabled = false;
 
+        creditsHand.enabled = true;
         creditsClick.enabled = true;
         yield return new WaitForSeconds(2.0f);
         startgamePivot.DOMoveX(-320, 0.8f);
@@ -117,6 +121,7 @@ public class MenuManager : MonoBehaviour {
         controls.enabled = false;
         quit.enabled = false;
 
+        quitHand.enabled = true;
         quitClick.enabled = true;
         yield return new WaitForSeconds(2.0f);
         Application.Quit();
