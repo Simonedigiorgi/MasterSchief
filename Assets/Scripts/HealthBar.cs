@@ -19,6 +19,8 @@ public class HealthBar : MonoBehaviour {
 
     public CameraShake shake;
 
+    public GameObject impiatt;
+
     CameraZoom zoom;
 
     GameManager manager;
@@ -30,6 +32,7 @@ public class HealthBar : MonoBehaviour {
     public bool endGame = false;
     public bool hasWon = false;
 	void Start () {
+        impiatt.SetActive(false);
         UpdateHealthBar();
         EnemyHealthBar();
         manager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -85,6 +88,7 @@ public class HealthBar : MonoBehaviour {
             enemyhitpoint = 0;
             Debug.Log("YOU WON");
             manager.BlockCoroutine();
+            impiatt.SetActive(true);
             endGame = true;
             hasWon = true;
         }
