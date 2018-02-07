@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     [Range(1, 5)]
     public int maxButtonSpawnAmountPerEvent = 2;
 
+    public IEnumerator currentCoroutine;
+
 
     HealthBar hb;
 
@@ -41,7 +43,8 @@ public class GameManager : MonoBehaviour
     public IEnumerator SecondsBeforeStart()
     {
         yield return new WaitForSeconds(secondsBeforeStart);
-        StartCoroutine(YouPunch());
+        currentCoroutine = YouPunch();
+        StartCoroutine(currentCoroutine);
     }
 
     public IEnumerator YouPunch()
@@ -61,11 +64,13 @@ public class GameManager : MonoBehaviour
 
         if (Random.value <= buttonEventChance)
         {
-            StartCoroutine(YouPunch());
+            currentCoroutine = YouPunch();
+            StartCoroutine(currentCoroutine);
         }
         else
         {
-            StartCoroutine(YouParry());
+            currentCoroutine = YouParry();
+            StartCoroutine(currentCoroutine);
         }
 
     }
@@ -112,12 +117,20 @@ public class GameManager : MonoBehaviour
 
         if (Random.value <= buttonEventChance)
         {
-            StartCoroutine(YouPunch());
+            currentCoroutine = YouPunch();
+            StartCoroutine(currentCoroutine);
         }
         else
         {
-            StartCoroutine(YouParry());
+            currentCoroutine = YouParry();
+            StartCoroutine(currentCoroutine);
+          
         }
     }
 
+
+    public void BlockCoroutine()
+    {
+        StopCoroutine(currentCoroutine);
+    }
 }

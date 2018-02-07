@@ -13,6 +13,7 @@ public class EventScript : MonoBehaviour {
 	
 	void CheckIfPlayerIsParrying()
     {
-        StartCoroutine(manager.CheckIfParrying());
+        manager.currentCoroutine = manager.CheckIfParrying();
+        StartCoroutine(manager.currentCoroutine);
     }
 }

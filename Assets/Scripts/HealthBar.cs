@@ -18,12 +18,14 @@ public class HealthBar : MonoBehaviour {
     public float yScale = 0.5f;
 
     public CameraShake cam;
+    GameManager manager;
 
-
-
+    public bool endGame = false;
+    public bool hasWon = false;
 	void Start () {
         UpdateHealthBar();
         EnemyHealthBar();
+        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 	
 	void Update () {
@@ -38,6 +40,9 @@ public class HealthBar : MonoBehaviour {
             EnemyDamage();
         }
     }
+
+
+
 
     private void UpdateHealthBar()
     {
@@ -61,6 +66,8 @@ public class HealthBar : MonoBehaviour {
         {
             hitpoint = 0;
             Debug.Log("YOU LOSE");
+            manager.BlockCoroutine();
+            endGame = true;
         }
 
         UpdateHealthBar();
@@ -74,6 +81,9 @@ public class HealthBar : MonoBehaviour {
         {
             enemyhitpoint = 0;
             Debug.Log("YOU WON");
+            manager.BlockCoroutine();
+            endGame = true;
+            hasWon = true;
         }
 
         EnemyHealthBar();

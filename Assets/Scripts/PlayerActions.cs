@@ -39,6 +39,18 @@ public class PlayerActions : MonoBehaviour {
 
 		if (Input.GetMouseButtonDown(0))
         {
+            if (hb.endGame)
+            {
+                if (hb.hasWon)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+            else
             if (!isParrying)
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10)), Camera.main.transform.forward, buttonMask);
@@ -70,7 +82,7 @@ public class PlayerActions : MonoBehaviour {
                 }
             }
         }
-        else if(Input.GetMouseButtonDown(1))
+        else if(Input.GetMouseButtonDown(1) && !hb.endGame)
         {
             if(canParry)
             {
