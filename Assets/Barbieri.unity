@@ -339,6 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bdc709c403619c479ab57cd995325d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cracco: 0
 --- !u!60 &325808850
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -382,6 +383,58 @@ PolygonCollider2D:
       - {x: 0.38, y: -0.48499998}
       - {x: 0.38, y: -0.195}
       - {x: 0.37, y: 0.005}
+--- !u!1001 &408622065
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4311079063796428, guid: 51bbb576c4759e24bad1c77df9b514d6, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.86428356
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311079063796428, guid: 51bbb576c4759e24bad1c77df9b514d6, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.6144488
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311079063796428, guid: 51bbb576c4759e24bad1c77df9b514d6, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.01171875
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311079063796428, guid: 51bbb576c4759e24bad1c77df9b514d6, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311079063796428, guid: 51bbb576c4759e24bad1c77df9b514d6, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311079063796428, guid: 51bbb576c4759e24bad1c77df9b514d6, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311079063796428, guid: 51bbb576c4759e24bad1c77df9b514d6, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311079063796428, guid: 51bbb576c4759e24bad1c77df9b514d6, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 82603266014527350, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 82465292281346586, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.066
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 51bbb576c4759e24bad1c77df9b514d6, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &476014369
 Prefab:
   m_ObjectHideFlags: 0
