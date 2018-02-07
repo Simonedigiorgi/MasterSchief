@@ -43,8 +43,16 @@ public class GameManager : MonoBehaviour
     public IEnumerator SecondsBeforeStart()
     {
         yield return new WaitForSeconds(secondsBeforeStart);
-        currentCoroutine = YouPunch();
-        StartCoroutine(currentCoroutine);
+        if (Random.value <= buttonEventChance)
+        {
+            currentCoroutine = YouPunch();
+            StartCoroutine(currentCoroutine);
+        }
+        else
+        {
+            currentCoroutine = YouParry();
+            StartCoroutine(currentCoroutine);
+        }
     }
 
     public IEnumerator YouPunch()
