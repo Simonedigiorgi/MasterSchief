@@ -1124,6 +1124,11 @@ Prefab:
       propertyPath: shake
       value: 
       objectReference: {fileID: 465723225}
+    - target: {fileID: 114042144327397108, guid: 7d55b782acf9298499eea48105e71d05,
+        type: 2}
+      propertyPath: enemyAnimator
+      value: 
+      objectReference: {fileID: 325808846}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d55b782acf9298499eea48105e71d05, type: 2}
   m_IsPrefabParent: 0

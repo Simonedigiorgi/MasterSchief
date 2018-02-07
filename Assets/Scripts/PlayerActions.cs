@@ -155,6 +155,7 @@ public class PlayerActions : MonoBehaviour {
 
         if (levelFailed)
         {
+            Debug.Log("d");
             blackFade.gameObject.SetActive(true);
             fadeTimer += Time.deltaTime;
 
