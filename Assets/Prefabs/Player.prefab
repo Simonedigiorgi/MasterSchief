@@ -150,6 +150,9 @@ MonoBehaviour:
   buttonMask:
     serializedVersion: 2
     m_Bits: 256
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
   leftArmAnimator: {fileID: 95666232687958328}
   rightArmAnimator: {fileID: 95214396110882532}
   enemyAnimator: {fileID: 0}
@@ -158,6 +161,10 @@ MonoBehaviour:
   parryCooldown: 1
   canParry: 1
   canParryTimer: 0
+  blackFade: {fileID: 0}
+  endGameTime: 30
+  endGameClickAmount: 40
+  nextScene: Bastianich
 --- !u!212 &212843127937794566
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -190,7 +197,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d425fe20db54a4947aedac6bbd28e0f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7635060f66549b945b42ee9ab9d8863e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -232,7 +239,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d425fe20db54a4947aedac6bbd28e0f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7635060f66549b945b42ee9ab9d8863e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
