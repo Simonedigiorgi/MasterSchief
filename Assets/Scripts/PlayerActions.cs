@@ -125,6 +125,7 @@ public class PlayerActions : MonoBehaviour {
                         clickCounter++;
                         if (clickCounter >= endGameClickAmount)
                         {
+                            enemyAnimator.SetTrigger("rotto");
                             levelFinished = true;
                         }
 

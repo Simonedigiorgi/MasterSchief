@@ -7,8 +7,16 @@ public class EventScript : MonoBehaviour {
     GameManager manager;
     HealthBar hb;
     PlayerActions p;
+
+
+    [HideInInspector]
+    public bool cracco = false;
+
 	// Use this for initialization
 	void Start () {
+        if (this.gameObject.name == "Cracco")
+            cracco = true;
+
         manager = GameObject.Find("GameManager").GetComponent<GameManager>();
         hb = GameObject.FindObjectOfType<HealthBar>();
         p = GameObject.FindObjectOfType<PlayerActions>();
@@ -26,6 +34,10 @@ public class EventScript : MonoBehaviour {
 
     void DamagePlayer()
     {
+        if (cracco)
+        {
+            manager.SpawnLaserino();
+        }
         hb.TakeDamage();
         p.SpawnPunchInfame();
     }

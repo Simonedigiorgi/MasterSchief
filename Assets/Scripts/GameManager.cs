@@ -23,13 +23,17 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator currentCoroutine;
 
+    EventScript ev;
 
     HealthBar hb;
+
+    public GameObject craccoLaserino;
+    public GameObject craccoCharge;
 
     private void Start()
     {
         hb = GameObject.Find("Background").GetComponent<HealthBar>();
-
+        ev = GameObject.FindObjectOfType<EventScript>();
 
         foreach (GameObject go in buttonPunch)
         {
@@ -39,6 +43,18 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(SecondsBeforeStart());
     }
+
+
+    public void SpawnLaserino()
+    {
+        Instantiate(craccoLaserino, enemyAnimator.transform.position, Quaternion.identity);
+    }
+
+    public void SpawnCraccoCharge()
+    {
+        Instantiate(craccoCharge, enemyAnimator.transform.position, Quaternion.identity);
+    }
+
 
     public IEnumerator SecondsBeforeStart()
     {
@@ -117,6 +133,10 @@ public class GameManager : MonoBehaviour
             trigger = true;
             hb.TakeDamage();
             player.SpawnChargeInfame();
+            if(ev.cracco)
+            {
+                SpawnCraccoCharge();
+            }
         }
 
         while (!player.canParry)
