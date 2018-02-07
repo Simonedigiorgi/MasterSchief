@@ -17,10 +17,13 @@ public class HealthBar : MonoBehaviour {
     public float damage = 20;
     public float yScale = 0.5f;
 
+    public CameraShake cam;
+
+
+
 	void Start () {
         UpdateHealthBar();
         EnemyHealthBar();
-
     }
 	
 	void Update () {
@@ -50,6 +53,8 @@ public class HealthBar : MonoBehaviour {
 
     public void TakeDamage()
     {
+        cam.ShakeCamera(5, .5f);
+
         hitpoint -= damage;
 
         if(hitpoint <= 0)

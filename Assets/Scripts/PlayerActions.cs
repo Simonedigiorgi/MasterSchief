@@ -15,7 +15,8 @@ public class PlayerActions : MonoBehaviour {
     public float parryCooldown = 2;
     float parryTimer = 0;
 
-    bool canParry = true;
+    [HideInInspector]
+    public bool canParry = true;
     [HideInInspector]
     public float canParryTimer = 0;
 
@@ -60,7 +61,6 @@ public class PlayerActions : MonoBehaviour {
                     {
                         enemyAnimator.SetTrigger("punch");
                         hb.TakeDamage();
-
                     }
                 }
                 else
@@ -73,7 +73,10 @@ public class PlayerActions : MonoBehaviour {
         else if(Input.GetMouseButtonDown(1))
         {
             if(canParry)
-            isParrying = true;
+            {
+                isParrying = true;
+                canParry = false;
+            }
         }
         
         if(isParrying)
@@ -92,6 +95,7 @@ public class PlayerActions : MonoBehaviour {
 
 
         canParryTimer += Time.deltaTime;
+
         if(canParryTimer>parryCooldown)
         {
             canParry = true;
@@ -100,8 +104,6 @@ public class PlayerActions : MonoBehaviour {
         {
             canParry = false;
         }
-
-
 	}
 
 
