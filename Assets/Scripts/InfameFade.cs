@@ -5,7 +5,7 @@ using UnityEngine;
 public class InfameFade : MonoBehaviour {
 
     float timer = 0;
-    float time = 1;
+    public float time = 1;
 
     SpriteRenderer s;
 

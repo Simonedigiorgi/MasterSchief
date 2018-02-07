@@ -338,6 +338,12 @@ Prefab:
       propertyPath: shake
       value: 
       objectReference: {fileID: 1645509580}
+    - target: {fileID: 114042144327397108, guid: 7d55b782acf9298499eea48105e71d05,
+        type: 2}
+      propertyPath: impiatt
+      value: 
+      objectReference: {fileID: 1153554490125098, guid: f17bd30cb2484ca459a5dd6de5694179,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d55b782acf9298499eea48105e71d05, type: 2}
   m_IsPrefabParent: 0

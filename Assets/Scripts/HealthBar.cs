@@ -32,13 +32,16 @@ public class HealthBar : MonoBehaviour {
     public bool endGame = false;
     public bool hasWon = false;
 	void Start () {
-        impiatt.SetActive(false);
         UpdateHealthBar();
         EnemyHealthBar();
         manager = GameObject.Find("GameManager").GetComponent<GameManager>();
         zoom = GameObject.FindObjectOfType<CameraZoom>();
     }
 	
+
+
+
+
 	void Update () {
 
 
@@ -88,7 +91,7 @@ public class HealthBar : MonoBehaviour {
             enemyhitpoint = 0;
             Debug.Log("YOU WON");
             manager.BlockCoroutine();
-            impiatt.SetActive(true);
+            Instantiate(impiatt, Vector3.zero, Quaternion.identity);
             endGame = true;
             hasWon = true;
         }
