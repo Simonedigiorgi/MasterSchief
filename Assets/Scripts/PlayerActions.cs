@@ -50,9 +50,14 @@ public class PlayerActions : MonoBehaviour {
     public Transform sinistra;
     public Transform p;
 
+    SoundManager sm;
+    GameManager gm;
+
 	// Use this for initialization
 	void Start () {
         hb = GameObject.Find("Background").GetComponent<HealthBar>();
+        sm = GameObject.FindObjectOfType<SoundManager>();
+        gm = GameObject.FindObjectOfType<GameManager>();
         canParryTimer = parryCooldown;
     }
 
@@ -63,11 +68,13 @@ public class PlayerActions : MonoBehaviour {
     public void SpawnPunchInfame()
     {
         Instantiate(enemiesPunch[0], p);
+        sm.PlayCounter();
     }
 
     public void SpawnChargeInfame()
     {
         Instantiate(enemiesPunch[1], p);
+        sm.PlayCharged();
     }
 
     public void SpawnPlayerInfame()
@@ -82,11 +89,36 @@ public class PlayerActions : MonoBehaviour {
             GameObject s = Instantiate(playerPunch[Random.Range(0, playerPunch.Length)], sinistra);
             s.transform.position += new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
         }
+
+        StartCoroutine(PunchSoundWithDelay());
     }
+
+    IEnumerator PunchSoundWithDelay()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        sm.PlayPunchHits();
+
+        if (!hb.endGame)
+        {
+            yield return new WaitForSeconds(0.5f);
+            if (Random.value > 0.5f)
+                sm.PlayChefHits();
+        }
+        
+    }
+
+
 
     public void SpawnParat()
     {
         GameObject s = Instantiate(parat, p);
+    }
+
+    IEnumerator PlayOutroWithDelay()
+    {
+        yield return new WaitForSeconds(1);
+        sm.PlayOutro();
     }
 
     // Update is called once per frame
@@ -127,6 +159,7 @@ public class PlayerActions : MonoBehaviour {
                         {
                             enemyAnimator.SetTrigger("rotto");
                             levelFinished = true;
+                            StartCoroutine(PlayOutroWithDelay());
                         }
 
                     }

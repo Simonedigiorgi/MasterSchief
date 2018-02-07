@@ -30,10 +30,14 @@ public class GameManager : MonoBehaviour
     public GameObject craccoLaserino;
     public GameObject craccoCharge;
 
+    SoundManager sm;
+
     private void Start()
     {
         hb = GameObject.Find("Background").GetComponent<HealthBar>();
         ev = GameObject.FindObjectOfType<EventScript>();
+
+        sm = GameObject.FindObjectOfType<SoundManager>();
 
         foreach (GameObject go in buttonPunch)
         {
@@ -58,6 +62,12 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator SecondsBeforeStart()
     {
+        sm.PlayGetReady();
+
+        yield return new WaitForSeconds(4);
+
+        sm.PlayIntro();
+
         yield return new WaitForSeconds(secondsBeforeStart);
         if (Random.value <= buttonEventChance)
         {
@@ -125,6 +135,7 @@ public class GameManager : MonoBehaviour
 
         if (player.isParrying && !trigger2)
         {
+            sm.PlayCharged();
             trigger2 = true;
             player.SpawnParat();
         }
