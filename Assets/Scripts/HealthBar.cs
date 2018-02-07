@@ -17,7 +17,10 @@ public class HealthBar : MonoBehaviour {
     public float damage = 20;
     public float yScale = 0.5f;
 
-    public CameraShake cam;
+    public CameraShake shake;
+
+    CameraZoom zoom;
+
     GameManager manager;
 
     public bool endGame = false;
@@ -26,19 +29,12 @@ public class HealthBar : MonoBehaviour {
         UpdateHealthBar();
         EnemyHealthBar();
         manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        zoom = GameObject.FindObjectOfType<CameraZoom>();
     }
 	
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            TakeDamage();
-        }
 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            EnemyDamage();
-        }
     }
 
 
@@ -58,7 +54,7 @@ public class HealthBar : MonoBehaviour {
 
     public void TakeDamage()
     {
-        cam.ShakeCamera(5, .5f);
+        shake.ShakeCamera(5, .5f);
 
         hitpoint -= damage;
 
@@ -73,7 +69,7 @@ public class HealthBar : MonoBehaviour {
         UpdateHealthBar();
     }
 
-    public void EnemyDamage()
+    public void EnemyDamage(string direction)
     {
         enemyhitpoint -= damage;
 
@@ -85,6 +81,8 @@ public class HealthBar : MonoBehaviour {
             endGame = true;
             hasWon = true;
         }
+
+        zoom.ZoomIn(direction);
 
         EnemyHealthBar();
     }

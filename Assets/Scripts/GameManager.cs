@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        yield return null;
+        yield return new WaitForSeconds(0.3f);
 
         if (Random.value <= buttonEventChance)
         {

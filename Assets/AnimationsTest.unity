@@ -268,9 +268,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: ca9c3131c4d720447a3f97666f318a85, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d425fe20db54a4947aedac6bbd28e0f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2, y: 4}
@@ -285,8 +285,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 176471470}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.99, y: -2.92, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.86, y: -1.6, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 310749224}
   m_RootOrder: 0
@@ -509,7 +509,7 @@ MonoBehaviour:
   enemyAnimator: {fileID: 325808846}
   isParrying: 0
   parryTime: 0.5
-  parryCooldown: 5
+  parryCooldown: 1
   canParry: 1
   canParryTimer: 0
 --- !u!4 &310749224
@@ -638,7 +638,7 @@ GameObject:
   - component: {fileID: 377345566}
   - component: {fileID: 377345565}
   m_Layer: 0
-  m_Name: Sfondo (1)
+  m_Name: Tavolo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -678,7 +678,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5957253087c69c742854e17f31646c62, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 19.2, y: 10.8}
@@ -693,7 +693,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 377345564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: -0.53, z: 0}
   m_LocalScale: {x: 0.95, y: 0.95, z: 0.95}
   m_Children: []
   m_Father: {fileID: 0}
@@ -712,6 +712,7 @@ GameObject:
   - component: {fileID: 465723221}
   - component: {fileID: 465723220}
   - component: {fileID: 465723225}
+  - component: {fileID: 465723226}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -805,6 +806,21 @@ MonoBehaviour:
   shakeDuration: 1
   smooth: 0
   smoothAmount: 5
+--- !u!114 &465723226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 465723219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efebbb985fd5a194ba32bde663e00720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sizeDecrement: 1.5
+  tiltAngle: 20
+  zoomTime: 0.15
+  zoomSpeed: 15
 --- !u!1 &513393831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,7 +1133,7 @@ MonoBehaviour:
   enemyHealth: {fileID: 1980757857}
   damage: 10
   yScale: 0.5
-  cam: {fileID: 465723225}
+  shake: {fileID: 465723225}
   endGame: 0
   hasWon: 0
 --- !u!1 &845728649
@@ -1442,7 +1458,7 @@ Transform:
   m_GameObject: {fileID: 1544432180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 0.95, y: 0.95, z: 0.95}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1565,7 +1581,7 @@ MonoBehaviour:
   secondsBeforeStart: 3
   delayBetweenButtons: 1
   buttonActiveTime: 2
-  minButtonSpawnScale: 5
+  minButtonSpawnScale: 4
   maxButtonSpawnScale: 7
   buttonEventChance: 0.722
   maxButtonSpawnAmountPerEvent: 5
@@ -1831,9 +1847,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: ca9c3131c4d720447a3f97666f318a85, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d425fe20db54a4947aedac6bbd28e0f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2, y: 4}
@@ -1848,8 +1864,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2118954431}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.52, y: -2.97, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.99, y: -1.65, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 310749224}
   m_RootOrder: 1

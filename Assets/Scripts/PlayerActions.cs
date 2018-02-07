@@ -34,9 +34,6 @@ public class PlayerActions : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
-        Debug.DrawRay(Camera.main.ScreenToWorldPoint(Input.mousePosition), Camera.main.transform.forward, Color.red);
-
 		if (Input.GetMouseButtonDown(0))
         {
             if (hb.endGame)
@@ -50,8 +47,7 @@ public class PlayerActions : MonoBehaviour {
 
                 }
             }
-            else
-            if (!isParrying)
+            else if (!isParrying)
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10)), Camera.main.transform.forward, buttonMask);
                 if (hit.collider != null)
@@ -60,14 +56,14 @@ public class PlayerActions : MonoBehaviour {
                     {
                         leftArmAnimator.SetTrigger("punch");
                         hit.collider.gameObject.SetActive(false);
-                        hb.EnemyDamage();
+                        hb.EnemyDamage("left");
 
                     }
                     else if (hit.collider.tag == "ButtonRight")
                     {
                         rightArmAnimator.SetTrigger("punch");
                         hit.collider.gameObject.SetActive(false);
-                        hb.EnemyDamage();
+                        hb.EnemyDamage("right");
                     }
                     else
                     {
