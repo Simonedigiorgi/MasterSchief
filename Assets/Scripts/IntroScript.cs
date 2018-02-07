@@ -111,7 +111,7 @@ public class IntroScript : MonoBehaviour {
         yield return new WaitForSeconds(0.2f);
         title.enabled = true;
 
-        source.PlayOneShot(masterschiaff);
+        source.PlayOneShot(masterschiaff, 1.2f);
         movie.Pause();
         yield return new WaitForSeconds(6.0f);
 

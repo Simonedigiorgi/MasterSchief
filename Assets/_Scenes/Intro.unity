@@ -899,8 +899,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Adesso   basta!!   Vendicher\xF2   tutti   i   concorrenti   ingiustamente
-    \  eliminati!   Questi   giudici   necessitano   una   punizione   esemplare!!!"
+  m_Text: Adesso   basta!!   mandero'   in   onda   il   Talent   Show   che   tutti   vorrebbero   vedere!!
 --- !u!222 &1267546486
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1392,7 +1391,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sono   stanco   di   vedere   maltrattati   i   concorrenti    di    masterchef.   loro   mettono   cuore   e   anima   nei   loro   piatti!!
+  m_Text: Basta   con   tutti   questi   maltrattamenti   e   ingiustizie!
 --- !u!222 &1546904943
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1468,13 +1467,13 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1573711491}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 0.99999934}
+  m_LocalScale: {x: -1.5, y: -1.5, z: 0.99999934}
   m_Children: []
   m_Father: {fileID: 1395666279}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -125}
