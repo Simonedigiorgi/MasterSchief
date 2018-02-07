@@ -169,6 +169,7 @@ MonoBehaviour:
   damage: 5
   yScale: 0.5
   shake: {fileID: 0}
+  impiatt: {fileID: 0}
   enemyAnimator: {fileID: 0}
   endGame: 0
   hasWon: 0
