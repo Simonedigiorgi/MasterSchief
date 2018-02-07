@@ -1087,6 +1087,76 @@ Prefab:
       propertyPath: m_Volume
       value: 0.354
       objectReference: {fileID: 0}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: introSource
+      value: 
+      objectReference: {fileID: 2005765920}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: outroSource
+      value: 
+      objectReference: {fileID: 2005765919}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: chargedSource
+      value: 
+      objectReference: {fileID: 2005765918}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: counterSource
+      value: 
+      objectReference: {fileID: 2005765917}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: getReadySource
+      value: 
+      objectReference: {fileID: 2005765916}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: chefHitsSource
+      value: 
+      objectReference: {fileID: 2005765915}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: punchHitsSource
+      value: 
+      objectReference: {fileID: 2005765914}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51bbb576c4759e24bad1c77df9b514d6, type: 2}
   m_IsPrefabParent: 0
+--- !u!82 &2005765914 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82603266014527350, guid: 51bbb576c4759e24bad1c77df9b514d6,
+    type: 2}
+  m_PrefabInternal: {fileID: 2005765913}
+--- !u!82 &2005765915 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82489285939729994, guid: 51bbb576c4759e24bad1c77df9b514d6,
+    type: 2}
+  m_PrefabInternal: {fileID: 2005765913}
+--- !u!82 &2005765916 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82775517443629358, guid: 51bbb576c4759e24bad1c77df9b514d6,
+    type: 2}
+  m_PrefabInternal: {fileID: 2005765913}
+--- !u!82 &2005765917 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82208901128462522, guid: 51bbb576c4759e24bad1c77df9b514d6,
+    type: 2}
+  m_PrefabInternal: {fileID: 2005765913}
+--- !u!82 &2005765918 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82129417101788228, guid: 51bbb576c4759e24bad1c77df9b514d6,
+    type: 2}
+  m_PrefabInternal: {fileID: 2005765913}
+--- !u!82 &2005765919 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82621220568023214, guid: 51bbb576c4759e24bad1c77df9b514d6,
+    type: 2}
+  m_PrefabInternal: {fileID: 2005765913}
+--- !u!82 &2005765920 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82008811144079170, guid: 51bbb576c4759e24bad1c77df9b514d6,
+    type: 2}
+  m_PrefabInternal: {fileID: 2005765913}

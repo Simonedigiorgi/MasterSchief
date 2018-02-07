@@ -15,29 +15,33 @@ public class SoundManager : MonoBehaviour {
 
 
 
-     AudioSource introSource;
-     AudioSource outroSource;
-     AudioSource chargedSource;
-     AudioSource counterSource;
-     AudioSource getReadySource;
+     public AudioSource introSource;
+    public AudioSource outroSource;
+    public AudioSource chargedSource;
+    public AudioSource counterSource;
+    public AudioSource getReadySource;
 
-     AudioSource chefHitsSource;
-     AudioSource punchHitsSource;
+    public AudioSource chefHitsSource;
+    public AudioSource punchHitsSource;
 
 
 
 
 	// Use this for initialization
 	void Start () {
-        introSource = GameObject.Find("IntroSource").GetComponent<AudioSource>();
-        outroSource = GameObject.Find("OutroSource").GetComponent<AudioSource>();
-        chargedSource = GameObject.Find("ChargedSource").GetComponent<AudioSource>();
-        counterSource = GameObject.Find("CounterSource").GetComponent<AudioSource>();
-        getReadySource = GameObject.Find("GetReadySource").GetComponent<AudioSource>();
-        chefHitsSource = GameObject.Find("ChefHitsSource").GetComponent<AudioSource>();
-        punchHitsSource = GameObject.Find("PunchHitsSource").GetComponent<AudioSource>();
+        //introSource = GameObject.Find("IntroSource").GetComponent<AudioSource>();
+        //outroSource = GameObject.Find("OutroSource").GetComponent<AudioSource>();
+        //chargedSource = GameObject.Find("ChargedSource").GetComponent<AudioSource>();
+        //counterSource = GameObject.Find("CounterSource").GetComponent<AudioSource>();
+        //getReadySource = GameObject.Find("GetReadySource").GetComponent<AudioSource>();
+        //chefHitsSource = GameObject.Find("ChefHitsSource").GetComponent<AudioSource>();
+        //punchHitsSource = GameObject.Find("PunchHitsSource").GetComponent<AudioSource>();
 
     }
+
+
+
+
 
 
     public void PlayCharged()
