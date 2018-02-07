@@ -45,7 +45,7 @@ public class PlayerActions : MonoBehaviour {
     }
 
 
-
+    bool toggle = false;
 
 
     // Update is called once per frame
@@ -65,6 +65,18 @@ public class PlayerActions : MonoBehaviour {
                     if (hit.collider != null)
                     {
                         //animazione hit boss
+
+                        if (toggle)
+                        {
+                            toggle = !toggle;
+                            leftArmAnimator.SetTrigger("punch");
+                        }
+                        else
+                        {
+                            toggle = !toggle;
+                            rightArmAnimator.SetTrigger("punch");
+                        }
+
                         clickCounter++;
                         if (clickCounter >= endGameClickAmount)
                         {
@@ -78,7 +90,7 @@ public class PlayerActions : MonoBehaviour {
                     levelFailed = true;
                 }
             }
-            else if (!isParrying)
+            else if (!isParrying && !hb.endGame)
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10)), Camera.main.transform.forward, buttonMask);
                 if (hit.collider != null)
