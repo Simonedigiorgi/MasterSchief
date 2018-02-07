@@ -53,12 +53,20 @@ public class PlayerActions : MonoBehaviour {
     SoundManager sm;
     GameManager gm;
 
+    Vector3 leftStartingPos;
+    Vector3 rightStartingPos;
+
+
+
 	// Use this for initialization
 	void Start () {
         hb = GameObject.Find("Background").GetComponent<HealthBar>();
         sm = GameObject.FindObjectOfType<SoundManager>();
         gm = GameObject.FindObjectOfType<GameManager>();
         canParryTimer = parryCooldown;
+
+        leftStartingPos = leftArmAnimator.transform.position;
+        rightStartingPos = rightArmAnimator.transform.position;
     }
 
 
@@ -218,6 +226,20 @@ public class PlayerActions : MonoBehaviour {
                 isParrying = false;
                 parryTimer = 0;
             }
+
+            leftArmAnimator.transform.position = leftStartingPos + new Vector3(1, 0, 0);
+            leftArmAnimator.transform.rotation = Quaternion.Euler(0, 0, -20);
+
+            rightArmAnimator.transform.position = rightStartingPos - new Vector3(1, 0, 0);
+            rightArmAnimator.transform.rotation = Quaternion.Euler(0, 0, 20);
+        }
+        else
+        {
+            leftArmAnimator.transform.position = leftStartingPos;
+            leftArmAnimator.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+            rightArmAnimator.transform.position = rightStartingPos;
+            rightArmAnimator.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
         leftArmAnimator.SetBool("parry", isParrying);

@@ -167,6 +167,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: chefHits.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4311079063796428, guid: 51bbb576c4759e24bad1c77df9b514d6, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0.86428356
@@ -239,6 +244,46 @@ Prefab:
       propertyPath: m_Volume
       value: 0.302
       objectReference: {fileID: 0}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: charged
+      value: 
+      objectReference: {fileID: 8300000, guid: 39df5c4f6d280d140b927a256d90d9c9, type: 3}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: counter
+      value: 
+      objectReference: {fileID: 8300000, guid: 54fc5dd54212b554a85656a4addf3f19, type: 3}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: intro
+      value: 
+      objectReference: {fileID: 8300000, guid: c721bc8d6aaa02e4eacb24153cb0800e, type: 3}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: outro
+      value: 
+      objectReference: {fileID: 8300000, guid: af20e415398055344bad5e8aa72bb886, type: 3}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: chefHits.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 79523237a0950504daf81cb9e0ff7bd2, type: 3}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: chefHits.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: af7bb943b86103748800a91c84de4ad4, type: 3}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: chefHits.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: e09fa5564d28e4041bc36fbe20a72765, type: 3}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: chefHits.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 35a240cf7c00dd74195415bf7b2616e3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51bbb576c4759e24bad1c77df9b514d6, type: 2}
   m_IsPrefabParent: 0
