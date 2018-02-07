@@ -4,4 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Barbieri.unity
+    guid: 4cf67574d7de5a4478716eb009658b3e
+  - enabled: 1
+    path: Assets/Cracco.unity
+    guid: 683c0c22c38153442b80811faa59e4f2
+  - enabled: 1
+    path: Assets/Cannavacciuolo.unity
+    guid: 92de6cd07f40cd84cafadb19c7808fac
+  - enabled: 1
+    path: Assets/Bastianich.unity
+    guid: 9e4d0bc96b0f32a4aba8846ca9891213
