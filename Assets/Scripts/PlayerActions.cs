@@ -15,7 +15,8 @@ public class PlayerActions : MonoBehaviour {
     public float parryCooldown = 2;
     float parryTimer = 0;
 
-    bool canParry = true;
+    [HideInInspector]
+    public bool canParry = true;
     [HideInInspector]
     public float canParryTimer = 0;
 
@@ -38,6 +39,18 @@ public class PlayerActions : MonoBehaviour {
 
 		if (Input.GetMouseButtonDown(0))
         {
+            if (hb.endGame)
+            {
+                if (hb.hasWon)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+            else
             if (!isParrying)
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10)), Camera.main.transform.forward, buttonMask);
@@ -60,7 +73,6 @@ public class PlayerActions : MonoBehaviour {
                     {
                         enemyAnimator.SetTrigger("punch");
                         hb.TakeDamage();
-
                     }
                 }
                 else
@@ -70,10 +82,13 @@ public class PlayerActions : MonoBehaviour {
                 }
             }
         }
-        else if(Input.GetMouseButtonDown(1))
+        else if(Input.GetMouseButtonDown(1) && !hb.endGame)
         {
             if(canParry)
-            isParrying = true;
+            {
+                isParrying = true;
+                canParry = false;
+            }
         }
         
         if(isParrying)
@@ -92,6 +107,7 @@ public class PlayerActions : MonoBehaviour {
 
 
         canParryTimer += Time.deltaTime;
+
         if(canParryTimer>parryCooldown)
         {
             canParry = true;
@@ -100,8 +116,6 @@ public class PlayerActions : MonoBehaviour {
         {
             canParry = false;
         }
-
-
 	}
 
 

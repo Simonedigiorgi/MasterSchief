@@ -13,10 +13,15 @@ public class GameManager : MonoBehaviour
     public float delayBetweenButtons = 1;
     public float buttonActiveTime = 1;
 
+    public float minButtonSpawnScale = 5;
+    public float maxButtonSpawnScale = 7;
+
     [Range(0, 1)]
     public float buttonEventChance;
     [Range(1, 5)]
     public int maxButtonSpawnAmountPerEvent = 2;
+
+    public IEnumerator currentCoroutine;
 
 
     HealthBar hb;
@@ -38,7 +43,8 @@ public class GameManager : MonoBehaviour
     public IEnumerator SecondsBeforeStart()
     {
         yield return new WaitForSeconds(secondsBeforeStart);
-        StartCoroutine(YouPunch());
+        currentCoroutine = YouPunch();
+        StartCoroutine(currentCoroutine);
     }
 
     public IEnumerator YouPunch()
@@ -58,11 +64,13 @@ public class GameManager : MonoBehaviour
 
         if (Random.value <= buttonEventChance)
         {
-            StartCoroutine(YouPunch());
+            currentCoroutine = YouPunch();
+            StartCoroutine(currentCoroutine);
         }
         else
         {
-            StartCoroutine(YouParry());
+            currentCoroutine = YouParry();
+            StartCoroutine(currentCoroutine);
         }
 
     }
@@ -74,35 +82,55 @@ public class GameManager : MonoBehaviour
         {
             index = Random.Range(0, buttonPunch.Length);
         }
+
+        float size = Random.Range(minButtonSpawnScale, maxButtonSpawnScale);
+        buttonPunch[index].transform.localScale = new Vector3(size, size, 1);
         return buttonPunch[index];
     }
 
     public IEnumerator YouParry()
     {
-        float timeToWait = player.canParryTimer > player.parryCooldown ? 0 : player.parryCooldown - player.canParryTimer;
-        yield return new WaitForSeconds(timeToWait + 0.4f);
+        yield return null;
         enemyAnimator.SetTrigger("chargePunch");        
     }
 
-    public void CheckIfParrying()
+    public IEnumerator CheckIfParrying()
     {
-        if(player.isParrying)
+        bool trigger = false;
+        bool trigger2 = false;
+
+        while (!player.canParry)
         {
-            Debug.Log("PARATOH!!!!!!!!!!!!!");
+            if (player.isParrying && trigger2)
+            {
+                trigger2 = false;
+                Debug.Log("PARATOH!!!!!!!!!!!!!");
+            }
+            else if(!trigger)
+            {
+                trigger = true;
+                hb.TakeDamage();
+            }
+            yield return null;
         }
-        else
-        {
-            hb.TakeDamage();
-        }
+        
 
         if (Random.value <= buttonEventChance)
         {
-            StartCoroutine(YouPunch());
+            currentCoroutine = YouPunch();
+            StartCoroutine(currentCoroutine);
         }
         else
         {
-            StartCoroutine(YouParry());
+            currentCoroutine = YouParry();
+            StartCoroutine(currentCoroutine);
+          
         }
     }
 
+
+    public void BlockCoroutine()
+    {
+        StopCoroutine(currentCoroutine);
+    }
 }

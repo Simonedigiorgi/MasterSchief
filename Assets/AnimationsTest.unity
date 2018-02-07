@@ -510,6 +510,7 @@ MonoBehaviour:
   isParrying: 0
   parryTime: 0.5
   parryCooldown: 1
+  canParry: 1
   canParryTimer: 0
 --- !u!4 &310749224
 Transform:
@@ -639,6 +640,7 @@ GameObject:
   - component: {fileID: 465723222}
   - component: {fileID: 465723221}
   - component: {fileID: 465723220}
+  - component: {fileID: 465723225}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -716,6 +718,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &465723225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 465723219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cffde552cb2baa45865d2af74ed4b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugMode: 0
+  shakeAmount: 0.8
+  shakeDuration: 1
+  smooth: 0
+  smoothAmount: 5
 --- !u!1 &513393831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,6 +1046,7 @@ MonoBehaviour:
   enemyHealth: {fileID: 1980757857}
   damage: 10
   yScale: 0.5
+  cam: {fileID: 465723225}
 --- !u!1 &845728649
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,7 +1421,9 @@ MonoBehaviour:
   secondsBeforeStart: 3
   delayBetweenButtons: 1
   buttonActiveTime: 2
-  buttonEventChance: 0
+  minButtonSpawnScale: 5
+  maxButtonSpawnScale: 7
+  buttonEventChance: 0.749
   maxButtonSpawnAmountPerEvent: 5
 --- !u!4 &1763533213
 Transform:
