@@ -77,6 +77,8 @@ public class PlayerActions : MonoBehaviour {
                             rightArmAnimator.SetTrigger("punch");
                         }
 
+                        enemyAnimator.SetTrigger("takeDamage");
+
                         clickCounter++;
                         if (clickCounter >= endGameClickAmount)
                         {
