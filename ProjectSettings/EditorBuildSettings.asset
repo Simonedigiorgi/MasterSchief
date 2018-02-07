@@ -4,6 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
+<<<<<<< HEAD
   m_Scenes:
   - enabled: 1
     path: Assets/_Scenes/Intro.unity
@@ -23,3 +24,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Cracco.unity
     guid: 683c0c22c38153442b80811faa59e4f2
+=======
+  m_Scenes: []
+>>>>>>> 6f5b112d6dc8d269c0a2ea493f841e541eb05692
