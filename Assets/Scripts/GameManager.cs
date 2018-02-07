@@ -43,8 +43,16 @@ public class GameManager : MonoBehaviour
     public IEnumerator SecondsBeforeStart()
     {
         yield return new WaitForSeconds(secondsBeforeStart);
-        currentCoroutine = YouPunch();
-        StartCoroutine(currentCoroutine);
+        if (Random.value <= buttonEventChance)
+        {
+            currentCoroutine = YouPunch();
+            StartCoroutine(currentCoroutine);
+        }
+        else
+        {
+            currentCoroutine = YouParry();
+            StartCoroutine(currentCoroutine);
+        }
     }
 
     public IEnumerator YouPunch()
@@ -99,20 +107,20 @@ public class GameManager : MonoBehaviour
         bool trigger = false;
         bool trigger2 = false;
 
-        if (player.isParrying)
+        if (player.isParrying && !trigger2)
         {
             trigger2 = true;
-            Debug.Log("PORCO DIO DAIIIIIIIIIIIIIIIIII");
+            player.SpawnParat();
         }
         else if (!trigger)
         {
             trigger = true;
             hb.TakeDamage();
+            player.SpawnChargeInfame();
         }
 
         while (!player.canParry)
         {
-            Debug.Log("cnaparry: " + player.canParry);
             yield return null;
         }
 

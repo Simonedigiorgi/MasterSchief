@@ -23,6 +23,10 @@ public class HealthBar : MonoBehaviour {
 
     GameManager manager;
 
+    PlayerActions player;
+
+    public Animator enemyAnimator;
+
     public bool endGame = false;
     public bool hasWon = false;
 	void Start () {
@@ -55,6 +59,7 @@ public class HealthBar : MonoBehaviour {
     public void TakeDamage()
     {
         shake.ShakeCamera(5, .5f);
+       
 
         hitpoint -= damage;
 
@@ -72,6 +77,8 @@ public class HealthBar : MonoBehaviour {
     public void EnemyDamage(string direction)
     {
         enemyhitpoint -= damage;
+        enemyAnimator.SetTrigger("takeDamage");
+
 
         if (enemyhitpoint <= 0)
         {
