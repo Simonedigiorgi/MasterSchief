@@ -27,8 +27,8 @@ public class ButtonCountdown : MonoBehaviour {
         if(timer>countDownTime)
         {
             this.gameObject.SetActive(false);
-            enemyAnimator.SetTrigger("punch");
-            hb.TakeDamage();
+            //enemyAnimator.SetTrigger("punch");
+            //hb.TakeDamage();
         }
 	}
 }

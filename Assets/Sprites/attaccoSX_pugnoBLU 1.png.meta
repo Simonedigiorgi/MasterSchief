@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: e7b0847792b7c5f45ba8d9ffb52efcdd
-timeCreated: 1518025026
+guid: ae92247baeeff494cacfe1e5388ed671
+timeCreated: 1518026295
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: idleDX_pugniBLU_0
-    21300002: idleDX_pugniBLU_1
-    21300004: idleDX_pugniBLU_2
-    21300006: idleDX_pugniBLU_3
+    21300000: attaccoSX_pugnoBLU 1_0
+    21300002: attaccoSX_pugnoBLU 1_1
+    21300004: attaccoSX_pugnoBLU 1_2
+    21300006: attaccoSX_pugnoBLU 1_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -79,13 +79,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: idleDX_pugniBLU_0
+      name: attaccoSX_pugnoBLU 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 312
+        y: 262
         width: 200
-        height: 200
+        height: 250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -93,13 +93,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: idleDX_pugniBLU_1
+      name: attaccoSX_pugnoBLU 1_1
       rect:
         serializedVersion: 2
         x: 200
-        y: 312
+        y: 262
         width: 200
-        height: 200
+        height: 250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -107,13 +107,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: idleDX_pugniBLU_2
+      name: attaccoSX_pugnoBLU 1_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 112
+        y: 12
         width: 200
-        height: 200
+        height: 250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,13 +121,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: idleDX_pugniBLU_3
+      name: attaccoSX_pugnoBLU 1_3
       rect:
         serializedVersion: 2
         x: 200
-        y: 112
+        y: 12
         width: 200
-        height: 200
+        height: 250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
