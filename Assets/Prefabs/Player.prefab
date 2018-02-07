@@ -152,7 +152,7 @@ MonoBehaviour:
     m_Bits: 256
   enemyMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   leftArmAnimator: {fileID: 95666232687958328}
   rightArmAnimator: {fileID: 95214396110882532}
   enemyAnimator: {fileID: 0}
