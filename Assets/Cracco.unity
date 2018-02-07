@@ -581,11 +581,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114670328520634788, guid: 84f75bb278f5c49429611848ea7403f2,
-        type: 2}
-      propertyPath: buttonPunch.Array.size
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 4534931159405128, guid: 84f75bb278f5c49429611848ea7403f2, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -658,23 +653,6 @@ Prefab:
       propertyPath: buttonPunch.Array.data[5]
       value: 
       objectReference: {fileID: 510182574}
-    - target: {fileID: 114670328520634788, guid: 84f75bb278f5c49429611848ea7403f2,
-        type: 2}
-      propertyPath: craccoLaserino
-      value: 
-      objectReference: {fileID: 1429178736245778, guid: 7d0df991fe3afb64d9b383f93eb4d648,
-        type: 2}
-    - target: {fileID: 114670328520634788, guid: 84f75bb278f5c49429611848ea7403f2,
-        type: 2}
-      propertyPath: craccoCharge
-      value: 
-      objectReference: {fileID: 1415550220348622, guid: 74e3053aedc83194cbdfca0ea3dd310c,
-        type: 2}
-    - target: {fileID: 114670328520634788, guid: 84f75bb278f5c49429611848ea7403f2,
-        type: 2}
-      propertyPath: buttonEventChance
-      value: 0.453
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 84f75bb278f5c49429611848ea7403f2, type: 2}
   m_IsPrefabParent: 0

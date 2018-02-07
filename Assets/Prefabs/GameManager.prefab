@@ -61,9 +61,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   secondsBeforeStart: 3
-  delayBetweenButtons: 1
+  delayBetweenButtons: 2
   buttonActiveTime: 2
-  minButtonSpawnScale: 4
-  maxButtonSpawnScale: 7
-  buttonEventChance: 0.679
-  maxButtonSpawnAmountPerEvent: 5
+  minButtonSpawnScale: 6
+  maxButtonSpawnScale: 7.5
+  buttonEventChance: 0.65
+  maxButtonSpawnAmountPerEvent: 4
+  craccoLaserino: {fileID: 1429178736245778, guid: 7d0df991fe3afb64d9b383f93eb4d648,
+    type: 2}
+  craccoCharge: {fileID: 1415550220348622, guid: 74e3053aedc83194cbdfca0ea3dd310c,
+    type: 2}

@@ -166,7 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heroHealth: {fileID: 114949912276754228}
   enemyHealth: {fileID: 114794982851483292}
-  damage: 10
+  damage: 5
   yScale: 0.5
   shake: {fileID: 0}
   enemyAnimator: {fileID: 0}

@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sizeDecrement: 1.5
-  tiltAngle: 10
+  tiltAngle: 5
   zoomTime: 0.15
   zoomSpeed: 15
 --- !u!114 &114940744120289122
