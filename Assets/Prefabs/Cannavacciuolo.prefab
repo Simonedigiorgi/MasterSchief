@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bdc709c403619c479ab57cd995325d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cracco: 0
 --- !u!212 &212696129531820514
 SpriteRenderer:
   m_ObjectHideFlags: 1
