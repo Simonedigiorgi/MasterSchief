@@ -284,6 +284,11 @@ Prefab:
       propertyPath: chefHits.Array.data[3]
       value: 
       objectReference: {fileID: 8300000, guid: 35a240cf7c00dd74195415bf7b2616e3, type: 3}
+    - target: {fileID: 82465292281346586, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.058
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51bbb576c4759e24bad1c77df9b514d6, type: 2}
   m_IsPrefabParent: 0

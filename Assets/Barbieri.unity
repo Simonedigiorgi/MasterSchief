@@ -229,6 +229,11 @@ Prefab:
       propertyPath: enemyMask.m_Bits
       value: 512
       objectReference: {fileID: 0}
+    - target: {fileID: 114043303856887754, guid: 1feed3c94e65b7349a20f254f16096a2,
+        type: 2}
+      propertyPath: nextScene
+      value: Menu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1feed3c94e65b7349a20f254f16096a2, type: 2}
   m_IsPrefabParent: 0
@@ -425,12 +430,12 @@ Prefab:
     - target: {fileID: 82603266014527350, guid: 51bbb576c4759e24bad1c77df9b514d6,
         type: 2}
       propertyPath: m_Volume
-      value: 0.33
+      value: 0.233
       objectReference: {fileID: 0}
     - target: {fileID: 82465292281346586, guid: 51bbb576c4759e24bad1c77df9b514d6,
         type: 2}
       propertyPath: m_Volume
-      value: 0.066
+      value: 0.036
       objectReference: {fileID: 0}
     - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
         type: 2}
@@ -877,7 +882,7 @@ Prefab:
     - target: {fileID: 114670328520634788, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
       propertyPath: buttonEventChance
-      value: 0.25
+      value: 0.31
       objectReference: {fileID: 0}
     - target: {fileID: 114670328520634788, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
