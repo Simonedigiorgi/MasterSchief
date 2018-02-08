@@ -36,16 +36,26 @@ public class MenuManager : MonoBehaviour {
 
     public Image fade;
 
+    public Transform crdst;
+    public Transform cntrls;
+
+    Vector3 startPos;
+
+    Vector3 creditsStartPos;
+    Vector3 controlsStartPos;
+
     void Start () {
         source = GetComponent<AudioSource>();
         fade.enabled = false;
         fade.DOFade(0, 0);
         source.PlayOneShot(music, 0.3f);
-	}
-	
-	void Update () {
+        startPos = startgamePivot.position;
+        creditsStartPos = crdst.position;
+        controlsStartPos = cntrls.position;
+    }
 
-        
+    void Update () {
+
 
 	}
 
@@ -118,7 +128,7 @@ public class MenuManager : MonoBehaviour {
         controlHand.enabled = true;
         controlClick.enabled = true;
         yield return new WaitForSeconds(1.0f);
-        startgamePivot.DOMoveY(-850, 0.8f);
+        startgamePivot.DOMoveY(-Screen.height, 0.8f);
         yield return new WaitForSeconds(1.0f);
     }
 
@@ -133,7 +143,7 @@ public class MenuManager : MonoBehaviour {
         creditsHand.enabled = true;
         creditsClick.enabled = true;
         yield return new WaitForSeconds(1.0f);
-        startgamePivot.DOMoveX(-900, 0.8f);
+        startgamePivot.DOMoveX(-Screen.width/2, 0.8f);
         yield return new WaitForSeconds(1.0f);
 
     }
@@ -153,6 +163,9 @@ public class MenuManager : MonoBehaviour {
         yield return null;
     }
 
+
+
+
     public IEnumerator BackCoroutine()
     {
         newGame.enabled = true;
@@ -163,7 +176,7 @@ public class MenuManager : MonoBehaviour {
         controls.image.enabled = true;
         controlHand.enabled = false;
         controlClick.enabled = false;
-        startgamePivot.DOMoveY(500, 0.8f);
+        startgamePivot.DOMove(startPos,0.8f);
         yield return null;
     }
 
@@ -177,7 +190,7 @@ public class MenuManager : MonoBehaviour {
         credits.image.enabled = true;
         creditsHand.enabled = false;
         creditsClick.enabled = false;
-        startgamePivot.DOMoveX(800, 0.8f);
+        startgamePivot.DOMove(startPos, 0.8f);
         yield return null;
     }
 }
