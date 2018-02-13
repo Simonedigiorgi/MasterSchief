@@ -14,7 +14,7 @@ public class IntroScript : MonoBehaviour {
 
     public AudioClip masterschiaff;
 
-    public Button skip;
+    public Button skipButton;
 
     public Text introText;
     public Text testo1;
@@ -31,12 +31,13 @@ public class IntroScript : MonoBehaviour {
     public Image title;
 
     void Start () {
+
         introText.DOFade(0, 0);
         GetComponent<RawImage>().texture = movie as MovieTexture;
         source = GetComponent<AudioSource>();
         source.clip = movie.audioClip;
 
-        skip.gameObject.SetActive(false);
+        skipButton.gameObject.SetActive(false);
 
         fade.DOFade(0, 0);
         fade.enabled = false;
@@ -56,11 +57,6 @@ public class IntroScript : MonoBehaviour {
 	}
 	
 	void Update () {
-
-        /*if(Input.GetKeyDown(KeyCode.Space) && movie.isPlaying)
-        {
-            movie.Pause();
-        }*/
 		
 	}
 
@@ -78,7 +74,7 @@ public class IntroScript : MonoBehaviour {
         yield return new WaitForSeconds(3.0f);
         fade.enabled = false;
 
-        skip.gameObject.SetActive(true);
+        skipButton.gameObject.SetActive(true);
         black.enabled = false;
         movie.Play();
         source.Play();
@@ -109,7 +105,9 @@ public class IntroScript : MonoBehaviour {
         fade.enabled = true;
         fade.DOFade(1, 0);
         yield return new WaitForSeconds(0.2f);
+
         title.enabled = true;
+        title.transform.DOScale(new Vector3(0.5f, 0.5f, 0), 7.6f);
 
         source.PlayOneShot(masterschiaff, 1.2f);
         movie.Pause();
