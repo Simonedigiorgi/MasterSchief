@@ -1736,7 +1736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movie: {fileID: 15200000, guid: e45f8fe7486ea154d810a65330dafe7a, type: 3}
   masterschiaff: {fileID: 8300000, guid: 6eda46f9ee05ec746bcdfaa6210eb127, type: 3}
-  skip: {fileID: 1320110096}
+  skipButton: {fileID: 1320110096}
   introText: {fileID: 1453079580}
   testo1: {fileID: 1546904942}
   testo2: {fileID: 1013476913}
