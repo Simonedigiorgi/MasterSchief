@@ -1,72 +1,70 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
+using Sirenix.OdinInspector;
 
 public class GameManager : MonoBehaviour
 {
-    public Animator enemyAnimator;
-    public PlayerActions player;
-    public GameObject[] buttonPunch; //List of buttons
+    public IEnumerator currentCoroutine;                                                            // COROUTINE
 
-    public float secondsBeforeStart = 3;
-    public float delayBetweenButtons = 1;
-    public float buttonActiveTime = 1;
+    private PlayerActions playerAction;                                                             // PLAYERACTION
+    private EventScript eventScript;                                                                // EVENTSCRIPT
+    private HealthBar healthBar;                                                                    // HEALTHBAR
+    private SoundManager soundManager;                                                              // SOUNDMANAGER
 
-    public float minButtonSpawnScale = 5;
-    public float maxButtonSpawnScale = 7;
+    public GameObject[] buttonPunch;                                                                // Array dei Tasti
 
-    [Range(0, 1)]
-    public float buttonEventChance;
-    [Range(1, 5)]
-    public int maxButtonSpawnAmountPerEvent = 2;
+    [BoxGroup("Animator")] public Animator chefAnimator;                                            // CHEFANIMATOR
 
-    public IEnumerator currentCoroutine;
+    [BoxGroup("Immagini")] public Image fade;                                                       // Immagine di Fade
 
-    EventScript ev;
+    [BoxGroup("Controlli")] public float secondsBeforeStart;                                        // Secondi del primo attacco dello Chef (Inizio Partita)
+    [BoxGroup("Controlli")] public string nextScene = "";                                           // Prossima scena
 
-    HealthBar hb;
+    [BoxGroup("Controller dei Tasti")] public float delayBetweenButtons = 1;                        // Tempo tra un tasto e l'altro
+    [BoxGroup("Controller dei Tasti")] public float buttonActiveTime = 1;                           // Quanto tempo i Bottoni rimangono a schermo prima di sparire
 
-    public GameObject craccoLaserino;
-    public GameObject craccoCharge;
+    [BoxGroup("Dimensione dei Tasti")] [Range(1, 7)] public int minButtonSpawnScale;                // Scala minima dei bottoni
+    [BoxGroup("Dimensione dei Tasti")] [Range(1, 7)] public int maxButtonSpawnScale;                // Scala massima dei bottoni
 
-    SoundManager sm;
+    [BoxGroup("Controller dei Tasti")] [Range(0, 1)] public float buttonEventChance;                // (Più vicino allo 0 aumenta la possibilità di Attacco dello Chef)
+    [BoxGroup("Controller dei Tasti")] [Range(1, 6)] public int maxButtonSpawnAmountPerEvent;       // Quanti tasti posso apparire insieme
+
+    [BoxGroup("Pestata Finale")] public int clickCounter = 0;                                       // Conteggio dei Pugni finali
+    [BoxGroup("Pestata Finale")] public int finalPunches;                                           // Click della scazzottata finale
+
 
     private void Start()
     {
-        hb = GameObject.Find("Background").GetComponent<HealthBar>();
-        ev = GameObject.FindObjectOfType<EventScript>();
+        fade.enabled = true;
+        fade.DOFade(0, 0);
 
-        sm = GameObject.FindObjectOfType<SoundManager>();
+        playerAction = FindObjectOfType<PlayerActions>();
+        healthBar = FindObjectOfType<HealthBar>();
+        eventScript = FindObjectOfType<EventScript>();
+        soundManager = FindObjectOfType<SoundManager>();
 
-        foreach (GameObject go in buttonPunch)
+        // Disattiva i Bottoni
+
+        foreach (GameObject button in buttonPunch)
         {
-            go.GetComponent<ButtonCountdown>().countDownTime = buttonActiveTime;
-            go.SetActive(false);
+            button.SetActive(false);
         }
 
         StartCoroutine(SecondsBeforeStart());
     }
 
-
-    public void SpawnLaserino()
-    {
-        Instantiate(craccoLaserino, enemyAnimator.transform.position, Quaternion.identity);
-    }
-
-    public void SpawnCraccoCharge()
-    {
-        Instantiate(craccoCharge, enemyAnimator.transform.position, Quaternion.identity);
-    }
-
-
     public IEnumerator SecondsBeforeStart()
     {
-        sm.PlayGetReady();
+        soundManager.PlayGetReady();
 
         yield return new WaitForSeconds(4);
 
-        sm.PlayIntro();
+        soundManager.PlayIntro();
+        playerAction.isActive = true;
 
         yield return new WaitForSeconds(secondsBeforeStart);
         if (Random.value <= buttonEventChance)
@@ -117,6 +115,8 @@ public class GameManager : MonoBehaviour
             index = Random.Range(0, buttonPunch.Length);
         }
 
+        // Dimesione dei Tasti
+
         float size = Random.Range(minButtonSpawnScale, maxButtonSpawnScale);
         buttonPunch[index].transform.localScale = new Vector3(size, size, 1);
         return buttonPunch[index];
@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator YouParry()
     {
         yield return null;
-        enemyAnimator.SetTrigger("chargePunch");        
+        chefAnimator.SetTrigger("ChargePunch");        
     }
 
     public IEnumerator CheckIfParrying()
@@ -133,24 +133,20 @@ public class GameManager : MonoBehaviour
         bool trigger = false;
         bool trigger2 = false;
 
-        if (player.isParrying && !trigger2)
+        if (playerAction.isParrying && !trigger2)
         {
-            sm.PlayCharged();
+            soundManager.PlayCharged();
             trigger2 = true;
-            player.SpawnParat();
+            playerAction.SpawnParat();
         }
         else if (!trigger)
         {
             trigger = true;
-            hb.TakeDamage();
-            player.SpawnChargeInfame();
-            if(ev.cracco)
-            {
-                SpawnCraccoCharge();
-            }
+            healthBar.TakeDamage();
+            playerAction.SpawnChargeInfame();
         }
 
-        while (!player.canParry)
+        while (!playerAction.canParry)
         {
             yield return null;
         }
@@ -170,10 +166,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     public void BlockCoroutine()
     {
-        Debug.Log(currentCoroutine.ToString());
+        //Debug.Log(currentCoroutine.ToString());
         StopCoroutine(currentCoroutine);
     }
+
+    // COROUTINES
+
+    public IEnumerator LevelFailed()
+    {
+        yield return new WaitForSeconds(1);
+        fade.DOFade(1, 3);
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public IEnumerator LevelComplete()
+    {
+        yield return new WaitForSeconds(1);
+        fade.DOFade(1, 3);
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(nextScene);
+    }
+
+
 }

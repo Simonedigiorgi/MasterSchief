@@ -4,31 +4,35 @@ using UnityEngine;
 
 public class ButtonCountdown : MonoBehaviour {
 
-    public Animator enemyAnimator;
-    float timer = 0;
-    public float countDownTime = 1;
+    private GameManager gameManager;                                                      // GAMEMANGAER
+    private HealthBar healthBar;                                                          // HEALTHBAR
+    private PlayerActions playerAction;
 
-    HealthBar hb;
+    private float timer = 0;
 
     private void Awake()
     {
-        hb = GameObject.Find("Background").GetComponent<HealthBar>();
+        gameManager = FindObjectOfType<GameManager>();
+        healthBar = FindObjectOfType<HealthBar>();
+        playerAction = FindObjectOfType<PlayerActions>();
     }
 
-    // Use this for initialization
     void OnEnable () {
+
         timer = 0;
 	}
 	
-	// Update is called once per frame
 	void Update () {
+
         timer += Time.deltaTime;
 
-        if(timer>countDownTime)
+        // Alla sparizione del Tasto
+
+        if((timer > gameManager.buttonActiveTime) && playerAction.isActive == true)
         {
-            this.gameObject.SetActive(false);
-            //enemyAnimator.SetTrigger("punch");
-            //hb.TakeDamage();
+            gameObject.SetActive(false);
+            gameManager.chefAnimator.Play("CounterAttack");
+            healthBar.TakeDamage();
         }
 	}
 }

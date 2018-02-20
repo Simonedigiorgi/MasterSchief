@@ -4,224 +4,226 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Sirenix.OdinInspector;
 
 public class PlayerActions : MonoBehaviour {
 
-    public LayerMask buttonMask;
-    public LayerMask enemyMask;
+    [HideInInspector] public LayerMask buttonMask;
+    [HideInInspector] public LayerMask enemyMask;
 
-    public Animator leftArmAnimator;
-    public Animator rightArmAnimator;
-    public Animator enemyAnimator;
+    private HealthBar healthBar;                                                                            // HEALTBAR
+    private SoundManager soundManager;                                                                      // SOUNDMANAGER
+    private GameManager gameManager;                                                                        // GAMEMANAGER
 
-    public bool isParrying = false;
-    public float parryTime = 0.5f;
-    public float parryCooldown = 2;
-    float parryTimer = 0;
+    private Transform rightPos;                                                                             // Posizione Braccio Sinistro
+    private Transform leftPos;                                                                              // Posizione Braccio Destro
+    private Transform pointPos;                                                                             // Posizione Centrale
 
-    [HideInInspector]
-    public bool canParry = true;
-    [HideInInspector]
-    public float canParryTimer = 0;
+    private Vector3 leftStartingPos;                                                                        // Posizione iniziale Braccio Sinistro
+    private Vector3 rightStartingPos;                                                                       // Posizione iniziale Braccio Destro
 
-    HealthBar hb;
+    [BoxGroup("Animators")] public Animator leftArmAnimator;                                                // Animazione Braccio Sinistro
+    [BoxGroup("Animators")] public Animator rightArmAnimator;                                               // Animazione Braccio Destro
+    [BoxGroup("Animators")] public Animator chefAnimator;                                                   // Animazione dello Chef
 
-    public Image blackFade;
-
-
-
-
-    public float endGameTime = 30;
-    float endTimer = 0;
-    public int endGameClickAmount = 40;
-    int clickCounter = 0;
-
-    bool levelFinished = false;
-    bool levelFailed = false;
-
-    public string nextScene = "Cannavacciuolo";
+    [BoxGroup("Scritte Infami")] public GameObject parata;                                                  // Scritte infami (Parata)
+    [BoxGroup("Scritte Infami")] public GameObject[] chefPunch;                                             // Scritte infami (Chef) - 2
+    [BoxGroup("Scritte Infami")] public GameObject[] playerPunch;                                           // Scritte infami (Player) - 3
 
 
-    public GameObject[] enemiesPunch;
-    public GameObject[] playerPunch;
-    public GameObject parat;
+    private float parryTimer = 0;                                                                           // Lasciare a 0 
+    private float canParryTimer = 0;                                                                        // Lasciare a 0 (Viene aumentato da un Time.deltatime)
+    private float parryTime = 0.5f;                                                                         // Durata della parata
+    private float parryCooldown = 0.8f;                                                                     // Tempo prima di parare ancora
 
-    public Transform destra;
-    public Transform sinistra;
-    public Transform p;
+    private bool isLevelComplete = false;                                                                   // Livello completato
+    private bool isLevelFailed = false;                                                                     // Livello fallito
+    private bool isToggle = false;                                                                          // Toggle di animazione tra Pungno sinistro/destro
 
-    SoundManager sm;
-    GameManager gm;
+    [BoxGroup("Debug")] public bool isParrying = false;                                                      // Il Player sta parando
+    [BoxGroup("Debug")] public bool isActive = false;                                                        // Attiva il Player
 
-    Vector3 leftStartingPos;
-    Vector3 rightStartingPos;
+    [HideInInspector] public bool canParry = true;
 
-
-
-	// Use this for initialization
 	void Start () {
-        hb = GameObject.Find("Background").GetComponent<HealthBar>();
-        sm = GameObject.FindObjectOfType<SoundManager>();
-        gm = GameObject.FindObjectOfType<GameManager>();
+
+        leftPos = GameObject.Find("leftPos").transform;
+        rightPos = GameObject.Find("rightPos").transform;
+        pointPos = GameObject.Find("pointPos").transform;
+
+        healthBar = FindObjectOfType<HealthBar>();
+        soundManager = FindObjectOfType<SoundManager>();
+        gameManager = FindObjectOfType<GameManager>();
         canParryTimer = parryCooldown;
 
         leftStartingPos = leftArmAnimator.transform.position;
         rightStartingPos = rightArmAnimator.transform.position;
     }
 
-
-    bool toggle = false;
-
+    // Mostra testi infami dello Chef
 
     public void SpawnPunchInfame()
     {
-        Instantiate(enemiesPunch[0], p);
-        sm.PlayCounter();
+        Instantiate(chefPunch[0], pointPos);
+        soundManager.PlayCounter();
     }
 
     public void SpawnChargeInfame()
     {
-        Instantiate(enemiesPunch[1], p);
-        sm.PlayCharged();
+        Instantiate(chefPunch[1], pointPos);
+        soundManager.PlayCharged();
     }
+
+    // Mostra testi infami del Player
 
     public void SpawnPlayerInfame()
     {
         if(Random.value > 0.5f)
         {
-            GameObject s = Instantiate(playerPunch[Random.Range(0, playerPunch.Length)], destra);
+            GameObject s = Instantiate(playerPunch[Random.Range(0, playerPunch.Length)], rightPos);
             s.transform.position += new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
         }
         else
         {
-            GameObject s = Instantiate(playerPunch[Random.Range(0, playerPunch.Length)], sinistra);
+            GameObject s = Instantiate(playerPunch[Random.Range(0, playerPunch.Length)], leftPos);
             s.transform.position += new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
         }
 
         StartCoroutine(PunchSoundWithDelay());
     }
 
+    // Mostra il Testo "Parat" (Para il colpo)
+
+    public void SpawnParat()
+    {
+        GameObject spawn = Instantiate(parata, pointPos);
+    }
+
+    // Audio Pugni
+
     IEnumerator PunchSoundWithDelay()
     {
         yield return new WaitForSeconds(0.2f);
 
-        sm.PlayPunchHits();
+        soundManager.PlayPunchHits();
 
-        if (!hb.endGame)
+        if (healthBar.chefLife != 0)
         {
             yield return new WaitForSeconds(0.5f);
             if (Random.value > 0.5f)
-                sm.PlayChefHits();
+                soundManager.PlayChefHits();
         }
-        
     }
 
-
-
-    public void SpawnParat()
-    {
-        GameObject s = Instantiate(parat, p);
-    }
+    // Audio Outro
 
     IEnumerator PlayOutroWithDelay()
     {
         yield return new WaitForSeconds(1);
-        sm.PlayOutro();
+        soundManager.PlayOutro();
     }
 
-    // Update is called once per frame
     void Update () {
-		if (Input.GetMouseButtonDown(0))
-        {
-            if (hb.endGame && !levelFinished && !levelFailed)
-            {
-                if (hb.hasWon)
-                {
-                    endTimer += Time.deltaTime;
-                    if (endTimer > endGameTime)
-                        hb.hasWon = false;
 
-                    RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10)), Camera.main.transform.forward, enemyMask);
+        // CONTROLLI DEL GIOCATORE
+
+        if(isActive == true)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (healthBar.chefLife == 0 && isLevelComplete == false && isLevelFailed == false)
+                {
+                    if (healthBar.isFinalPunches == true)
+                    {
+
+                        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10)), Camera.main.transform.forward, enemyMask);
+
+                        if (hit.collider != null)
+                        {
+                            // Animazione Hit (Fase di pestaggio finale)
+
+                            if (isToggle)
+                            {
+                                isToggle = !isToggle;
+                                leftArmAnimator.SetTrigger("Punch");
+                                SpawnPlayerInfame();
+                            }
+                            else
+                            {
+                                isToggle = !isToggle;
+                                rightArmAnimator.SetTrigger("Punch");
+                                SpawnPlayerInfame();
+                            }
+
+                            chefAnimator.SetTrigger("TakeDamage");
+                            gameManager.clickCounter++;
+
+                            if (gameManager.clickCounter >= gameManager.finalPunches)
+                            {
+                                chefAnimator.SetTrigger("Rotto");
+                                isLevelComplete = true;
+                                StartCoroutine(PlayOutroWithDelay());
+                            }
+
+                        }
+                    }
+                    /*else
+                    {
+                        isLevelFailed = true;
+                    }*/
+                }
+                else if (isParrying == false && healthBar.playerLife != 0)
+                {
+                    RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10)), Camera.main.transform.forward, buttonMask);
 
                     if (hit.collider != null)
                     {
-                        //animazione hit boss
+                        // Comabattimento durante il gioco
 
-                        if (toggle)
+                        if (hit.collider.tag == "ButtonLeft")
                         {
-                            toggle = !toggle;
-                            leftArmAnimator.SetTrigger("punch");
+                            leftArmAnimator.SetTrigger("Punch");
+                            hit.collider.gameObject.SetActive(false);
+                            healthBar.ChefDamage("left");
+                            SpawnPlayerInfame();
+
+                        }
+                        else if (hit.collider.tag == "ButtonRight")
+                        {
+                            rightArmAnimator.SetTrigger("Punch");
+                            hit.collider.gameObject.SetActive(false);
+                            healthBar.ChefDamage("right");
                             SpawnPlayerInfame();
                         }
-                        else
+                        /*else
                         {
-                            toggle = !toggle;
-                            rightArmAnimator.SetTrigger("punch");
-                            SpawnPlayerInfame();
-                        }
-
-                        enemyAnimator.SetTrigger("takeDamage");
-
-                        clickCounter++;
-                        if (clickCounter >= endGameClickAmount)
-                        {
-                            enemyAnimator.SetTrigger("rotto");
-                            levelFinished = true;
-                            StartCoroutine(PlayOutroWithDelay());
-                        }
-
-                    }
-                }
-                else
-                {
-                    levelFailed = true;
-                }
-            }
-            else if (!isParrying && !hb.endGame)
-            {
-                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10)), Camera.main.transform.forward, buttonMask);
-                if (hit.collider != null)
-                {
-                    if (hit.collider.tag == "ButtonLeft")
-                    {
-                        leftArmAnimator.SetTrigger("punch");
-                        hit.collider.gameObject.SetActive(false);
-                        hb.EnemyDamage("left");
-                        SpawnPlayerInfame();
-
-                    }
-                    else if (hit.collider.tag == "ButtonRight")
-                    {
-                        rightArmAnimator.SetTrigger("punch");
-                        hit.collider.gameObject.SetActive(false);
-                        hb.EnemyDamage("right");
-                        SpawnPlayerInfame();
+                            chefAnimator.SetTrigger("Punch");
+                        }*/
                     }
                     else
                     {
-                        enemyAnimator.SetTrigger("punch");
+                        chefAnimator.SetTrigger("Punch");
                     }
                 }
-                else
+            }
+            else if (Input.GetMouseButtonDown(1) && healthBar.playerLife != 0)
+            {
+                if (canParry)
                 {
-                    enemyAnimator.SetTrigger("punch");
+                    isParrying = true;
+                    canParry = false;
+                    canParryTimer = 0;
                 }
             }
         }
-        else if(Input.GetMouseButtonDown(1) && !hb.endGame)
-        {
-            if(canParry)
-            {
-                isParrying = true;
-                canParry = false;
-                canParryTimer = 0;
-            }
-        }
+
+		// ANIMAZIONE E CONTROLLO PARATA
         
-        if(isParrying)
+        if (isParrying == true)
         {
             parryTimer += Time.deltaTime;
-            if(parryTimer>=parryTime)
+
+            if (parryTimer >= parryTime)
             {
                 isParrying = false;
                 parryTimer = 0;
@@ -242,8 +244,8 @@ public class PlayerActions : MonoBehaviour {
             rightArmAnimator.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
-        leftArmAnimator.SetBool("parry", isParrying);
-        rightArmAnimator.SetBool("parry", isParrying);
+        leftArmAnimator.SetBool("Parry", isParrying);
+        rightArmAnimator.SetBool("Parry", isParrying);
 
 
         canParryTimer += Time.deltaTime;
@@ -253,50 +255,24 @@ public class PlayerActions : MonoBehaviour {
             canParry = true;
         }
 
+        // LIVELLO COMPLETATO
 
-        if (levelFinished)
+        if (isLevelComplete == true)
         {
-            blackFade.gameObject.SetActive(true);
-            fadeTimer += Time.deltaTime;
-
-            blackFade.color = new Color(blackFade.color.r, blackFade.color.g, blackFade.color.b, fadeTimer / fadeTime);
-
-            if(fadeTimer>fadeTime)
-            {
-                SceneManager.LoadScene(nextScene);
-            }
-            
+            StartCoroutine(gameManager.LevelComplete());
         }
 
-        if (levelFailed)
+        // LIVELLO FALLITO
+
+        if (isLevelFailed == true)
         {
-            Debug.Log("d");
-            blackFade.gameObject.SetActive(true);
-            fadeTimer += Time.deltaTime;
+            chefAnimator.Play("Idle");
+            isActive = false;
 
-            blackFade.color = new Color(blackFade.color.r, blackFade.color.g, blackFade.color.b, fadeTimer / fadeTime);
-
-            this.transform.position -= new Vector3(0, 2 * Time.deltaTime, 0);
-
-            if (!endAnimTrigger)
-            {
-                enemyAnimator.SetTrigger("charge");
-                endAnimTrigger = true;
-            }
-
-            if (fadeTimer > fadeTime)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
+            StartCoroutine(gameManager.LevelFailed());
         }
-
-
 	}
 
-    bool endAnimTrigger = false;
-
-    float fadeTime = 4;
-    float fadeTimer = 0;
 
 
 }

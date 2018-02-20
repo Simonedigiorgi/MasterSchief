@@ -2,102 +2,100 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Sirenix.OdinInspector;
+using DG.Tweening;
 
 public class HealthBar : MonoBehaviour {
 
-    public Image heroHealth;
-    public Image enemyHealth;
+    private CameraZoom cameraZoom;                                                  // CAMERAZOOM
+    private GameManager gameManager;                                                // GAMEMANAGER
+    private PlayerActions playerAction;                                             // PLAYERACTION
+    private CameraShake cameraShake;                                                // CAMERASHAKE
 
-    private float hitpoint = 100;
-    private float maxHitpoint = 100;
+    [FoldoutGroup("Immagini")] public Image impiatta;                               // Immagine di Impiatt!
+    [FoldoutGroup("Immagini")] public Image playerHealth;                           // Barra dell'energia del Player
+    [FoldoutGroup("Immagini")] public Image chefHealth;                             // Barra dell'energia dello Chef
 
-    private float enemyhitpoint = 100;
-    private float enemymaxHitpoint = 100;
+    [BoxGroup("Barre della Vita")] [Range(0, 100)] public float playerLife = 60;    // Energia del Player
+    [BoxGroup("Barre della Vita")] [Range(0, 100)] public float chefLife = 60;      // Energia dello Chef
 
-    public float damage = 20;
-    public float yScale = 0.5f;
+    private float playerMaxLife = 100;                                              // Energia Massima del Player
+    private float chefMaxLife = 100;                                                // Energia Massima dello Chef
 
-    public CameraShake shake;
+    [BoxGroup("Danno dei Colpi")] public float playerDamage = 0;                    // Danno del Player
+    [BoxGroup("Danno dei Colpi")] public float chefDamage = 0;                      // Danno dello Chef
 
-    public GameObject impiatt;
+    [HideInInspector] public bool isFinalPunches = false;                           // Fase finale
 
-    CameraZoom zoom;
-
-    GameManager manager;
-
-    PlayerActions player;
-
-    public Animator enemyAnimator;
-
-    public bool endGame = false;
-    public bool hasWon = false;
 	void Start () {
-        UpdateHealthBar();
-        EnemyHealthBar();
-        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        zoom = GameObject.FindObjectOfType<CameraZoom>();
-    }
-	
 
+        impiatta.enabled = false;                                                   // Disabilita l'immagine (impiatta)
 
+        PlayerHealthBar();                                                          // PLAYER LIFEBAR
+        ChefHealthBar();                                                            // CHEF LIFEBAR
 
-
-	void Update () {
-
-
+        cameraZoom = FindObjectOfType<CameraZoom>();                                // CAMERAZOOM
+        gameManager = FindObjectOfType<GameManager>();                              // GAMEMANAGER
+        playerAction = FindObjectOfType<PlayerActions>();                           // PLAYERACTION
+        cameraShake = FindObjectOfType<CameraShake>();                              // CAMERASHAKE
     }
 
+    // PLAYER LIFEBAR
 
-
-
-    private void UpdateHealthBar()
+    private void PlayerHealthBar()
     {
-        float ratio = hitpoint / maxHitpoint;
-        heroHealth.rectTransform.localScale = new Vector3(ratio, 0.5f, 1);
+        float ratio = playerLife / playerMaxLife;
+        playerHealth.rectTransform.localScale = new Vector3(ratio, 0.5f, 1);
     }
 
-    private void EnemyHealthBar()
+    // CHEF LIFEBAR
+
+    private void ChefHealthBar()
     {
-        float enemyratio = enemyhitpoint / enemymaxHitpoint;
-        enemyHealth.rectTransform.localScale = new Vector3(enemyratio, 0.5f, 1);
+        float enemyratio = chefLife / chefMaxLife;
+        chefHealth.rectTransform.localScale = new Vector3(enemyratio, 0.5f, 1);
     }
+
+    // PRENDI DANNO
 
     public void TakeDamage()
     {
-        shake.ShakeCamera(5, .5f);
-       
+        cameraShake.ShakeCamera(5, 0.5f);                                           // Shake Camera             
+        playerLife -= chefDamage;                                                   // Take Damage
 
-        hitpoint -= damage;
+        // SCONFITTA
 
-        if(hitpoint <= 0)
+        if (playerLife <= 0)
         {
-            hitpoint = 0;
-            Debug.Log("YOU LOSE");
-            manager.BlockCoroutine();
-            endGame = true;
+            playerLife = 0;
+            gameManager.BlockCoroutine();                                           // Blocca (currentCouroutine)
+            StartCoroutine(gameManager.LevelFailed());                              // SCONFITTA
         }
 
-        UpdateHealthBar();
+        PlayerHealthBar();                                                          // Aggiorna barra della vita del Player
     }
 
-    public void EnemyDamage(string direction)
+    // DANNI ALLO CHEF
+
+    public void ChefDamage(string direction)
     {
-        enemyhitpoint -= damage;
-        enemyAnimator.SetTrigger("takeDamage");
+        chefLife -= playerDamage;                                                   // Vita dello Chef - Danni del Player
+        playerAction.chefAnimator.SetTrigger("TakeDamage");                         // Animazione danno allo Chef
 
+        // PUGNI FINALI
 
-        if (enemyhitpoint <= 0)
+        if (chefLife <= 0)
         {
-            enemyhitpoint = 0;
-            Debug.Log("YOU WON");
-            manager.BlockCoroutine();
-            Instantiate(impiatt, Vector3.zero, Quaternion.identity);
-            endGame = true;
-            hasWon = true;
+            chefLife = 0;
+            gameManager.BlockCoroutine();                                           // Blocca (currentCouroutine)
+
+            impiatta.enabled = true;                                                // Abilita l'immagine (impiatta)
+            impiatta.DOFade(0, 5);                                                  // Fade Out (impiatta)
+                                                           
+            isFinalPunches = true;                                                  // Attiva Pugni Finali        
         }
 
-        zoom.ZoomIn(direction);
-
-        EnemyHealthBar();
+        cameraZoom.ZoomIn(direction);                                               // Camera Zoom
+        ChefHealthBar();                                                            // Aggiorna la LifeBar dello Chef
     }
 }

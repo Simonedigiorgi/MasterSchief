@@ -1,82 +1,63 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
+[RequireComponent(typeof(AudioSource))]
 public class SoundManager : MonoBehaviour {
 
-    public AudioClip intro;
-    public AudioClip outro;
-    public AudioClip charged;
-    public AudioClip counter;
-    public AudioClip getReady;
+    [BoxGroup("Components")] public AudioSource soundManager;
+
+    [BoxGroup("Voci fuori campo")] public AudioClip getReady;
+
+    [BoxGroup("Voci dello Chef")] public AudioClip intro;
+    [BoxGroup("Voci dello Chef")] public AudioClip outro;
+    [BoxGroup("Voci dello Chef")] public AudioClip charged;
+    [BoxGroup("Voci dello Chef")] public AudioClip counter;
+    [BoxGroup("Voci dello Chef")] public AudioClip counterAttack;
+
 
     public AudioClip[] chefHits;
     public AudioClip[] punchHits;
 
-
-
-     public AudioSource introSource;
-    public AudioSource outroSource;
-    public AudioSource chargedSource;
-    public AudioSource counterSource;
-    public AudioSource getReadySource;
-
-    public AudioSource chefHitsSource;
-    public AudioSource punchHitsSource;
-
-
-
-
-	// Use this for initialization
-	void Start () {
-        //introSource = GameObject.Find("IntroSource").GetComponent<AudioSource>();
-        //outroSource = GameObject.Find("OutroSource").GetComponent<AudioSource>();
-        //chargedSource = GameObject.Find("ChargedSource").GetComponent<AudioSource>();
-        //counterSource = GameObject.Find("CounterSource").GetComponent<AudioSource>();
-        //getReadySource = GameObject.Find("GetReadySource").GetComponent<AudioSource>();
-        //chefHitsSource = GameObject.Find("ChefHitsSource").GetComponent<AudioSource>();
-        //punchHitsSource = GameObject.Find("PunchHitsSource").GetComponent<AudioSource>();
-
-    }
-
-
-
-
-
-
     public void PlayCharged()
     {
-        chargedSource.PlayOneShot(charged);
+        soundManager.PlayOneShot(charged);
     }
 
     public void PlayCounter()
     {
-        counterSource.PlayOneShot(counter);
+        soundManager.PlayOneShot(counter);
     }
     
     public void PlayChefHits()
     {
-        chefHitsSource.PlayOneShot(chefHits[Random.Range(0, chefHits.Length)]);
+        soundManager.PlayOneShot(chefHits[Random.Range(0, chefHits.Length)]);
     }
 
     public void PlayPunchHits()
     {
-        punchHitsSource.PlayOneShot(punchHits[Random.Range(0, punchHits.Length)]);
+        soundManager.PlayOneShot(punchHits[Random.Range(0, punchHits.Length)], 0.4f);
     }
 
     public void PlayIntro()
     {
-        introSource.PlayOneShot(intro);
+        soundManager.PlayOneShot(intro);
     }
 
     public void PlayOutro()
     {
-        outroSource.PlayOneShot(outro);
+        soundManager.PlayOneShot(outro);
     }
 
     public void PlayGetReady()
     {
-        getReadySource.PlayOneShot(getReady);
+        soundManager.PlayOneShot(getReady, 0.1f);
+    }
+
+    public void PlayCounterAttack()
+    {
+        soundManager.PlayOneShot(counterAttack);
     }
 
 }
