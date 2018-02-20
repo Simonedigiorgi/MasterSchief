@@ -6,35 +6,41 @@ using UnityEngine.UI;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 
+[RequireComponent(typeof(AudioSource))]
 public class GameManager : MonoBehaviour
 {
     public IEnumerator currentCoroutine;                                                            // COROUTINE
 
     private PlayerActions playerAction;                                                             // PLAYERACTION
-    private EventScript eventScript;                                                                // EVENTSCRIPT
     private HealthBar healthBar;                                                                    // HEALTHBAR
     private SoundManager soundManager;                                                              // SOUNDMANAGER
 
+    [InfoBox("Se il gioco crea un errore HealtBar.TakeDamage() riavviare Unity")]
+
     public GameObject[] buttonPunch;                                                                // Array dei Tasti
 
-    [BoxGroup("Animator")] public Animator chefAnimator;                                            // CHEFANIMATOR
+    [FoldoutGroup("Animator")] public Animator chefAnimator;                                        // CHEFANIMATOR
 
-    [BoxGroup("Immagini")] public Image fade;                                                       // Immagine di Fade
+    [FoldoutGroup("Immagini")] public Image fade;                                                   // Immagine di Fade
 
-    [BoxGroup("Controlli")] public float secondsBeforeStart;                                        // Secondi del primo attacco dello Chef (Inizio Partita)
-    [BoxGroup("Controlli")] public string nextScene = "";                                           // Prossima scena
+    [FoldoutGroup("Controlli")] public float startAfter;                                            // Secondi del primo attacco dello Chef (Inizio Partita)
+    [FoldoutGroup("Controlli")] public string nextScene = "";                                       // Prossima scena
 
-    [BoxGroup("Controller dei Tasti")] public float delayBetweenButtons = 1;                        // Tempo tra un tasto e l'altro
-    [BoxGroup("Controller dei Tasti")] public float buttonActiveTime = 1;                           // Quanto tempo i Bottoni rimangono a schermo prima di sparire
+    [InfoBox("Tempo di spawn tra un tasto e l'altro")]
+    [FoldoutGroup("Controller dei Tasti")] [Range(0.1f, 3)] public float buttonDelay = 1;           // Tempo di spawn tra un tasto e l'altro
+    [InfoBox("Quanto tempo i Bottoni rimangono a schermo prima di sparire")]
+    [FoldoutGroup("Controller dei Tasti")] [Range(1, 5)] public float buttonTime = 1;               // Quanto tempo i Bottoni rimangono a schermo prima di sparire
+    [InfoBox("Più vicino allo 0 aumenta la possibilità di Attacco dello Chef")]
+    [FoldoutGroup("Controller dei Tasti")] [Range(0, 1)] public float buttonEvent;                  // (Più vicino allo 0 aumenta la possibilità di Attacco dello Chef)
+    [InfoBox("Quanti tasti posso apparire insieme")]
+    [FoldoutGroup("Controller dei Tasti")] [Range(1, 6)] public int buttonSpawn;                    // Quanti tasti posso apparire insieme
 
-    [BoxGroup("Dimensione dei Tasti")] [Range(1, 7)] public int minButtonSpawnScale;                // Scala minima dei bottoni
-    [BoxGroup("Dimensione dei Tasti")] [Range(1, 7)] public int maxButtonSpawnScale;                // Scala massima dei bottoni
+    [FoldoutGroup("Dimensione dei Tasti")] [Range(1, 7)] public int minButtonScale;                 // Scala minima dei bottoni
+    [FoldoutGroup("Dimensione dei Tasti")] [Range(1, 7)] public int maxButtonScale;                 // Scala massima dei bottoni
 
-    [BoxGroup("Controller dei Tasti")] [Range(0, 1)] public float buttonEventChance;                // (Più vicino allo 0 aumenta la possibilità di Attacco dello Chef)
-    [BoxGroup("Controller dei Tasti")] [Range(1, 6)] public int maxButtonSpawnAmountPerEvent;       // Quanti tasti posso apparire insieme
 
-    [BoxGroup("Pestata Finale")] public int clickCounter = 0;                                       // Conteggio dei Pugni finali
-    [BoxGroup("Pestata Finale")] public int finalPunches;                                           // Click della scazzottata finale
+    [FoldoutGroup("Pestata Finale")] public int clickCounter = 0;                                   // Conteggio dei Pugni finali
+    [FoldoutGroup("Pestata Finale")] public int finalPunches;                                       // Click della scazzottata finale
 
 
     private void Start()
@@ -44,7 +50,6 @@ public class GameManager : MonoBehaviour
 
         playerAction = FindObjectOfType<PlayerActions>();
         healthBar = FindObjectOfType<HealthBar>();
-        eventScript = FindObjectOfType<EventScript>();
         soundManager = FindObjectOfType<SoundManager>();
 
         // Disattiva i Bottoni
@@ -64,10 +69,11 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(4);
 
         soundManager.PlayIntro();
+
+        yield return new WaitForSeconds(startAfter);
         playerAction.isActive = true;
 
-        yield return new WaitForSeconds(secondsBeforeStart);
-        if (Random.value <= buttonEventChance)
+        if (Random.value <= buttonEvent)
         {
             currentCoroutine = YouPunch();
             StartCoroutine(currentCoroutine);
@@ -82,19 +88,19 @@ public class GameManager : MonoBehaviour
     public IEnumerator YouPunch()
     {
         float nextCoroutine = 0;
-        int value = Random.Range(1, maxButtonSpawnAmountPerEvent);
+        int value = Random.Range(1, buttonSpawn);
 
         for(int i = 0; i < value; i++)
         {
             GetRandomButton().SetActive(true);
-            yield return new WaitForSeconds(delayBetweenButtons);
+            yield return new WaitForSeconds(buttonDelay);
         }
         
-        nextCoroutine += delayBetweenButtons > buttonActiveTime ? 0 : buttonActiveTime - delayBetweenButtons;
+        nextCoroutine += buttonDelay > buttonTime ? 0 : buttonTime - buttonDelay;
 
         yield return new WaitForSeconds(nextCoroutine);
 
-        if (Random.value <= buttonEventChance)
+        if (Random.value <= buttonEvent)
         {
             currentCoroutine = YouPunch();
             StartCoroutine(currentCoroutine);
@@ -104,7 +110,6 @@ public class GameManager : MonoBehaviour
             currentCoroutine = YouParry();
             StartCoroutine(currentCoroutine);
         }
-
     }
 
     public GameObject GetRandomButton()
@@ -117,7 +122,7 @@ public class GameManager : MonoBehaviour
 
         // Dimesione dei Tasti
 
-        float size = Random.Range(minButtonSpawnScale, maxButtonSpawnScale);
+        float size = Random.Range(minButtonScale, maxButtonScale);
         buttonPunch[index].transform.localScale = new Vector3(size, size, 1);
         return buttonPunch[index];
     }
@@ -153,7 +158,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.3f);
 
-        if (Random.value <= buttonEventChance)
+        if (Random.value <= buttonEvent)
         {
             currentCoroutine = YouPunch();
             StartCoroutine(currentCoroutine);
@@ -168,7 +173,6 @@ public class GameManager : MonoBehaviour
 
     public void BlockCoroutine()
     {
-        //Debug.Log(currentCoroutine.ToString());
         StopCoroutine(currentCoroutine);
     }
 

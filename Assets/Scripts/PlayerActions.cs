@@ -1,9 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using Sirenix.OdinInspector;
 
 public class PlayerActions : MonoBehaviour {
@@ -29,7 +26,6 @@ public class PlayerActions : MonoBehaviour {
     [BoxGroup("Scritte Infami")] public GameObject parata;                                                  // Scritte infami (Parata)
     [BoxGroup("Scritte Infami")] public GameObject[] chefPunch;                                             // Scritte infami (Chef) - 2
     [BoxGroup("Scritte Infami")] public GameObject[] playerPunch;                                           // Scritte infami (Player) - 3
-
 
     private float parryTimer = 0;                                                                           // Lasciare a 0 
     private float canParryTimer = 0;                                                                        // Lasciare a 0 (Viene aumentato da un Time.deltatime)
@@ -96,7 +92,7 @@ public class PlayerActions : MonoBehaviour {
 
     public void SpawnParat()
     {
-        GameObject spawn = Instantiate(parata, pointPos);
+        Instantiate(parata, pointPos);
     }
 
     // Audio Pugni
@@ -135,7 +131,6 @@ public class PlayerActions : MonoBehaviour {
                 {
                     if (healthBar.isFinalPunches == true)
                     {
-
                         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10)), Camera.main.transform.forward, enemyMask);
 
                         if (hit.collider != null)
@@ -246,7 +241,6 @@ public class PlayerActions : MonoBehaviour {
 
         leftArmAnimator.SetBool("Parry", isParrying);
         rightArmAnimator.SetBool("Parry", isParrying);
-
 
         canParryTimer += Time.deltaTime;
 

@@ -11,7 +11,7 @@ public class HealthBar : MonoBehaviour {
     private GameManager gameManager;                                                // GAMEMANAGER
     private PlayerActions playerAction;                                             // PLAYERACTION
     private CameraShake cameraShake;                                                // CAMERASHAKE
-
+    
     [FoldoutGroup("Immagini")] public Image impiatta;                               // Immagine di Impiatt!
     [FoldoutGroup("Immagini")] public Image playerHealth;                           // Barra dell'energia del Player
     [FoldoutGroup("Immagini")] public Image chefHealth;                             // Barra dell'energia dello Chef

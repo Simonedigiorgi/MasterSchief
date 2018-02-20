@@ -28,7 +28,7 @@ public class ButtonCountdown : MonoBehaviour {
 
         // Alla sparizione del Tasto
 
-        if((timer > gameManager.buttonActiveTime) && playerAction.isActive == true)
+        if((timer > gameManager.buttonTime) && playerAction.isActive == true)
         {
             gameObject.SetActive(false);
             gameManager.chefAnimator.Play("CounterAttack");
