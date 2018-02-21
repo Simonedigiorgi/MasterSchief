@@ -931,11 +931,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 614b5897270abf04aa38c81429522e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
+  getReady: {fileID: 8300000, guid: ed8c7dec9ae318d4291bac3ba0af6d72, type: 3}
   intro: {fileID: 8300000, guid: 2594e41a646980d48b8bf16704ff378a, type: 3}
   outro: {fileID: 8300000, guid: c44e8e4f5ce72e342bfedcf9f816d5bd, type: 3}
   charged: {fileID: 8300000, guid: 2e3233a3fb6bdd645bf1c437a2acdae7, type: 3}
   counter: {fileID: 8300000, guid: a0942e70aff753b41b18c6b60d16b3e5, type: 3}
-  getReady: {fileID: 8300000, guid: ed8c7dec9ae318d4291bac3ba0af6d72, type: 3}
+  counterAttack: {fileID: 0}
   chefHits:
   - {fileID: 8300000, guid: 3c0f27affeb5c4143b174c866226b97d, type: 3}
   - {fileID: 8300000, guid: c44e8e4f5ce72e342bfedcf9f816d5bd, type: 3}

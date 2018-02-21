@@ -284,17 +284,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startgamePivot: {fileID: 2000080749}
-  smash: {fileID: 8300000, guid: 0c4a2fb1c2233f74c9c4143294ac2c5d, type: 3}
-  punch: {fileID: 8300000, guid: 2dae5de672779a14b91cdea63cc253f8, type: 3}
-  voice1: {fileID: 8300000, guid: 4a4bc064c03ac2d4bb5d2ee4fd27f990, type: 3}
-  voice2: {fileID: 8300000, guid: 6266ebd85a7068d48b0bbd8ccfdb20a7, type: 3}
-  voice3: {fileID: 8300000, guid: 8cb5c472f94c57f40a60a06004decb43, type: 3}
-  voice4: {fileID: 8300000, guid: 9143c561a6615c54d8fef91ea48a8eed, type: 3}
-  music: {fileID: 8300000, guid: 3b66eb912f8c0da4aa087ecc5ef5ce6c, type: 3}
-  newGame: {fileID: 1304720120}
-  controls: {fileID: 1570718792}
-  credits: {fileID: 1853134584}
-  quit: {fileID: 1829401039}
+  audioVoices:
+  - {fileID: 8300000, guid: 4a4bc064c03ac2d4bb5d2ee4fd27f990, type: 3}
+  - {fileID: 8300000, guid: 6266ebd85a7068d48b0bbd8ccfdb20a7, type: 3}
+  - {fileID: 8300000, guid: 8cb5c472f94c57f40a60a06004decb43, type: 3}
+  - {fileID: 8300000, guid: 9143c561a6615c54d8fef91ea48a8eed, type: 3}
+  audioEffects:
+  - {fileID: 8300000, guid: 0c4a2fb1c2233f74c9c4143294ac2c5d, type: 3}
+  - {fileID: 8300000, guid: 2dae5de672779a14b91cdea63cc253f8, type: 3}
+  gameButtons:
+  - {fileID: 1304720120}
+  - {fileID: 1570718792}
+  - {fileID: 1853134584}
+  - {fileID: 1829401039}
   newGameClick: {fileID: 1720349022}
   controlClick: {fileID: 193739140}
   creditsClick: {fileID: 559977578}
@@ -328,9 +330,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3b66eb912f8c0da4aa087ecc5ef5ce6c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0

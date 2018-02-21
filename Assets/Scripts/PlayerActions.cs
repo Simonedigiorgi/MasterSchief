@@ -36,8 +36,8 @@ public class PlayerActions : MonoBehaviour {
     private bool isLevelFailed = false;                                                                     // Livello fallito
     private bool isToggle = false;                                                                          // Toggle di animazione tra Pungno sinistro/destro
 
-    [BoxGroup("Debug")] public bool isParrying = false;                                                      // Il Player sta parando
-    [BoxGroup("Debug")] public bool isActive = false;                                                        // Attiva il Player
+    [BoxGroup("Debug")] public bool isParrying = false;                                                     // Il Player sta parando
+    [BoxGroup("Debug")] public bool isActive = false;                                                       // Attiva il Player
 
     [HideInInspector] public bool canParry = true;
 

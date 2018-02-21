@@ -1248,6 +1248,11 @@ Prefab:
       propertyPath: chefLife
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 114031124646265248, guid: 7d55b782acf9298499eea48105e71d05,
+        type: 2}
+      propertyPath: isFinalPunches
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114042144327397108, guid: 7d55b782acf9298499eea48105e71d05, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7d55b782acf9298499eea48105e71d05, type: 2}

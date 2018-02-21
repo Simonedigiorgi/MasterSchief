@@ -5,24 +5,22 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 
+[RequireComponent(typeof(AudioSource))]
 public class MenuManager : MonoBehaviour {
 
     public Transform startgamePivot;
 
     private AudioSource source;
-    public AudioClip smash;
-    public AudioClip punch;
-    public AudioClip voice1;
-    public AudioClip voice2;
-    public AudioClip voice3;
-    public AudioClip voice4;
-    public AudioClip music;
 
+    public AudioClip[] audioVoices;
+    public AudioClip[] audioEffects;
 
-    public Button newGame;
-    public Button controls;
-    public Button credits;
-    public Button quit;
+    public Button[] gameButtons;                                                            // New Game, Controls, Credits, Quit
+
+    //public Button newGame;
+    //public Button controls;
+    //public Button credits;
+    //public Button quit;
 
     public Image newGameClick;
     public Image controlClick;
@@ -41,53 +39,40 @@ public class MenuManager : MonoBehaviour {
 
     Vector3 startPos;
 
-    Vector3 creditsStartPos;
-    Vector3 controlsStartPos;
+    /*Vector3 creditsStartPos;
+    Vector3 controlsStartPos;*/
 
     void Start () {
+
         source = GetComponent<AudioSource>();
+
         fade.enabled = false;
         fade.DOFade(0, 0);
-        source.PlayOneShot(music, 0.3f);
+        //source.PlayOneShot(audioEffects[0], 0.3f);
         startPos = startgamePivot.position;
-        creditsStartPos = crdst.position;
-        controlsStartPos = cntrls.position;
+        /*creditsStartPos = crdst.position;
+        controlsStartPos = cntrls.position;*/
     }
 
-    void Update () {
-
-
-	}
+    #region OnClick
 
     public void StartGame()
     {
-        source.PlayOneShot(voice1, 5.5f);
-        source.PlayOneShot(punch, 0.4f);
-        source.PlayOneShot(smash, 0.3f);
         StartCoroutine(StartGameRoutine());
     }
 
     public void Controls()
     {
-        source.PlayOneShot(voice2, 5.5f);
-        source.PlayOneShot(punch, 0.4f);
-        source.PlayOneShot(smash, 0.3f);
         StartCoroutine(ControlsRoutine());
     }
 
     public void Credits()
     {
-        source.PlayOneShot(voice3, 5.5f);
-        source.PlayOneShot(punch, 0.4f);
-        source.PlayOneShot(smash, 0.3f);
         StartCoroutine(CreditsRoutine());
     }
 
     public void Quit()
     {
-        source.PlayOneShot(voice4, 5.5f);
-        source.PlayOneShot(punch, 0.4f);
-        source.PlayOneShot(smash, 0.3f);
         StartCoroutine(QuitRoutine());
     }
 
@@ -100,16 +85,23 @@ public class MenuManager : MonoBehaviour {
     {
         StartCoroutine(BackCreditsCoroutine());
     }
+    #endregion
 
     public IEnumerator StartGameRoutine()
     {
+        source.PlayOneShot(audioVoices[0], 5.5f);
+
+        PlayAudioEffects();
+
+
         fade.enabled = true;
         newGameClick.enabled = true;
-        newGame.enabled = false;
-        controls.enabled = false;
-        quit.enabled = false;
+        gameButtons[0].enabled = false;
+        //newGame.enabled = false;
+        gameButtons[1].enabled = false;
+        gameButtons[3].enabled = false;
 
-        newGame.image.enabled = false;
+        gameButtons[0].image.enabled = false;
         newGameHand.enabled = true;
         yield return new WaitForSeconds(2.0f);
         fade.DOFade(1, 2);
@@ -119,12 +111,17 @@ public class MenuManager : MonoBehaviour {
 
     public IEnumerator ControlsRoutine()
     {
-        newGame.enabled = false;
+        source.PlayOneShot(audioVoices[1], 5.5f);
+        PlayAudioEffects();
+
+        AllButtonsDisable();
+
+        /*newGame.enabled = false;
         controls.enabled = false;
         credits.enabled = false;
-        quit.enabled = false;
+        quit.enabled = false;*/
 
-        controls.image.enabled = false;
+        gameButtons[1].image.enabled = false;
         controlHand.enabled = true;
         controlClick.enabled = true;
         yield return new WaitForSeconds(1.0f);
@@ -134,12 +131,17 @@ public class MenuManager : MonoBehaviour {
 
     public IEnumerator CreditsRoutine()
     {
-        newGame.enabled = false;
+        source.PlayOneShot(audioVoices[2], 5.5f);
+        PlayAudioEffects();
+
+        AllButtonsDisable();
+
+        /*newGame.enabled = false;
         controls.enabled = false;
         credits.enabled = false;
-        quit.enabled = false;
+        quit.enabled = false;*/
 
-        credits.image.enabled = false;
+        gameButtons[2].image.enabled = false;
         creditsHand.enabled = true;
         creditsClick.enabled = true;
         yield return new WaitForSeconds(1.0f);
@@ -150,12 +152,15 @@ public class MenuManager : MonoBehaviour {
 
     public IEnumerator QuitRoutine()
     {
-        quitClick.enabled = true;
-        newGame.enabled = false;
-        controls.enabled = false;
-        quit.enabled = false;
+        source.PlayOneShot(audioVoices[3], 5.5f);
+        PlayAudioEffects();
 
-        quit.image.enabled = false;
+        quitClick.enabled = true;
+        gameButtons[0].enabled = false;
+        gameButtons[1].enabled = false;
+        gameButtons[3].enabled = false;
+
+        gameButtons[3].image.enabled = false;
         quitHand.enabled = true;
         quitClick.enabled = true;
         yield return new WaitForSeconds(2.0f);
@@ -168,12 +173,14 @@ public class MenuManager : MonoBehaviour {
 
     public IEnumerator BackCoroutine()
     {
-        newGame.enabled = true;
+        AllButtonsEnable();
+
+        /*newGame.enabled = true;
         controls.enabled = true;
         credits.enabled = true;
-        quit.enabled = true;
+        quit.enabled = true;*/
 
-        controls.image.enabled = true;
+        gameButtons[1].image.enabled = true;
         controlHand.enabled = false;
         controlClick.enabled = false;
         startgamePivot.DOMove(startPos,0.8f);
@@ -182,15 +189,39 @@ public class MenuManager : MonoBehaviour {
 
     public IEnumerator BackCreditsCoroutine()
     {
-        newGame.enabled = true;
+        AllButtonsEnable();
+
+        /*newGame.enabled = true;
         controls.enabled = true;
         credits.enabled = true;
-        quit.enabled = true;
+        quit.enabled = true;*/
 
-        credits.image.enabled = true;
+        gameButtons[2].image.enabled = true;
         creditsHand.enabled = false;
         creditsClick.enabled = false;
         startgamePivot.DOMove(startPos, 0.8f);
         yield return null;
+    }
+
+    private void AllButtonsEnable()
+    {
+        foreach (Button button in gameButtons)
+        {
+            button.enabled = true;
+        }
+    }
+
+    private void AllButtonsDisable()
+    {
+        foreach (Button button in gameButtons)
+        {
+            button.enabled = false;
+        }
+    }
+
+    private void PlayAudioEffects()
+    {
+        source.PlayOneShot(audioEffects[0], 0.3f);
+        source.PlayOneShot(audioEffects[1], 0.4f);
     }
 }
