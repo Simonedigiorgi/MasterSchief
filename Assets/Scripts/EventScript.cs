@@ -21,8 +21,7 @@ public class EventScript : MonoBehaviour {
         {
             gameManager.currentCoroutine = gameManager.CheckIfParrying();
             StartCoroutine(gameManager.currentCoroutine);
-        }
-       
+        } 
     }
 
     // DANNEGGIA IL PLAYER

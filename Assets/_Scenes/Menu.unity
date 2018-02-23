@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 185504188}
   - component: {fileID: 185504187}
   - component: {fileID: 185504189}
+  - component: {fileID: 185504190}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -283,7 +284,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6783649885c8bed4b8b24edc65d852c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startgamePivot: {fileID: 2000080749}
+  pivot: {fileID: 2000080749}
+  fade: {fileID: 116222350}
+  gameButtons:
+  - {fileID: 1304720120}
+  - {fileID: 1570718792}
+  - {fileID: 1853134584}
+  - {fileID: 1829401039}
   audioVoices:
   - {fileID: 8300000, guid: 4a4bc064c03ac2d4bb5d2ee4fd27f990, type: 3}
   - {fileID: 8300000, guid: 6266ebd85a7068d48b0bbd8ccfdb20a7, type: 3}
@@ -292,22 +299,6 @@ MonoBehaviour:
   audioEffects:
   - {fileID: 8300000, guid: 0c4a2fb1c2233f74c9c4143294ac2c5d, type: 3}
   - {fileID: 8300000, guid: 2dae5de672779a14b91cdea63cc253f8, type: 3}
-  gameButtons:
-  - {fileID: 1304720120}
-  - {fileID: 1570718792}
-  - {fileID: 1853134584}
-  - {fileID: 1829401039}
-  newGameClick: {fileID: 1720349022}
-  controlClick: {fileID: 193739140}
-  creditsClick: {fileID: 559977578}
-  quitClick: {fileID: 1237867182}
-  newGameHand: {fileID: 369634850}
-  controlHand: {fileID: 1163616637}
-  creditsHand: {fileID: 1853955341}
-  quitHand: {fileID: 487863111}
-  fade: {fileID: 116222350}
-  crdst: {fileID: 844338273}
-  cntrls: {fileID: 2043395092}
 --- !u!4 &185504188
 Transform:
   m_ObjectHideFlags: 0
@@ -401,6 +392,48 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!212 &185504190
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 185504186}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2, y: 1.5}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
 --- !u!1 &193739138
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +445,7 @@ GameObject:
   - component: {fileID: 193739141}
   - component: {fileID: 193739140}
   m_Layer: 5
-  m_Name: ControlClick
+  m_Name: Image_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -481,7 +514,7 @@ GameObject:
   - component: {fileID: 224284923}
   - component: {fileID: 224284922}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -676,7 +709,7 @@ GameObject:
   - component: {fileID: 369634851}
   - component: {fileID: 369634850}
   m_Layer: 5
-  m_Name: NewGameHand
+  m_Name: Image_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -726,7 +759,7 @@ RectTransform:
   m_LocalScale: {x: 2, y: 2, z: 0.99999994}
   m_Children: []
   m_Father: {fileID: 1304720119}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -806,7 +839,7 @@ GameObject:
   - component: {fileID: 487863112}
   - component: {fileID: 487863111}
   m_Layer: 5
-  m_Name: QuitHand
+  m_Name: Image_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -856,7 +889,7 @@ RectTransform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1829401038}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -874,7 +907,7 @@ GameObject:
   - component: {fileID: 559977579}
   - component: {fileID: 559977578}
   m_Layer: 5
-  m_Name: CreditsClick
+  m_Name: Image_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -959,7 +992,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1304720119}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1016,7 +1049,7 @@ GameObject:
   - component: {fileID: 828892017}
   - component: {fileID: 828892016}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1084,7 +1117,7 @@ GameObject:
   - component: {fileID: 844338275}
   - component: {fileID: 844338274}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Credits_List
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1193,7 +1226,7 @@ GameObject:
   - component: {fileID: 1157267048}
   - component: {fileID: 1157267047}
   m_Layer: 5
-  m_Name: Controls
+  m_Name: ControlTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1267,7 +1300,7 @@ GameObject:
   - component: {fileID: 1163616638}
   - component: {fileID: 1163616637}
   m_Layer: 5
-  m_Name: ControlHand
+  m_Name: Image_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1317,7 +1350,7 @@ RectTransform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1570718791}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1420,7 +1453,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1570718791}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1568,7 +1601,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1853134583}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1625,7 +1658,7 @@ GameObject:
   - component: {fileID: 1237867183}
   - component: {fileID: 1237867182}
   m_Layer: 5
-  m_Name: QuitClick
+  m_Name: Image_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1807,8 +1840,8 @@ RectTransform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 1720349024}
-  - {fileID: 827651427}
   - {fileID: 369634852}
+  - {fileID: 827651427}
   m_Father: {fileID: 2000080749}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2035,7 +2068,7 @@ GameObject:
   - component: {fileID: 1543991876}
   - component: {fileID: 1543991875}
   m_Layer: 5
-  m_Name: MasterSchiaff
+  m_Name: Logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2121,8 +2154,8 @@ RectTransform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 193739139}
-  - {fileID: 1171595732}
   - {fileID: 1163616639}
+  - {fileID: 1171595732}
   m_Father: {fileID: 2000080749}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2227,7 +2260,7 @@ GameObject:
   - component: {fileID: 1720349023}
   - component: {fileID: 1720349022}
   m_Layer: 5
-  m_Name: NewGameClick
+  m_Name: Image_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2461,8 +2494,8 @@ RectTransform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 1237867181}
-  - {fileID: 2099206018}
   - {fileID: 487863113}
+  - {fileID: 2099206018}
   m_Father: {fileID: 2000080749}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2585,8 +2618,8 @@ RectTransform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 559977577}
-  - {fileID: 1214449986}
   - {fileID: 1853955343}
+  - {fileID: 1214449986}
   - {fileID: 844338273}
   - {fileID: 224284921}
   m_Father: {fileID: 2000080749}
@@ -2782,7 +2815,7 @@ GameObject:
   - component: {fileID: 1853955342}
   - component: {fileID: 1853955341}
   m_Layer: 5
-  m_Name: CreditsHand
+  m_Name: Image_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2832,7 +2865,7 @@ RectTransform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1853134583}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2922,7 +2955,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2000080749}
   m_Layer: 5
-  m_Name: MenuStartPivot
+  m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3054,7 +3087,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1829401038}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
