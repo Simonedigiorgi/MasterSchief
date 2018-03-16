@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4534931159405128}
   - component: {fileID: 114670328520634788}
+  - component: {fileID: 114388691076760436}
+  - component: {fileID: 82743259909001320}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -40,6 +42,105 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &82743259909001320
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1177754133266576}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &114388691076760436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1177754133266576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c0395ca89273ea4bb49aea16163d142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impiatta: {fileID: 0}
+  playerHealth: {fileID: 0}
+  chefHealth: {fileID: 0}
+  playerLife: 60
+  chefLife: 60
+  playerDamage: 10
+  chefDamage: 10
+  isFinalPunches: 0
 --- !u!114 &114670328520634788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -51,8 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1eb9b1ddf2f90147846a07a6ff915e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAnimator: {fileID: 0}
-  player: {fileID: 0}
   buttonPunch:
   - {fileID: 0}
   - {fileID: 0}
@@ -60,14 +159,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  secondsBeforeStart: 3
-  delayBetweenButtons: 2
-  buttonActiveTime: 2
-  minButtonSpawnScale: 6
-  maxButtonSpawnScale: 7.5
-  buttonEventChance: 0.65
-  maxButtonSpawnAmountPerEvent: 4
-  craccoLaserino: {fileID: 1429178736245778, guid: 7d0df991fe3afb64d9b383f93eb4d648,
-    type: 2}
-  craccoCharge: {fileID: 1415550220348622, guid: 74e3053aedc83194cbdfca0ea3dd310c,
-    type: 2}
+  chefAnimator: {fileID: 0}
+  fade: {fileID: 0}
+  startAfter: 3
+  nextScene: Bastianich
+  buttonDelay: 1
+  buttonTime: 1.6
+  buttonEvent: 0.6
+  buttonSpawn: 4
+  minButtonScale: 5
+  maxButtonScale: 7
+  clickCounter: 0
+  finalPunches: 10
