@@ -14,8 +14,6 @@ public class IntroScript : MonoBehaviour {
 
     public AudioClip masterschiaff;
 
-    public Button skipButton;
-
     public Text introText;
     public Text testo1;
     public Text testo2;
@@ -37,8 +35,6 @@ public class IntroScript : MonoBehaviour {
         source = GetComponent<AudioSource>();
         source.clip = movie.audioClip;
 
-        skipButton.gameObject.SetActive(false);
-
         fade.DOFade(0, 0);
         fade.enabled = false;
 
@@ -57,13 +53,11 @@ public class IntroScript : MonoBehaviour {
 	}
 	
 	void Update () {
-		
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            StartCoroutine(SkipCoroutine());
+        }
 	}
-
-    public void Skip()
-    {
-        StartCoroutine(SkipCoroutine());
-    }
 
     public IEnumerator Intro()
     {
@@ -74,7 +68,6 @@ public class IntroScript : MonoBehaviour {
         yield return new WaitForSeconds(3.0f);
         fade.enabled = false;
 
-        skipButton.gameObject.SetActive(true);
         black.enabled = false;
         movie.Play();
         source.Play();
@@ -126,7 +119,7 @@ public class IntroScript : MonoBehaviour {
         fade.enabled = true;
         fade.DOFade(1, 1);
         movie.Pause();
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene("Menu");
     }
 }
