@@ -136,12 +136,13 @@ MonoBehaviour:
   impiatta: {fileID: 0}
   playerHealth: {fileID: 0}
   chefHealth: {fileID: 0}
+  chefPanel: {fileID: 0}
   playerText: {fileID: 0}
   chefText: {fileID: 0}
   playerLife: 60
   chefLife: 60
-  playerDamage: 10
-  chefDamage: 10
+  playerDamage: 5
+  chefDamage: 5
   isFinalPunches: 0
 --- !u!114 &114670328520634788
 MonoBehaviour:
@@ -169,7 +170,7 @@ MonoBehaviour:
   buttonTime: 1.6
   buttonEvent: 0.6
   buttonSpawn: 4
-  minButtonScale: 5
-  maxButtonScale: 7
+  minButtonScale: 1
+  maxButtonScale: 1
   clickCounter: 0
   finalPunches: 10

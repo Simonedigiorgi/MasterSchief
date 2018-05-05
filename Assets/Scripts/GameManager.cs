@@ -60,6 +60,30 @@ public class GameManager : MonoBehaviour
         }
 
         StartCoroutine(SecondsBeforeStart());
+
+        // If Player has Controller Active (Icons Image)
+
+        if (playerAction.isController)
+        {
+            buttonPunch[0].transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            buttonPunch[1].transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            buttonPunch[2].transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            buttonPunch[3].transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            buttonPunch[4].transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            buttonPunch[5].transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        }
+
+        // If Player has Mouse Active (Icons Image)
+
+        if (playerAction.isMouse)
+        {
+            buttonPunch[0].GetComponent<SpriteRenderer>().enabled = true;
+            buttonPunch[1].GetComponent<SpriteRenderer>().enabled = true;
+            buttonPunch[2].GetComponent<SpriteRenderer>().enabled = true;
+            buttonPunch[3].GetComponent<SpriteRenderer>().enabled = true;
+            buttonPunch[4].GetComponent<SpriteRenderer>().enabled = true;
+            buttonPunch[5].GetComponent<SpriteRenderer>().enabled = true;
+        }
     }
 
     public IEnumerator SecondsBeforeStart()
@@ -122,8 +146,8 @@ public class GameManager : MonoBehaviour
 
         // Dimesione dei Tasti
 
-        float size = Random.Range(minButtonScale, maxButtonScale);
-        buttonPunch[index].transform.localScale = new Vector3(size, size, 1);
+        /*float size = Random.Range(minButtonScale, maxButtonScale);
+        buttonPunch[index].transform.localScale = new Vector3(size, size, 1);*/
         return buttonPunch[index];
     }
 

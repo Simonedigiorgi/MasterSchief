@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 
 public class PlayerActions : MonoBehaviour
@@ -46,8 +47,8 @@ public class PlayerActions : MonoBehaviour
 
     void Start()
     {
-        isController = true;
-        isMouse = true;
+        /*isController = true;
+        isMouse = true;*/
 
         leftPos = GameObject.Find("leftPos").transform;
         rightPos = GameObject.Find("rightPos").transform;
@@ -127,6 +128,21 @@ public class PlayerActions : MonoBehaviour
 
     void Update()
     {
+        // SELEZIONA CONTROLLER || MOUSE
+
+        /*if (isController)
+        {
+            isMouse = false;
+            isController = true;
+        }
+
+        else if (isMouse)
+        {
+            isController = false;
+            isMouse = true;
+        }*/
+
+
         // CONTROLLI DEL GIOCATORE
 
         if (isActive == true)
@@ -214,6 +230,9 @@ public class PlayerActions : MonoBehaviour
                             chefAnimator.SetTrigger("TakeDamage");
                             gameManager.clickCounter++;
 
+                            healthBar.chefText.transform.DOShakePosition(0.7f, 12f);                              // Shake the Chef Text
+                            healthBar.chefPanel.transform.DOShakePosition(0.7f, 12f);                             // Shake the Chef Bar
+
                             if (gameManager.clickCounter >= gameManager.finalPunches)
                             {
                                 chefAnimator.SetTrigger("Rotto");
@@ -268,6 +287,8 @@ public class PlayerActions : MonoBehaviour
 
                                 chefAnimator.SetTrigger("TakeDamage");
                                 gameManager.clickCounter++;
+
+                                healthBar.chefText.transform.DOShakePosition(0.7f, 12f);                              // Shake the Chef Text
 
                                 if (gameManager.clickCounter >= gameManager.finalPunches)
                                 {

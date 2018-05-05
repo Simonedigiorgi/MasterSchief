@@ -15,6 +15,7 @@ public class HealthBar : MonoBehaviour {
     [FoldoutGroup("Immagini")] public Image impiatta;                               // Immagine di Impiatt!
     [FoldoutGroup("Immagini")] public Image playerHealth;                           // Barra dell'energia del Player
     [FoldoutGroup("Immagini")] public Image chefHealth;                             // Barra dell'energia dello Chef
+    [FoldoutGroup("Immagini")] public Image chefPanel;                              // Barra dietro l'energia dello Chef
 
     [FoldoutGroup("Testi")] public Text playerText;                                 // Testo Player
     [FoldoutGroup("Testi")] public Text chefText;                                   // Testo Chef
@@ -65,6 +66,7 @@ public class HealthBar : MonoBehaviour {
     {
         cameraShake.ShakeCamera(5, 0.5f);                                           // Shake Camera             
         playerLife -= chefDamage;                                                   // Take Damage
+
         playerHealth.transform.DOShakePosition(0.7f, 12f);                          // Shake the Player Image
         playerText.transform.DOShakePosition(0.7f, 12f);                            // Shake the Player Text
 
@@ -86,6 +88,7 @@ public class HealthBar : MonoBehaviour {
     {
         chefLife -= playerDamage;                                                   // Vita dello Chef - Danni del Player
         playerAction.chefAnimator.SetTrigger("TakeDamage");                         // Animazione danno allo Chef
+
         chefHealth.transform.DOShakePosition(0.7f, 12f);                            // Shake the Player Image
         chefText.transform.DOShakePosition(0.7f, 12f);                              // Shake the Player Text
 
