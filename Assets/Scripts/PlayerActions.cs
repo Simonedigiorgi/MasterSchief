@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-public class PlayerActions : MonoBehaviour {
-
+public class PlayerActions : MonoBehaviour
+{
     [HideInInspector] public LayerMask buttonMask;
     [HideInInspector] public LayerMask enemyMask;
 
@@ -36,12 +36,18 @@ public class PlayerActions : MonoBehaviour {
     private bool isLevelFailed = false;                                                                     // Livello fallito
     private bool isToggle = false;                                                                          // Toggle di animazione tra Pungno sinistro/destro
 
+    [BoxGroup(" Platform Controls")] public bool isController;                                              // Usa il Keyboard o il Controller Xbox
+    [BoxGroup(" Platform Controls")] public bool isMouse;                                                   // Usa il Mouse
+
     [BoxGroup("Debug")] public bool isParrying = false;                                                     // Il Player sta parando
     [BoxGroup("Debug")] public bool isActive = false;                                                       // Attiva il Player
 
     [HideInInspector] public bool canParry = true;
 
-	void Start () {
+    void Start()
+    {
+        isController = true;
+        isMouse = true;
 
         leftPos = GameObject.Find("leftPos").transform;
         rightPos = GameObject.Find("rightPos").transform;
@@ -74,7 +80,7 @@ public class PlayerActions : MonoBehaviour {
 
     public void SpawnPlayerInfame()
     {
-        if(Random.value > 0.5f)
+        if (Random.value > 0.5f)
         {
             GameObject s = Instantiate(playerPunch[Random.Range(0, playerPunch.Length)], rightPos);
             s.transform.position += new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
@@ -119,21 +125,76 @@ public class PlayerActions : MonoBehaviour {
         soundManager.PlayOutro();
     }
 
-    void Update () {
-
+    void Update()
+    {
         // CONTROLLI DEL GIOCATORE
 
-        if(isActive == true)
+        if (isActive == true)
         {
-            if (Input.GetMouseButtonDown(0))
+            // Xbox Controller
+
+            if (isController)
             {
-                if (healthBar.chefLife == 0 && isLevelComplete == false && isLevelFailed == false)
+                if (isParrying == false && healthBar.playerLife != 0)
+                {
+                    // Left buttons
+
+                    if (Input.GetButtonDown("Button Up/Left") && gameManager.buttonPunch[0].activeSelf)
+                    {
+                        leftArmAnimator.SetTrigger("Punch");
+                        gameManager.buttonPunch[0].gameObject.SetActive(false);
+                        healthBar.ChefDamage("left");
+                        SpawnPlayerInfame();
+                    }
+
+                    if (Input.GetButtonDown("Button Middle/Left") && gameManager.buttonPunch[1].activeSelf)
+                    {
+                        leftArmAnimator.SetTrigger("Punch");
+                        gameManager.buttonPunch[1].gameObject.SetActive(false);
+                        healthBar.ChefDamage("left");
+                        SpawnPlayerInfame();
+                    }
+
+                    if (Input.GetButtonDown("Button Down/Left") && gameManager.buttonPunch[2].activeSelf)
+                    {
+                        leftArmAnimator.SetTrigger("Punch");
+                        gameManager.buttonPunch[2].gameObject.SetActive(false);
+                        healthBar.ChefDamage("left");
+                        SpawnPlayerInfame();
+                    }
+
+                    // Right buttons
+
+                    if (Input.GetButtonDown("Button Up/Right") && gameManager.buttonPunch[3].activeSelf)
+                    {
+                        rightArmAnimator.SetTrigger("Punch");
+                        gameManager.buttonPunch[3].gameObject.SetActive(false);
+                        healthBar.ChefDamage("right");
+                        SpawnPlayerInfame();
+                    }
+
+                    if (Input.GetButtonDown("Button Middle/Right") && gameManager.buttonPunch[4].activeSelf)
+                    {
+                        rightArmAnimator.SetTrigger("Punch");
+                        gameManager.buttonPunch[4].gameObject.SetActive(false);
+                        healthBar.ChefDamage("right");
+                        SpawnPlayerInfame();
+                    }
+
+                    if (Input.GetButtonDown("Button Down/Right") && gameManager.buttonPunch[5].activeSelf)
+                    {
+                        rightArmAnimator.SetTrigger("Punch");
+                        gameManager.buttonPunch[5].gameObject.SetActive(false);
+                        healthBar.ChefDamage("right");
+                        SpawnPlayerInfame();
+                    }
+                }
+
+                if(healthBar.chefLife == 0 && isLevelComplete == false && isLevelFailed == false)
                 {
                     if (healthBar.isFinalPunches == true)
                     {
-                        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10)), Camera.main.transform.forward, enemyMask);
-
-                        if (hit.collider != null)
+                        if (Input.GetButtonDown("Button Down/Left"))
                         {
                             // Animazione Hit (Fase di pestaggio finale)
 
@@ -162,58 +223,107 @@ public class PlayerActions : MonoBehaviour {
 
                         }
                     }
-                    /*else
-                    {
-                        isLevelFailed = true;
-                    }*/
                 }
-                else if (isParrying == false && healthBar.playerLife != 0)
+
+                if (Input.GetButtonDown("Parry") && healthBar.playerLife != 0)
                 {
-                    RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10)), Camera.main.transform.forward, buttonMask);
-
-                    if (hit.collider != null)
+                    Debug.Log("parry");
+                    if (canParry)
                     {
-                        // Comabattimento durante il gioco
-
-                        if (hit.collider.tag == "ButtonLeft")
-                        {
-                            leftArmAnimator.SetTrigger("Punch");
-                            hit.collider.gameObject.SetActive(false);
-                            healthBar.ChefDamage("left");
-                            SpawnPlayerInfame();
-
-                        }
-                        else if (hit.collider.tag == "ButtonRight")
-                        {
-                            rightArmAnimator.SetTrigger("Punch");
-                            hit.collider.gameObject.SetActive(false);
-                            healthBar.ChefDamage("right");
-                            SpawnPlayerInfame();
-                        }
-                        /*else
-                        {
-                            chefAnimator.SetTrigger("Punch");
-                        }*/
-                    }
-                    else
-                    {
-                        chefAnimator.SetTrigger("Punch");
+                        isParrying = true;
+                        canParry = false;
+                        canParryTimer = 0;
                     }
                 }
             }
-            else if (Input.GetMouseButtonDown(1) && healthBar.playerLife != 0)
+
+            // Mouse Controls
+
+            if (isMouse)
             {
-                if (canParry)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    isParrying = true;
-                    canParry = false;
-                    canParryTimer = 0;
+                    if (healthBar.chefLife == 0 && isLevelComplete == false && isLevelFailed == false)
+                    {
+                        if (healthBar.isFinalPunches == true)
+                        {
+                            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10)), Camera.main.transform.forward, enemyMask);
+
+                            if (hit.collider != null)
+                            {
+                                // Animazione Hit (Fase di pestaggio finale)
+
+                                if (isToggle)
+                                {
+                                    isToggle = !isToggle;
+                                    leftArmAnimator.SetTrigger("Punch");
+                                    SpawnPlayerInfame();
+                                }
+                                else
+                                {
+                                    isToggle = !isToggle;
+                                    rightArmAnimator.SetTrigger("Punch");
+                                    SpawnPlayerInfame();
+                                }
+
+                                chefAnimator.SetTrigger("TakeDamage");
+                                gameManager.clickCounter++;
+
+                                if (gameManager.clickCounter >= gameManager.finalPunches)
+                                {
+                                    chefAnimator.SetTrigger("Rotto");
+                                    isLevelComplete = true;
+                                    StartCoroutine(PlayOutroWithDelay());
+                                }
+
+                            }
+                        }
+                    }
+                    else if (isParrying == false && healthBar.playerLife != 0)
+                    {
+                        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10)), Camera.main.transform.forward, buttonMask);
+
+                        if (hit.collider != null)
+                        {
+                            // Comabattimento durante il gioco
+
+                            if (hit.collider.tag == "ButtonLeft")
+                            {
+                                leftArmAnimator.SetTrigger("Punch");
+                                hit.collider.gameObject.SetActive(false);
+                                healthBar.ChefDamage("left");
+                                SpawnPlayerInfame();
+
+                            }
+                            else if (hit.collider.tag == "ButtonRight")
+                            {
+                                rightArmAnimator.SetTrigger("Punch");
+                                hit.collider.gameObject.SetActive(false);
+                                healthBar.ChefDamage("right");
+                                SpawnPlayerInfame();
+                            }
+
+                        }
+                        else
+                        {
+                            chefAnimator.SetTrigger("Punch");
+                        }
+                    }
+                }
+                else if (Input.GetMouseButtonDown(1) && healthBar.playerLife != 0)
+                {
+                    if (canParry)
+                    {
+                        isParrying = true;
+                        canParry = false;
+                        canParryTimer = 0;
+                    }
                 }
             }
         }
 
-		// ANIMAZIONE E CONTROLLO PARATA
-        
+        // ANIMAZIONE E CONTROLLO PARATA
+
         if (isParrying == true)
         {
             parryTimer += Time.deltaTime;
@@ -244,7 +354,7 @@ public class PlayerActions : MonoBehaviour {
 
         canParryTimer += Time.deltaTime;
 
-        if(canParryTimer>parryCooldown)
+        if (canParryTimer > parryCooldown)
         {
             canParry = true;
         }
@@ -265,8 +375,6 @@ public class PlayerActions : MonoBehaviour {
 
             StartCoroutine(gameManager.LevelFailed());
         }
-	}
-
-
-
+    }
 }
+

@@ -136,6 +136,8 @@ MonoBehaviour:
   impiatta: {fileID: 0}
   playerHealth: {fileID: 0}
   chefHealth: {fileID: 0}
+  playerText: {fileID: 0}
+  chefText: {fileID: 0}
   playerLife: 60
   chefLife: 60
   playerDamage: 10

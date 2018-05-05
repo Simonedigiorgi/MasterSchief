@@ -24,11 +24,11 @@ public class CameraZoom : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.C))
-            ZoomIn("left");
+        /*if (Input.GetKeyDown(KeyCode.C))
+            ZoomIn("left");*/
 
-        if (Input.GetKeyDown(KeyCode.N))
-            ZoomIn("right");
+        /*if (Input.GetKeyDown(KeyCode.N))
+            ZoomIn("right");*/
 	}
 
     public void ZoomIn(string direction)

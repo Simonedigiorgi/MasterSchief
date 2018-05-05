@@ -26,7 +26,6 @@ public class MenuManager : MonoBehaviour {
         source = GetComponent<AudioSource>();
 
         fade.enabled = false;
-        fade.DOFade(0, 0);
 
         startPos = pivot.position;
     }

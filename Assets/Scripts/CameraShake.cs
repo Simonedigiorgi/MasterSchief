@@ -27,8 +27,8 @@ public class CameraShake : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-            ShakeCamera(5,.5f);
+        /*if (Input.GetKeyDown(KeyCode.T))
+            ShakeCamera(5,.5f);*/
     }
 
     void ShakeCamera()
