@@ -289,6 +289,7 @@ public class PlayerActions : MonoBehaviour
                                 gameManager.clickCounter++;
 
                                 healthBar.chefText.transform.DOShakePosition(0.7f, 12f);                              // Shake the Chef Text
+                                healthBar.chefPanel.transform.DOShakePosition(0.7f, 12f);                             // Shake the Chef Bar
 
                                 if (gameManager.clickCounter >= gameManager.finalPunches)
                                 {

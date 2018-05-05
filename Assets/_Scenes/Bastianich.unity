@@ -276,6 +276,16 @@ Prefab:
       propertyPath: fade
       value: 
       objectReference: {fileID: 1299499773}
+    - target: {fileID: 114043303856887754, guid: 1feed3c94e65b7349a20f254f16096a2,
+        type: 2}
+      propertyPath: isMouse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114043303856887754, guid: 1feed3c94e65b7349a20f254f16096a2,
+        type: 2}
+      propertyPath: isActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1feed3c94e65b7349a20f254f16096a2, type: 2}
   m_IsPrefabParent: 0
@@ -398,14 +408,14 @@ Animator:
   m_PrefabParentObject: {fileID: 95695754968944626, guid: 43b27e00b0207594598457c84210cc67,
     type: 2}
   m_PrefabInternal: {fileID: 218475735}
---- !u!1 &513393831 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1588127696262368, guid: a5a64cda4f19d7f4db7ee7b9d1f09624,
-    type: 2}
-  m_PrefabInternal: {fileID: 1187653165}
 --- !u!1 &538073746 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1841532639357132, guid: a5a64cda4f19d7f4db7ee7b9d1f09624,
+    type: 2}
+  m_PrefabInternal: {fileID: 1187653165}
+--- !u!1 &679907107 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1213708234027632, guid: a5a64cda4f19d7f4db7ee7b9d1f09624,
     type: 2}
   m_PrefabInternal: {fileID: 1187653165}
 --- !u!1 &845728649 stripped
@@ -782,6 +792,11 @@ Prefab:
       propertyPath: chefDamage
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114836160168750328, guid: 7d55b782acf9298499eea48105e71d05,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114431638894748374, guid: 7d55b782acf9298499eea48105e71d05, type: 2}
     - {fileID: 114664291884914414, guid: 7d55b782acf9298499eea48105e71d05, type: 2}
@@ -805,6 +820,24 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1299499772}
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1299499776 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114836160168750328, guid: 7d55b782acf9298499eea48105e71d05,
+    type: 2}
+  m_PrefabInternal: {fileID: 1299499772}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1299499777 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114755065476891644, guid: 7d55b782acf9298499eea48105e71d05,
+    type: 2}
+  m_PrefabInternal: {fileID: 1299499772}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1299499778 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114855622362741240, guid: 7d55b782acf9298499eea48105e71d05,
+    type: 2}
+  m_PrefabInternal: {fileID: 1299499772}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1549323881
 Prefab:
   m_ObjectHideFlags: 0
@@ -858,7 +891,7 @@ Prefab:
         type: 2}
       propertyPath: buttonPunch.Array.data[0]
       value: 
-      objectReference: {fileID: 513393831}
+      objectReference: {fileID: 679907107}
     - target: {fileID: 114670328520634788, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
       propertyPath: buttonPunch.Array.data[1]
@@ -1014,6 +1047,26 @@ Prefab:
       propertyPath: chefHealth
       value: 
       objectReference: {fileID: 963998869}
+    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: chefPanel
+      value: 
+      objectReference: {fileID: 1299499776}
+    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: playerText
+      value: 
+      objectReference: {fileID: 1299499778}
+    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: chefText
+      value: 
+      objectReference: {fileID: 1299499777}
+    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: playerLife
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 84f75bb278f5c49429611848ea7403f2, type: 2}
   m_IsPrefabParent: 0

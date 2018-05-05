@@ -549,6 +549,11 @@ Prefab:
       objectReference: {fileID: 1085047959}
     - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
+      propertyPath: chefPanel
+      value: 
+      objectReference: {fileID: 705553220}
+    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
       propertyPath: playerText
       value: 
       objectReference: {fileID: 1794066142}
@@ -562,49 +567,20 @@ Prefab:
       propertyPath: playerLife
       value: 60
       objectReference: {fileID: 0}
-    - target: {fileID: 114670328520634788, guid: 84f75bb278f5c49429611848ea7403f2,
-        type: 2}
-      propertyPath: clickCounter
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
       propertyPath: chefLife
       value: 60
       objectReference: {fileID: 0}
-    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
-        type: 2}
-      propertyPath: isFinalPunches
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
-        type: 2}
-      propertyPath: playerDamage
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
-        type: 2}
-      propertyPath: chefDamage
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114670328520634788, guid: 84f75bb278f5c49429611848ea7403f2,
-        type: 2}
-      propertyPath: mouseImage
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114670328520634788, guid: 84f75bb278f5c49429611848ea7403f2,
-        type: 2}
-      propertyPath: minButtonScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114670328520634788, guid: 84f75bb278f5c49429611848ea7403f2,
-        type: 2}
-      propertyPath: maxButtonScale
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 84f75bb278f5c49429611848ea7403f2, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &705553220 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114836160168750328, guid: 7d55b782acf9298499eea48105e71d05,
+    type: 2}
+  m_PrefabInternal: {fileID: 1689513785}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &716799101
 Prefab:
   m_ObjectHideFlags: 0
