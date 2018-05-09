@@ -34,11 +34,10 @@ public class PlayerActions : MonoBehaviour
     private float parryCooldown = 0.8f;                                                                     // Tempo prima di parare ancora
 
     private bool isLevelComplete = false;                                                                   // Livello completato
-    private bool isLevelFailed = false;                                                                     // Livello fallito
+    [HideInInspector] public bool isLevelFailed = false;                                                    // Livello fallito
     private bool isToggle = false;                                                                          // Toggle di animazione tra Pungno sinistro/destro
 
-    [BoxGroup(" Platform Controls")] public bool isController;                                              // Usa il Keyboard o il Controller Xbox
-    [BoxGroup(" Platform Controls")] public bool isMouse;                                                   // Usa il Mouse
+    [BoxGroup(" Platform Controls")] public bool isMouse;                                                   // Usa il Mouse (Se disattivato usa l'Xbox Controller)
 
     [BoxGroup("Debug")] public bool isParrying = false;                                                     // Il Player sta parando
     [BoxGroup("Debug")] public bool isActive = false;                                                       // Attiva il Player
@@ -47,9 +46,6 @@ public class PlayerActions : MonoBehaviour
 
     void Start()
     {
-        /*isController = true;
-        isMouse = true;*/
-
         leftPos = GameObject.Find("leftPos").transform;
         rightPos = GameObject.Find("rightPos").transform;
         pointPos = GameObject.Find("pointPos").transform;
@@ -128,28 +124,13 @@ public class PlayerActions : MonoBehaviour
 
     void Update()
     {
-        // SELEZIONA CONTROLLER || MOUSE
-
-        /*if (isController)
-        {
-            isMouse = false;
-            isController = true;
-        }
-
-        else if (isMouse)
-        {
-            isController = false;
-            isMouse = true;
-        }*/
-
-
         // CONTROLLI DEL GIOCATORE
 
         if (isActive == true)
         {
             // Xbox Controller
 
-            if (isController)
+            if (!isMouse)
             {
                 if (isParrying == false && healthBar.playerLife != 0)
                 {
@@ -239,14 +220,12 @@ public class PlayerActions : MonoBehaviour
                                 isLevelComplete = true;
                                 StartCoroutine(PlayOutroWithDelay());
                             }
-
                         }
                     }
                 }
 
                 if (Input.GetButtonDown("Parry") && healthBar.playerLife != 0)
                 {
-                    Debug.Log("parry");
                     if (canParry)
                     {
                         isParrying = true;

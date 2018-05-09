@@ -282,7 +282,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: e
+    positiveButton: 
     altNegativeButton: 
     altPositiveButton: joystick button 4
     gravity: 3
@@ -298,9 +298,9 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: d
+    positiveButton: 
     altNegativeButton: 
-    altPositiveButton: joystick button 2
+    altPositiveButton: joystick button 0
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -314,9 +314,9 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: c
+    positiveButton: 
     altNegativeButton: 
-    altPositiveButton: joystick button 0
+    altPositiveButton: joystick button 1
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -330,7 +330,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: o
+    positiveButton: 
     altNegativeButton: 
     altPositiveButton: joystick button 5
     gravity: 3
@@ -346,7 +346,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: k
+    positiveButton: 
     altNegativeButton: 
     altPositiveButton: joystick button 3
     gravity: 3
@@ -362,9 +362,9 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: m
+    positiveButton: 
     altNegativeButton: 
-    altPositiveButton: joystick button 1
+    altPositiveButton: joystick button 2
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -378,12 +378,12 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: space
+    positiveButton: 
     altNegativeButton: 
-    altPositiveButton: joystick button 8
-    gravity: 3
+    altPositiveButton: joystick button 10
+    gravity: 1
     dead: 0.001
-    sensitivity: 3
+    sensitivity: 1
     snap: 0
     invert: 0
     type: 0
