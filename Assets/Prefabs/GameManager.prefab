@@ -170,7 +170,7 @@ MonoBehaviour:
   buttonTime: 1.6
   buttonEvent: 0.6
   buttonSpawn: 4
-  minButtonScale: 1
-  maxButtonScale: 1
   clickCounter: 0
-  finalPunches: 10
+  finalPunches: 50
+  counter: {fileID: 0}
+  maxTime: 15
