@@ -16,6 +16,6 @@ public class FinalPunches : MonoBehaviour {
 
     public void Update()
     {
-        counterText.text = "" + (punches - clickCounter);                                       // Mostra il testo (Totale colpi finali da dare - 1 colpo)
+        counterText.text = "" + (punches - clickCounter) + "/" + punches;                       // Mostra il testo (Totale colpi finali da dare - 1 colpo)
     }
 }

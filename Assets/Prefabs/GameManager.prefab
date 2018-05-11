@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114674260435357308}
   - component: {fileID: 114388691076760436}
   - component: {fileID: 114490731152545504}
+  - component: {fileID: 114456076435982382}
   - component: {fileID: 82743259909001320}
   m_Layer: 0
   m_Name: GameManager
@@ -135,17 +136,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c0395ca89273ea4bb49aea16163d142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impiatta: {fileID: 0}
   playerHealth: {fileID: 0}
   chefHealth: {fileID: 0}
   chefPanel: {fileID: 0}
   playerText: {fileID: 0}
   chefText: {fileID: 0}
+  chefName: Cracco
   playerLife: 60
   chefLife: 60
   playerDamage: 5
   chefDamage: 5
   isFinalPunches: 0
+--- !u!114 &114456076435982382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1177754133266576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d0076b149090d47acbbececb529023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
+  firstObject: {fileID: 0}
 --- !u!114 &114490731152545504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -159,6 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerBar: {fileID: 0}
   timerPanel: {fileID: 0}
+  impiattaloText: {fileID: 0}
 --- !u!114 &114670328520634788
 MonoBehaviour:
   m_ObjectHideFlags: 1

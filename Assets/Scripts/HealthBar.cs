@@ -12,7 +12,7 @@ public class HealthBar : MonoBehaviour {
     private PlayerActions playerAction;                                             // PLAYERACTION
     private CameraShake cameraShake;                                                // CAMERASHAKE
     
-    [FoldoutGroup("Immagini")] public Image impiatta;                               // Immagine di Impiatt!
+    //[FoldoutGroup("Immagini")] public Image impiatta;                               // Immagine di Impiatt!
     [FoldoutGroup("Immagini")] public Image playerHealth;                           // Barra dell'energia del Player
     [FoldoutGroup("Immagini")] public Image chefHealth;                             // Barra dell'energia dello Chef
     [FoldoutGroup("Immagini")] public Image chefPanel;                              // Barra dietro l'energia dello Chef
@@ -34,7 +34,7 @@ public class HealthBar : MonoBehaviour {
 
 	void Start () {
 
-        impiatta.enabled = false;                                                   // Disabilita l'immagine (impiatta)
+        //impiatta.enabled = false;                                                   // Disabilita l'immagine (impiatta)
 
         PlayerHealthBar();                                                          // PLAYER LIFEBAR
         ChefHealthBar();                                                            // CHEF LIFEBAR
@@ -102,8 +102,8 @@ public class HealthBar : MonoBehaviour {
             chefLife = 0;
             gameManager.BlockCoroutine();                                           // Blocca (currentCouroutine)
 
-            impiatta.enabled = true;                                                // Abilita l'immagine (impiatta)
-            impiatta.DOFade(0, 5);                                                  // Fade Out (impiatta)
+            //impiatta.enabled = true;                                                // Abilita l'immagine (impiatta)
+            //impiatta.DOFade(0, 5);                                                  // Fade Out (impiatta)
                                                            
             isFinalPunches = true;                                                  // Attiva Pugni Finali        
         }

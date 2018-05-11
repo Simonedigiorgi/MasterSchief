@@ -44,6 +44,7 @@ public class PlayerActions : MonoBehaviour
     [BoxGroup("Debug")] public bool isActive = false;                                                       // Attiva il Player
 
     [HideInInspector] public bool canParry = true;
+    [HideInInspector] public bool canFinalPunches;                                                          // Se vera puoi iniziare a colpire lo Chef nella parte finale del gioco
 
     void Start()
     {
@@ -194,65 +195,10 @@ public class PlayerActions : MonoBehaviour
                 {
                     if (healthBar.isFinalPunches == true)
                     {
-                        if (Input.GetButtonDown("Button Down/Left"))
+                        StartCoroutine(WaitBeforeFinalPunches());
+                        if (canFinalPunches == true)
                         {
-                            // Animazione Hit (Fase di pestaggio finale)
-
-                            if (isToggle)
-                            {
-                                isToggle = !isToggle;
-                                leftArmAnimator.SetTrigger("Punch");
-                                SpawnPlayerInfame();
-                            }
-                            else
-                            {
-                                isToggle = !isToggle;
-                                rightArmAnimator.SetTrigger("Punch");
-                                SpawnPlayerInfame();
-                            }
-
-                            chefAnimator.SetTrigger("TakeDamage");
-                            finalPunches.clickCounter++;
-
-                            healthBar.chefText.transform.DOShakePosition(0.7f, 12f);                              // Shake the Chef Text
-                            healthBar.chefPanel.transform.DOShakePosition(0.7f, 12f);                             // Shake the Chef Bar
-
-                            finalPunches.counterText.GetComponent<Animation>().Play("ScaleIn_CounterText");            // Animate the Counter Text
-
-                            if (finalPunches.clickCounter >= finalPunches.punches)
-                            {
-                                chefAnimator.SetTrigger("Rotto");
-                                isLevelComplete = true;
-                                StartCoroutine(PlayOutroWithDelay());
-                            }
-                        }
-                    }
-                }
-
-                if (Input.GetButtonDown("Parry") && healthBar.playerLife != 0)
-                {
-                    if (canParry)
-                    {
-                        isParrying = true;
-                        canParry = false;
-                        canParryTimer = 0;
-                    }
-                }
-            }
-
-            // Mouse Controls
-
-            if (isMouse)
-            {
-                if (Input.GetMouseButtonDown(0))
-                {
-                    if (healthBar.chefLife == 0 && isLevelComplete == false && isLevelFailed == false)
-                    {
-                        if (healthBar.isFinalPunches == true)
-                        {
-                            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10)), Camera.main.transform.forward, enemyMask);
-
-                            if (hit.collider != null)
+                            if (Input.GetButtonDown("Button Down/Left"))
                             {
                                 // Animazione Hit (Fase di pestaggio finale)
 
@@ -283,10 +229,74 @@ public class PlayerActions : MonoBehaviour
                                     isLevelComplete = true;
                                     StartCoroutine(PlayOutroWithDelay());
                                 }
-
                             }
                         }
                     }
+                }
+
+                if (Input.GetButtonDown("Parry") && healthBar.playerLife != 0)
+                {
+                    if (canParry)
+                    {
+                        isParrying = true;
+                        canParry = false;
+                        canParryTimer = 0;
+                    }
+                }
+            }
+
+            // Mouse Controls
+
+            if (isMouse)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    if (healthBar.chefLife == 0 && isLevelComplete == false && isLevelFailed == false)
+                    {
+                        if (healthBar.isFinalPunches == true)
+                        {
+                            StartCoroutine(WaitBeforeFinalPunches());
+                            if (canFinalPunches)
+                            {
+                                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10)), Camera.main.transform.forward, enemyMask);
+
+                                if (hit.collider != null)
+                                {
+                                    // Animazione Hit (Fase di pestaggio finale)
+
+                                    if (isToggle)
+                                    {
+                                        isToggle = !isToggle;
+                                        leftArmAnimator.SetTrigger("Punch");
+                                        SpawnPlayerInfame();
+                                    }
+                                    else
+                                    {
+                                        isToggle = !isToggle;
+                                        rightArmAnimator.SetTrigger("Punch");
+                                        SpawnPlayerInfame();
+                                    }
+
+                                    chefAnimator.SetTrigger("TakeDamage");
+                                    finalPunches.clickCounter++;
+
+                                    healthBar.chefText.transform.DOShakePosition(0.7f, 12f);                              // Shake the Chef Text
+                                    healthBar.chefPanel.transform.DOShakePosition(0.7f, 12f);                             // Shake the Chef Bar
+
+                                    finalPunches.counterText.GetComponent<Animation>().Play("ScaleIn_CounterText");            // Animate the Counter Text
+
+                                    if (finalPunches.clickCounter >= finalPunches.punches)
+                                    {
+                                        chefAnimator.SetTrigger("Rotto");
+                                        isLevelComplete = true;
+                                        StartCoroutine(PlayOutroWithDelay());
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                            
                     else if (isParrying == false && healthBar.playerLife != 0)
                     {
                         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10)), Camera.main.transform.forward, buttonMask);
@@ -384,6 +394,12 @@ public class PlayerActions : MonoBehaviour
 
             StartCoroutine(gameManager.LevelFailed());
         }
+    }
+
+    public IEnumerator WaitBeforeFinalPunches()
+    {
+        yield return new WaitForSeconds(2.5f);
+        canFinalPunches = true;
     }
 }
 
