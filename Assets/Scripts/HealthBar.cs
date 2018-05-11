@@ -19,6 +19,7 @@ public class HealthBar : MonoBehaviour {
 
     [FoldoutGroup("Testi")] public Text playerText;                                 // Testo Player
     [FoldoutGroup("Testi")] public Text chefText;                                   // Testo Chef
+    [FoldoutGroup("Testi")] public string chefName;                                 // Nome dello Chef
 
     [BoxGroup("Barre della Vita")] [Range(0, 100)] public float playerLife = 60;    // Energia del Player
     [BoxGroup("Barre della Vita")] [Range(0, 100)] public float chefLife = 60;      // Energia dello Chef
@@ -42,6 +43,8 @@ public class HealthBar : MonoBehaviour {
         gameManager = FindObjectOfType<GameManager>();                              // GAMEMANAGER
         playerAction = FindObjectOfType<PlayerActions>();                           // PLAYERACTION
         cameraShake = FindObjectOfType<CameraShake>();                              // CAMERASHAKE
+
+        chefText.text = "" + chefName;
     }
 
     // PLAYER LIFEBAR

@@ -5,24 +5,32 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 
-    private Image timerBar;
+    public Image timerBar;
+    public Image timerPanel;
+
     private PlayerActions playerAction;
     private FinalPunches finalPunches;                                                                      // FINALPUNCHES
+    private HealthBar healthBar;
+
     private float timeLeft;
 
 	void Start () {
-        timerBar = GetComponent<Image>();
+
         playerAction = FindObjectOfType<PlayerActions>();
-        finalPunches = FindObjectOfType<FinalPunches>();
+
+        healthBar = GetComponent<HealthBar>();
+        finalPunches = GetComponent<FinalPunches>();
+
         timeLeft = finalPunches.maxTime;
     }
 	
 	void Update () {
 
-        if(FindObjectOfType<HealthBar>().isFinalPunches == true)
+        if(healthBar.isFinalPunches == true)
         {
-            transform.parent.GetComponent<Image>().enabled = true;                                          // Abilita la barra di sfondo
-            GetComponent<Image>().enabled = true;                                                           // Abilita la barra del Counter
+            timerPanel.enabled = true;                                          // Abilita la barra di sfondo
+            timerBar.enabled = true;                                                           // Abilita la barra del Counter
+
             finalPunches.counterText.enabled = true;                                                             // Mostra il testo del Counter
             finalPunches.pressButtonImage.enabled = true;
             finalPunches.pressButtonImage.GetComponent<Animation>().Play("PressButton");
