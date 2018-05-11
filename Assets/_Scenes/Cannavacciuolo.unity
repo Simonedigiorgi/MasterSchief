@@ -1075,6 +1075,11 @@ Prefab:
       propertyPath: impiattaloText
       value: 
       objectReference: {fileID: 1767681185}
+    - target: {fileID: 114456076435982382, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: firstSelection
+      value: 
+      objectReference: {fileID: 1999272673}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 84f75bb278f5c49429611848ea7403f2, type: 2}
   m_IsPrefabParent: 0

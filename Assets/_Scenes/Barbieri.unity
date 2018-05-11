@@ -545,7 +545,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -569,7 +569,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!82 &422454134
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1454,6 +1454,11 @@ Prefab:
       propertyPath: impiattaloText
       value: 
       objectReference: {fileID: 489481725}
+    - target: {fileID: 114456076435982382, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: firstSelection
+      value: 
+      objectReference: {fileID: 1567456559}
     m_RemovedComponents:
     - {fileID: 82743259909001320, guid: 84f75bb278f5c49429611848ea7403f2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 84f75bb278f5c49429611848ea7403f2, type: 2}

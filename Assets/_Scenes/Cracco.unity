@@ -1055,17 +1055,27 @@ Prefab:
       objectReference: {fileID: 1381481017}
     - target: {fileID: 114456076435982382, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
-      propertyPath: firstObject
+      propertyPath: firstSelection
       value: 
       objectReference: {fileID: 1256120180}
-    - target: {fileID: 82743259909001320, guid: 84f75bb278f5c49429611848ea7403f2,
+    - target: {fileID: 114674260435357308, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
-      propertyPath: panLevelCustomCurve.m_RotationOrder
+      propertyPath: clickCounter
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 82743259909001320, guid: 84f75bb278f5c49429611848ea7403f2,
+    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
-      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
+      propertyPath: playerLife
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: chefLife
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: isFinalPunches
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

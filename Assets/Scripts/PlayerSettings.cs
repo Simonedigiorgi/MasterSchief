@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerSettings : MonoBehaviour {
 
@@ -21,12 +20,12 @@ public class PlayerSettings : MonoBehaviour {
 
     public void SaveData()
     {
-        PlayerPrefs.SetInt("controller", controls);
+        PlayerPrefs.SetInt("controls", controls);
         PlayerPrefs.Save();
     }
 
     public void LoadData()
     {
-        controls = PlayerPrefs.GetInt("controller");
+        controls = PlayerPrefs.GetInt("controls");
     }
 }

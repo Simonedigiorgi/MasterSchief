@@ -333,7 +333,6 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 7400000, guid: 0cd0565565b17f041a87d8eb09b50bb4, type: 2}
   - {fileID: 7400000, guid: 51d1c6e30dc472746820f1db57468b04, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0

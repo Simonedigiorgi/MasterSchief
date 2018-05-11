@@ -8,11 +8,11 @@ using Sirenix.OdinInspector;
 
 public class PauseMenu : MonoBehaviour {
 
-    public GameObject pauseMenu;                                                                                    // Menu Panel
-    public GameObject firstObject;
+    public GameObject pauseMenu;                                                                                    // Pause Menu GameObject
+    public GameObject firstSelection;                                                                               // First Button selected
 
-    private EventSystem system;
-    private bool isMenuOpen;                                                                                        // Used to navigate on menu
+    private EventSystem system;                                                                                     // Find EventSystem
+    private bool isMenu;                                                                                            // Open/Close the Pause Menu Panel
 
     void Start () {
         system = GameObject.Find("EventSystem").GetComponent<EventSystem>();
@@ -21,35 +21,28 @@ public class PauseMenu : MonoBehaviour {
 	
 	void Update () {
 
-        if (Input.GetButtonDown("Start") && !isMenuOpen)
-        {
-            
-                                                                                    // If true you can move between options
+        if (Input.GetButtonDown("Start") && !isMenu)
             MenuOpen();
-        }
-        else if(Input.GetButtonDown("Start") && isMenuOpen)
-        {
-                                                                                // If false you can't move between options
+        else if(Input.GetButtonDown("Start") && isMenu)
             MenuClose();
-        }
     }
 
     public void MenuOpen()
     {
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
-        isMenuOpen = true;
+        isMenu = true;
 
         // Deselect and reselect first button to correctly display highlight after enabling parent GO
         system.SetSelectedGameObject(null);
-        system.SetSelectedGameObject(firstObject);
+        system.SetSelectedGameObject(firstSelection);
     }
 
     public void MenuClose()
     {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
-        isMenuOpen = false;
+        isMenu = false;
     }
 
     public void MainMenu()

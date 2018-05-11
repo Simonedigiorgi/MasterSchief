@@ -100,7 +100,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -124,7 +124,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!114 &114388691076760436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
-  firstObject: {fileID: 0}
+  firstSelection: {fileID: 0}
 --- !u!114 &114490731152545504
 MonoBehaviour:
   m_ObjectHideFlags: 1
