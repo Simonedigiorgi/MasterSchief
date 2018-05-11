@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     [InfoBox("Tempo di spawn tra un tasto e l'altro")]
     [FoldoutGroup("Controller dei Tasti")] [Range(0.1f, 3)] public float buttonDelay = 1;           // Tempo di spawn tra un tasto e l'altro
     [InfoBox("Quanto tempo i Bottoni rimangono a schermo prima di sparire")]
-    [FoldoutGroup("Controller dei Tasti")] [Range(1, 5)] public float buttonTime = 1;               // Quanto tempo i Bottoni rimangono a schermo prima di sparire
+    [FoldoutGroup("Controller dei Tasti")] [Range(0.5f, 5)] public float buttonTime = 1;            // Quanto tempo i Bottoni rimangono a schermo prima di sparire
     [InfoBox("Più vicino allo 0 aumenta la possibilità di Attacco dello Chef")]
     [FoldoutGroup("Controller dei Tasti")] [Range(0, 1)] public float buttonEvent;                  // (Più vicino allo 0 aumenta la possibilità di Attacco dello Chef)
     [InfoBox("Quanti tasti posso apparire insieme")]
@@ -35,12 +35,6 @@ public class GameManager : MonoBehaviour
 
     //[FoldoutGroup("Dimensione dei Tasti")] [Range(1, 7)] public int minButtonScale;               // Scala minima dei bottoni
     //[FoldoutGroup("Dimensione dei Tasti")] [Range(1, 7)] public int maxButtonScale;               // Scala massima dei bottoni
-
-    [FoldoutGroup("Pestata Finale")] public int clickCounter = 0;                                   // Conteggio dei Pugni finali
-    [FoldoutGroup("Pestata Finale")] public int finalPunches;                                       // Click della scazzottata finale
-    [FoldoutGroup("Pestata Finale")] public Text counter;                                           // Mostra il conteggio della pestata finale
-    [FoldoutGroup("Pestata Finale")] public float maxTime;                                          // Durata della Pestata (Velocità della barra quando scala)   
-    [FoldoutGroup("Pestata Finale")] public Image pressButtonImage;                                 // Immagine del Tasto da premere
 
     private void Start()
     {
@@ -83,11 +77,6 @@ public class GameManager : MonoBehaviour
             buttonPunch[4].GetComponent<SpriteRenderer>().enabled = true;
             buttonPunch[5].GetComponent<SpriteRenderer>().enabled = true;
         }
-    }
-
-    public void Update()
-    {
-        counter.text = "" + (finalPunches - clickCounter);                                          // Mostra il testo (Totale colpi finali da dare - 1 colpo)
     }
 
     public IEnumerator SecondsBeforeStart()

@@ -5,39 +5,47 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 
-    private Image timerBar;
-    private GameManager gameManager;
+    public Image timerBar;
+    public Image timerPanel;
+
     private PlayerActions playerAction;
+    private FinalPunches finalPunches;                                                                      // FINALPUNCHES
+    private HealthBar healthBar;
+
     private float timeLeft;
 
 	void Start () {
-        timerBar = GetComponent<Image>();
-        gameManager = FindObjectOfType<GameManager>();
+
         playerAction = FindObjectOfType<PlayerActions>();
-        timeLeft = gameManager.maxTime;
+
+        healthBar = GetComponent<HealthBar>();
+        finalPunches = GetComponent<FinalPunches>();
+
+        timeLeft = finalPunches.maxTime;
     }
 	
 	void Update () {
 
-        if(FindObjectOfType<HealthBar>().isFinalPunches == true)
+        if(healthBar.isFinalPunches == true)
         {
-            transform.parent.GetComponent<Image>().enabled = true;                                          // Abilita la barra di sfondo
-            GetComponent<Image>().enabled = true;                                                           // Abilita la barra del Counter
-            gameManager.counter.enabled = true;                                                             // Mostra il testo del Counter
-            gameManager.pressButtonImage.enabled = true;
-            gameManager.pressButtonImage.GetComponent<Animation>().Play("PressButton");
+            timerPanel.enabled = true;                                          // Abilita la barra di sfondo
+            timerBar.enabled = true;                                                           // Abilita la barra del Counter
 
-            if (gameManager.clickCounter < gameManager.finalPunches)
+            finalPunches.counterText.enabled = true;                                                             // Mostra il testo del Counter
+            finalPunches.pressButtonImage.enabled = true;
+            finalPunches.pressButtonImage.GetComponent<Animation>().Play("PressButton");
+
+            if (finalPunches.clickCounter < finalPunches.punches)
             {
                 timeLeft -= Time.deltaTime;
-                timerBar.fillAmount = timeLeft / gameManager.maxTime;
+                timerBar.fillAmount = timeLeft / finalPunches.maxTime;
             }
 
             if (timerBar.fillAmount <= 0)
             {
                 timeLeft = 0;
                 playerAction.isLevelFailed = true;
-                gameManager.pressButtonImage.GetComponent<Animation>().Stop("PressButton");
+                finalPunches.pressButtonImage.GetComponent<Animation>().Stop("PressButton");
             }
         }
 	}

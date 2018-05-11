@@ -122,7 +122,6 @@ GameObject:
   - component: {fileID: 224604357786802122}
   - component: {fileID: 222576410420439082}
   - component: {fileID: 114949912276754228}
-  - component: {fileID: 114449833241213162}
   m_Layer: 5
   m_Name: Time Bar
   m_TagString: Untagged
@@ -419,17 +418,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
---- !u!114 &114449833241213162
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1499925793765284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33715ca8620dc6642a20ece9f43f2038, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114549248917902876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -579,7 +567,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Bastianich
+  m_Text: Chef Name
 --- !u!114 &114794982851483292
 MonoBehaviour:
   m_ObjectHideFlags: 1
