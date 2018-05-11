@@ -4,36 +4,45 @@ using UnityEngine.UI;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 [RequireComponent(typeof(AudioSource))]
 
-public class IntroScript : MonoBehaviour {
-
-    public MovieTexture movie;
-    private AudioSource source;
-
-    public AudioClip masterschiaff;
-
+public class IntroScript : MonoBehaviour
+{
+    // Public properties
+    public AudioClip masterSchiefAudioClip;
+    [Space]
     public Text introText;
     public Text testo1;
     public Text testo2;
     public Text testo3;
-
+    [Space]
     public Image black;
     public Image fade;
     public Image chara1;
     public Image chara2;
     public Image chara3;
     public Image chara4;
-
+    [Space]
     public Image title;
 
-    void Start () {
+    [Space]
+    public Button skipButton;
+
+    // Private properties
+    private AudioSource audioSource;
+    private VideoPlayer videoPlayer;
+
+    private bool isSkipping = false;
+
+    void Start()
+    {
+        // Initializing private Component properties.
+        videoPlayer = GetComponent<VideoPlayer>();
+        audioSource = GetComponent<AudioSource>();
 
         introText.DOFade(0, 0);
-        GetComponent<RawImage>().texture = movie as MovieTexture;
-        source = GetComponent<AudioSource>();
-        source.clip = movie.audioClip;
 
         fade.DOFade(0, 0);
         fade.enabled = false;
@@ -50,31 +59,38 @@ public class IntroScript : MonoBehaviour {
         title.enabled = false;
 
         StartCoroutine(Intro());
-	}
-	
-	void Update () {
+    }
+
+    void Update()
+    {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            StartCoroutine(SkipCoroutine());
+            SkipIntro();
         }
-	}
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (!isSkipping && !skipButton.gameObject.activeSelf)
+            {
+                skipButton.gameObject.SetActive(true);
+            }
+        }
+    }
 
     public IEnumerator Intro()
     {
         yield return new WaitForSeconds(3.0f);
         introText.DOFade(1, 1);
         yield return new WaitForSeconds(5.0f);
-        introText.DOFade(0,1);
+        introText.DOFade(0, 1);
         yield return new WaitForSeconds(3.0f);
         fade.enabled = false;
 
         black.enabled = false;
-        movie.Play();
-        source.Play();
+        videoPlayer.Play();
 
         yield return new WaitForSeconds(29.0f);
-
-        source.volume = 0.7f;
+        
         chara1.enabled = true;
         testo1.enabled = true;
         chara1.rectTransform.DOMoveY(-40, 15);
@@ -102,23 +118,33 @@ public class IntroScript : MonoBehaviour {
         title.enabled = true;
         title.transform.DOScale(new Vector3(0.5f, 0.5f, 0), 7.6f);
 
-        source.PlayOneShot(masterschiaff, 1.2f);
-        movie.Pause();
+        audioSource.PlayOneShot(masterSchiefAudioClip, 1.2f);
+        videoPlayer.Pause();
         yield return new WaitForSeconds(6.0f);
 
         SceneManager.LoadScene("Menu");
 
     }
 
-    public IEnumerator SkipCoroutine()
+    public void SkipIntro()
     {
+        if (isSkipping) return;
+
+        StartCoroutine(SkipCoroutine());
+    }
+    private IEnumerator SkipCoroutine()
+    {
+        isSkipping = true;
+
         testo1.enabled = false;
         testo2.enabled = false;
         testo3.enabled = false;
 
+        skipButton.gameObject.SetActive(false);
+
         fade.enabled = true;
         fade.DOFade(1, 1);
-        movie.Pause();
+        videoPlayer.Pause();
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("Menu");
     }
