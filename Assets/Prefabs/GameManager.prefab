@@ -174,3 +174,4 @@ MonoBehaviour:
   finalPunches: 50
   counter: {fileID: 0}
   maxTime: 15
+  pressButtonImage: {fileID: 0}

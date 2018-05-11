@@ -214,6 +214,8 @@ public class PlayerActions : MonoBehaviour
                             healthBar.chefText.transform.DOShakePosition(0.7f, 12f);                              // Shake the Chef Text
                             healthBar.chefPanel.transform.DOShakePosition(0.7f, 12f);                             // Shake the Chef Bar
 
+                            gameManager.counter.GetComponent<Animation>().Play("ScaleIn_CounterText");            // Animate the Counter Text
+
                             if (gameManager.clickCounter >= gameManager.finalPunches)
                             {
                                 chefAnimator.SetTrigger("Rotto");
@@ -269,6 +271,8 @@ public class PlayerActions : MonoBehaviour
 
                                 healthBar.chefText.transform.DOShakePosition(0.7f, 12f);                              // Shake the Chef Text
                                 healthBar.chefPanel.transform.DOShakePosition(0.7f, 12f);                             // Shake the Chef Bar
+
+                                gameManager.counter.GetComponent<Animation>().Play("ScaleIn_CounterText");            // Animate the Counter Text
 
                                 if (gameManager.clickCounter >= gameManager.finalPunches)
                                 {
@@ -365,6 +369,7 @@ public class PlayerActions : MonoBehaviour
         if (isLevelComplete == true)
         {
             StartCoroutine(gameManager.LevelComplete());
+            gameManager.pressButtonImage.GetComponent<Animation>().Stop("PressButton");
         }
 
         // LIVELLO FALLITO

@@ -24,6 +24,8 @@ public class Timer : MonoBehaviour {
             transform.parent.GetComponent<Image>().enabled = true;                                          // Abilita la barra di sfondo
             GetComponent<Image>().enabled = true;                                                           // Abilita la barra del Counter
             gameManager.counter.enabled = true;                                                             // Mostra il testo del Counter
+            gameManager.pressButtonImage.enabled = true;
+            gameManager.pressButtonImage.GetComponent<Animation>().Play("PressButton");
 
             if (gameManager.clickCounter < gameManager.finalPunches)
             {
@@ -35,9 +37,8 @@ public class Timer : MonoBehaviour {
             {
                 timeLeft = 0;
                 playerAction.isLevelFailed = true;
+                gameManager.pressButtonImage.GetComponent<Animation>().Stop("PressButton");
             }
         }
-
-
 	}
 }

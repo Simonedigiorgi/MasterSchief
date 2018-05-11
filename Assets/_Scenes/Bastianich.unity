@@ -331,31 +331,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e984f899bd3ae74eb60c83b8fd53ee9, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &138652067 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114940744120289122, guid: 1e984f899bd3ae74eb60c83b8fd53ee9,
-    type: 2}
-  m_PrefabInternal: {fileID: 138652066}
-  m_Script: {fileID: 11500000, guid: 1cffde552cb2baa45865d2af74ed4b8a, type: 3}
---- !u!1 &168431220 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1139091048315452, guid: 7d55b782acf9298499eea48105e71d05,
-    type: 2}
-  m_PrefabInternal: {fileID: 1299499772}
---- !u!114 &168431222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 168431220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 1, y: -1}
-  m_UseGraphicAlpha: 1
 --- !u!1 &182708458 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1280347453913846, guid: a5a64cda4f19d7f4db7ee7b9d1f09624,
@@ -519,25 +494,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1299499772}
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
---- !u!1 &976512496 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1536939861755558, guid: 7d55b782acf9298499eea48105e71d05,
-    type: 2}
-  m_PrefabInternal: {fileID: 1299499772}
---- !u!114 &976512498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 976512496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 1, y: -1}
-  m_UseGraphicAlpha: 1
 --- !u!1001 &1187653165
 Prefab:
   m_ObjectHideFlags: 0
@@ -742,64 +698,7 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114042144327397108, guid: 7d55b782acf9298499eea48105e71d05,
-        type: 2}
-      propertyPath: shake
-      value: 
-      objectReference: {fileID: 138652067}
-    - target: {fileID: 114042144327397108, guid: 7d55b782acf9298499eea48105e71d05,
-        type: 2}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 325808846}
-    - target: {fileID: 114042144327397108, guid: 7d55b782acf9298499eea48105e71d05,
-        type: 2}
-      propertyPath: impiatt
-      value: 
-      objectReference: {fileID: 1153554490125098, guid: f17bd30cb2484ca459a5dd6de5694179,
-        type: 2}
-    - target: {fileID: 114042144327397108, guid: 7d55b782acf9298499eea48105e71d05,
-        type: 2}
-      propertyPath: chefHealth
-      value: 
-      objectReference: {fileID: 963998869}
-    - target: {fileID: 114042144327397108, guid: 7d55b782acf9298499eea48105e71d05,
-        type: 2}
-      propertyPath: chefAnimator
-      value: 
-      objectReference: {fileID: 325808846}
-    - target: {fileID: 114755065476891644, guid: 7d55b782acf9298499eea48105e71d05,
-        type: 2}
-      propertyPath: m_Text
-      value: Bastianich
-      objectReference: {fileID: 0}
-    - target: {fileID: 1320836264040622, guid: 7d55b782acf9298499eea48105e71d05, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114889195673536374, guid: 7d55b782acf9298499eea48105e71d05,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114031124646265248, guid: 7d55b782acf9298499eea48105e71d05,
-        type: 2}
-      propertyPath: playerDamage
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114031124646265248, guid: 7d55b782acf9298499eea48105e71d05,
-        type: 2}
-      propertyPath: chefDamage
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114836160168750328, guid: 7d55b782acf9298499eea48105e71d05,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114431638894748374, guid: 7d55b782acf9298499eea48105e71d05, type: 2}
-    - {fileID: 114664291884914414, guid: 7d55b782acf9298499eea48105e71d05, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d55b782acf9298499eea48105e71d05, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &1299499773 stripped
@@ -1078,6 +977,21 @@ Prefab:
       propertyPath: counter
       value: 
       objectReference: {fileID: 1299499779}
+    - target: {fileID: 114670328520634788, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: clickCounter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: chefLife
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: isFinalPunches
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 84f75bb278f5c49429611848ea7403f2, type: 2}
   m_IsPrefabParent: 0

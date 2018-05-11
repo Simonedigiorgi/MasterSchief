@@ -39,7 +39,8 @@ public class GameManager : MonoBehaviour
     [FoldoutGroup("Pestata Finale")] public int clickCounter = 0;                                   // Conteggio dei Pugni finali
     [FoldoutGroup("Pestata Finale")] public int finalPunches;                                       // Click della scazzottata finale
     [FoldoutGroup("Pestata Finale")] public Text counter;                                           // Mostra il conteggio della pestata finale
-    [FoldoutGroup("Pestata Finale")] public float maxTime;                                          // Durata della Pestata (Velocità della barra quando scala)                                        
+    [FoldoutGroup("Pestata Finale")] public float maxTime;                                          // Durata della Pestata (Velocità della barra quando scala)   
+    [FoldoutGroup("Pestata Finale")] public Image pressButtonImage;                                 // Immagine del Tasto da premere
 
     private void Start()
     {
@@ -86,7 +87,7 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        counter.text = "" + clickCounter;
+        counter.text = "" + (finalPunches - clickCounter);                                          // Mostra il testo (Totale colpi finali da dare - 1 colpo)
     }
 
     public IEnumerator SecondsBeforeStart()
