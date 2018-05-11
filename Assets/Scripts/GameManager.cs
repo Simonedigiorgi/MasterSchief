@@ -148,6 +148,7 @@ public class GameManager : MonoBehaviour
     {
         yield return null;
         chefAnimator.SetTrigger("ChargePunch");
+        playerAction.tastoParata.enabled = true;
     }
 
     public IEnumerator CheckIfParrying()

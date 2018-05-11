@@ -286,6 +286,11 @@ Prefab:
       propertyPath: isController
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114043303856887754, guid: 1feed3c94e65b7349a20f254f16096a2,
+        type: 2}
+      propertyPath: tastoParata
+      value: 
+      objectReference: {fileID: 259109616}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1feed3c94e65b7349a20f254f16096a2, type: 2}
   m_IsPrefabParent: 0
@@ -407,6 +412,18 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 259109615}
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &259109619 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114830108686667658, guid: 7d55b782acf9298499eea48105e71d05,
+    type: 2}
+  m_PrefabInternal: {fileID: 259109615}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &259109620 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114500250946036976, guid: 7d55b782acf9298499eea48105e71d05,
+    type: 2}
+  m_PrefabInternal: {fileID: 259109615}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &259109621 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114930554764948890, guid: 7d55b782acf9298499eea48105e71d05,
@@ -985,12 +1002,12 @@ Prefab:
         type: 2}
       propertyPath: counterText
       value: 
-      objectReference: {fileID: 1767681185}
+      objectReference: {fileID: 259109620}
     - target: {fileID: 114674260435357308, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
       propertyPath: pressButtonImage
       value: 
-      objectReference: {fileID: 259109616}
+      objectReference: {fileID: 259109619}
     - target: {fileID: 114490731152545504, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
       propertyPath: timerBar
@@ -1011,6 +1028,11 @@ Prefab:
       propertyPath: firstObject
       value: 
       objectReference: {fileID: 1999272673}
+    - target: {fileID: 114490731152545504, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: impiattaloText
+      value: 
+      objectReference: {fileID: 1767681185}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 84f75bb278f5c49429611848ea7403f2, type: 2}
   m_IsPrefabParent: 0

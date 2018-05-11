@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 using Sirenix.OdinInspector;
 
 public class PlayerActions : MonoBehaviour
@@ -45,6 +46,8 @@ public class PlayerActions : MonoBehaviour
 
     [HideInInspector] public bool canParry = true;
     [HideInInspector] public bool canFinalPunches;                                                          // Se vera puoi iniziare a colpire lo Chef nella parte finale del gioco
+
+    public Image tastoParata;
 
     void Start()
     {
@@ -100,6 +103,7 @@ public class PlayerActions : MonoBehaviour
     public void SpawnParat()
     {
         Instantiate(parata, pointPos);
+        tastoParata.enabled = false;
     }
 
     // Audio Pugni
