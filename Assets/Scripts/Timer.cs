@@ -46,7 +46,15 @@ public class Timer : MonoBehaviour {
                 timerPanel.enabled = true;                                                                   // Mostra la barra di sfondo
                 timerBar.enabled = true;                                                                     // Mostra la barra del Counter
                 finalPunches.counterText.enabled = true;                                                     // Mostra il testo del Counter
-                finalPunches.pressButtonImage.enabled = true;                                                // Mostra il Tasto
+
+                if (playerAction.isMouse)
+                {
+                    finalPunches.pressButtonImage.enabled = false;                                                // Nascondi il Tasto
+                }
+                else
+                {
+                    finalPunches.pressButtonImage.enabled = true;                                                // Mostra il Tasto
+                }
             }
 
             finalPunches.pressButtonImage.GetComponent<Animation>().Play("PressButton");
