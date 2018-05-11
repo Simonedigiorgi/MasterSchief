@@ -389,6 +389,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d55b782acf9298499eea48105e71d05, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &259109616 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114549248917902876, guid: 7d55b782acf9298499eea48105e71d05,
+    type: 2}
+  m_PrefabInternal: {fileID: 259109615}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &259109621 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114930554764948890, guid: 7d55b782acf9298499eea48105e71d05,
@@ -911,6 +917,11 @@ Prefab:
       propertyPath: chefLife
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 114670328520634788, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: pressButtonImage
+      value: 
+      objectReference: {fileID: 259109616}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 84f75bb278f5c49429611848ea7403f2, type: 2}
   m_IsPrefabParent: 0

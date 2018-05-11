@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4534931159405128}
   - component: {fileID: 114670328520634788}
+  - component: {fileID: 114674260435357308}
   - component: {fileID: 114388691076760436}
   - component: {fileID: 82743259909001320}
   m_Layer: 0
@@ -169,9 +170,20 @@ MonoBehaviour:
   buttonDelay: 1
   buttonTime: 1.6
   buttonEvent: 0.6
-  buttonSpawn: 4
-  clickCounter: 0
-  finalPunches: 50
-  counter: {fileID: 0}
-  maxTime: 15
+  buttonSpawn: 6
+--- !u!114 &114674260435357308
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1177754133266576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b89612d79030356469db3e313d629817, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counterText: {fileID: 0}
   pressButtonImage: {fileID: 0}
+  clickCounter: 0
+  punches: 20
+  maxTime: 15

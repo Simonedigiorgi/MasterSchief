@@ -12,6 +12,7 @@ public class PlayerActions : MonoBehaviour
     private HealthBar healthBar;                                                                            // HEALTBAR
     private SoundManager soundManager;                                                                      // SOUNDMANAGER
     private GameManager gameManager;                                                                        // GAMEMANAGER
+    private FinalPunches finalPunches;                                                                      // FINALPUNCHES
 
     private Transform rightPos;                                                                             // Posizione Braccio Sinistro
     private Transform leftPos;                                                                              // Posizione Braccio Destro
@@ -53,6 +54,8 @@ public class PlayerActions : MonoBehaviour
         healthBar = FindObjectOfType<HealthBar>();
         soundManager = FindObjectOfType<SoundManager>();
         gameManager = FindObjectOfType<GameManager>();
+        finalPunches = FindObjectOfType<FinalPunches>();
+
         canParryTimer = parryCooldown;
 
         leftStartingPos = leftArmAnimator.transform.position;
@@ -209,14 +212,14 @@ public class PlayerActions : MonoBehaviour
                             }
 
                             chefAnimator.SetTrigger("TakeDamage");
-                            gameManager.clickCounter++;
+                            finalPunches.clickCounter++;
 
                             healthBar.chefText.transform.DOShakePosition(0.7f, 12f);                              // Shake the Chef Text
                             healthBar.chefPanel.transform.DOShakePosition(0.7f, 12f);                             // Shake the Chef Bar
 
-                            gameManager.counter.GetComponent<Animation>().Play("ScaleIn_CounterText");            // Animate the Counter Text
+                            finalPunches.counterText.GetComponent<Animation>().Play("ScaleIn_CounterText");            // Animate the Counter Text
 
-                            if (gameManager.clickCounter >= gameManager.finalPunches)
+                            if (finalPunches.clickCounter >= finalPunches.punches)
                             {
                                 chefAnimator.SetTrigger("Rotto");
                                 isLevelComplete = true;
@@ -267,14 +270,14 @@ public class PlayerActions : MonoBehaviour
                                 }
 
                                 chefAnimator.SetTrigger("TakeDamage");
-                                gameManager.clickCounter++;
+                                finalPunches.clickCounter++;
 
                                 healthBar.chefText.transform.DOShakePosition(0.7f, 12f);                              // Shake the Chef Text
                                 healthBar.chefPanel.transform.DOShakePosition(0.7f, 12f);                             // Shake the Chef Bar
 
-                                gameManager.counter.GetComponent<Animation>().Play("ScaleIn_CounterText");            // Animate the Counter Text
+                                finalPunches.counterText.GetComponent<Animation>().Play("ScaleIn_CounterText");            // Animate the Counter Text
 
-                                if (gameManager.clickCounter >= gameManager.finalPunches)
+                                if (finalPunches.clickCounter >= finalPunches.punches)
                                 {
                                     chefAnimator.SetTrigger("Rotto");
                                     isLevelComplete = true;
@@ -369,7 +372,7 @@ public class PlayerActions : MonoBehaviour
         if (isLevelComplete == true)
         {
             StartCoroutine(gameManager.LevelComplete());
-            gameManager.pressButtonImage.GetComponent<Animation>().Stop("PressButton");
+            finalPunches.pressButtonImage.GetComponent<Animation>().Stop("PressButton");
         }
 
         // LIVELLO FALLITO
