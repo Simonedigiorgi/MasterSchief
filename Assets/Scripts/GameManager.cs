@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     private HealthBar healthBar;                                                                    // HEALTHBAR
     private SoundManager soundManager;                                                              // SOUNDMANAGER
 
+
     public GameObject[] buttonPunch;                                                                // Array dei Tasti
 
     [FoldoutGroup("Animator")] public Animator chefAnimator;                                        // CHEFANIMATOR
@@ -36,6 +37,8 @@ public class GameManager : MonoBehaviour
     //[FoldoutGroup("Dimensione dei Tasti")] [Range(1, 7)] public int minButtonScale;               // Scala minima dei bottoni
     //[FoldoutGroup("Dimensione dei Tasti")] [Range(1, 7)] public int maxButtonScale;               // Scala massima dei bottoni
 
+
+
     private void Start()
     {
         fade.enabled = true;
@@ -44,6 +47,7 @@ public class GameManager : MonoBehaviour
         playerAction = FindObjectOfType<PlayerActions>();
         healthBar = FindObjectOfType<HealthBar>();
         soundManager = FindObjectOfType<SoundManager>();
+
 
         // Disattiva i Bottoni
 

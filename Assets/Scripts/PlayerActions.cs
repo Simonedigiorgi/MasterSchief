@@ -14,6 +14,7 @@ public class PlayerActions : MonoBehaviour
     private SoundManager soundManager;                                                                      // SOUNDMANAGER
     private GameManager gameManager;                                                                        // GAMEMANAGER
     private FinalPunches finalPunches;                                                                      // FINALPUNCHES
+    private PlayerSettings settings;                                                                        // PLAYER SETTINGS
 
     private Transform rightPos;                                                                             // Posizione Braccio Sinistro
     private Transform leftPos;                                                                              // Posizione Braccio Destro
@@ -48,6 +49,20 @@ public class PlayerActions : MonoBehaviour
     [HideInInspector] public bool canFinalPunches;                                                          // Se vera puoi iniziare a colpire lo Chef nella parte finale del gioco
 
     public Image tastoParata;
+
+    public void Awake()
+    {
+        // LOAD DATA
+
+        settings = FindObjectOfType<PlayerSettings>();
+
+        settings.LoadData();
+
+        if (settings.controls == 0)
+            isMouse = false;
+        else if (settings.controls == 1)
+            isMouse = true;
+    }
 
     void Start()
     {
