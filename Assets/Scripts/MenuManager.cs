@@ -140,7 +140,6 @@ public class MenuManager : MonoBehaviour {
         yield return new WaitForSeconds(1.0f);
         pivot.DOMoveX(-Screen.width/2, 0.8f);
         yield return new WaitForSeconds(1.0f);
-
     }
 
     public IEnumerator QuitRoutine()

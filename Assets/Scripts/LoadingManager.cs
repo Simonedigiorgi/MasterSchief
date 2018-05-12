@@ -10,10 +10,6 @@ public class LoadingManager : MonoBehaviour {
     public Text text;
     public int i = 0;
 
-	void Start () {
-
-	}
-
 	void Update () {
 
         loadingImages[i].enabled = true;

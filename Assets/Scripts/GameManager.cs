@@ -34,11 +34,6 @@ public class GameManager : MonoBehaviour
     [InfoBox("Quanti tasti posso apparire insieme")]
     [FoldoutGroup("Controller dei Tasti")] [Range(1, 6)] public int buttonSpawn;                    // Quanti tasti posso apparire insieme
 
-    //[FoldoutGroup("Dimensione dei Tasti")] [Range(1, 7)] public int minButtonScale;               // Scala minima dei bottoni
-    //[FoldoutGroup("Dimensione dei Tasti")] [Range(1, 7)] public int maxButtonScale;               // Scala massima dei bottoni
-
-
-
     private void Start()
     {
         fade.enabled = true;
@@ -47,7 +42,6 @@ public class GameManager : MonoBehaviour
         playerAction = FindObjectOfType<PlayerActions>();
         healthBar = FindObjectOfType<HealthBar>();
         soundManager = FindObjectOfType<SoundManager>();
-
 
         // Disattiva i Bottoni
 
@@ -141,10 +135,6 @@ public class GameManager : MonoBehaviour
             index = Random.Range(0, buttonPunch.Length);
         }
 
-        // Dimesione dei Tasti
-
-        /*float size = Random.Range(minButtonScale, maxButtonScale);
-        buttonPunch[index].transform.localScale = new Vector3(size, size, 1);*/
         return buttonPunch[index];
     }
 
@@ -161,7 +151,6 @@ public class GameManager : MonoBehaviour
         {
             playerAction.tastoParata.enabled = true;
         }
-
     }
 
     public IEnumerator CheckIfParrying()

@@ -81,77 +81,13 @@ public class PlayerActions : MonoBehaviour
         rightStartingPos = rightArmAnimator.transform.position;
     }
 
-    // Mostra testi infami dello Chef
-
-    public void SpawnPunchInfame()
-    {
-        Instantiate(chefPunch[0], pointPos);
-        soundManager.PlayCounter();
-    }
-
-    public void SpawnChargeInfame()
-    {
-        Instantiate(chefPunch[1], pointPos);
-        soundManager.PlayCharged();
-    }
-
-    // Mostra testi infami del Player
-
-    public void SpawnPlayerInfame()
-    {
-        if (Random.value > 0.5f)
-        {
-            GameObject s = Instantiate(playerPunch[Random.Range(0, playerPunch.Length)], rightPos);
-            s.transform.position += new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
-        }
-        else
-        {
-            GameObject s = Instantiate(playerPunch[Random.Range(0, playerPunch.Length)], leftPos);
-            s.transform.position += new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
-        }
-
-        StartCoroutine(PunchSoundWithDelay());
-    }
-
-    // Mostra il Testo "Parat" (Para il colpo)
-
-    public void SpawnParat()
-    {
-        Instantiate(parata, pointPos);
-        tastoParata.enabled = false;
-    }
-
-    // Audio Pugni
-
-    IEnumerator PunchSoundWithDelay()
-    {
-        yield return new WaitForSeconds(0.2f);
-
-        soundManager.PlayPunchHits();
-
-        if (healthBar.chefLife != 0)
-        {
-            yield return new WaitForSeconds(0.5f);
-            if (Random.value > 0.5f)
-                soundManager.PlayChefHits();
-        }
-    }
-
-    // Audio Outro
-
-    IEnumerator PlayOutroWithDelay()
-    {
-        yield return new WaitForSeconds(1);
-        soundManager.PlayOutro();
-    }
-
     void Update()
     {
         // CONTROLLI DEL GIOCATORE
 
         if (isActive == true)
         {
-            // Xbox Controller
+            // PS4 Controller
 
             if (!isMouse)
             {
@@ -159,54 +95,36 @@ public class PlayerActions : MonoBehaviour
                 {
                     // Left buttons
 
-                    if (Input.GetButtonDown("Button Up/Left") && gameManager.buttonPunch[0].activeSelf)
-                    {
-                        leftArmAnimator.SetTrigger("Punch");
+                    if (Input.GetButtonDown("Button Up/Left") && gameManager.buttonPunch[0].activeSelf){
                         gameManager.buttonPunch[0].gameObject.SetActive(false);
-                        healthBar.ChefDamage("left");
-                        SpawnPlayerInfame();
+                        LeftPunch();
                     }
 
-                    if (Input.GetButtonDown("Button Middle/Left") && gameManager.buttonPunch[1].activeSelf)
-                    {
-                        leftArmAnimator.SetTrigger("Punch");
+                    if (Input.GetButtonDown("Button Middle/Left") && gameManager.buttonPunch[1].activeSelf){
                         gameManager.buttonPunch[1].gameObject.SetActive(false);
-                        healthBar.ChefDamage("left");
-                        SpawnPlayerInfame();
+                        LeftPunch();
                     }
 
-                    if (Input.GetButtonDown("Button Down/Left") && gameManager.buttonPunch[2].activeSelf)
-                    {
-                        leftArmAnimator.SetTrigger("Punch");
+                    if (Input.GetButtonDown("Button Down/Left") && gameManager.buttonPunch[2].activeSelf){
                         gameManager.buttonPunch[2].gameObject.SetActive(false);
-                        healthBar.ChefDamage("left");
-                        SpawnPlayerInfame();
+                        LeftPunch();
                     }
 
                     // Right buttons
 
-                    if (Input.GetButtonDown("Button Up/Right") && gameManager.buttonPunch[3].activeSelf)
-                    {
-                        rightArmAnimator.SetTrigger("Punch");
+                    if (Input.GetButtonDown("Button Up/Right") && gameManager.buttonPunch[3].activeSelf){
                         gameManager.buttonPunch[3].gameObject.SetActive(false);
-                        healthBar.ChefDamage("right");
-                        SpawnPlayerInfame();
+                        RightPunch();
                     }
 
-                    if (Input.GetButtonDown("Button Middle/Right") && gameManager.buttonPunch[4].activeSelf)
-                    {
-                        rightArmAnimator.SetTrigger("Punch");
+                    if (Input.GetButtonDown("Button Middle/Right") && gameManager.buttonPunch[4].activeSelf){
                         gameManager.buttonPunch[4].gameObject.SetActive(false);
-                        healthBar.ChefDamage("right");
-                        SpawnPlayerInfame();
+                        RightPunch();
                     }
 
-                    if (Input.GetButtonDown("Button Down/Right") && gameManager.buttonPunch[5].activeSelf)
-                    {
-                        rightArmAnimator.SetTrigger("Punch");
+                    if (Input.GetButtonDown("Button Down/Right") && gameManager.buttonPunch[5].activeSelf){
                         gameManager.buttonPunch[5].gameObject.SetActive(false);
-                        healthBar.ChefDamage("right");
-                        SpawnPlayerInfame();
+                        RightPunch();
                     }
                 }
 
@@ -237,8 +155,8 @@ public class PlayerActions : MonoBehaviour
                                 chefAnimator.SetTrigger("TakeDamage");
                                 finalPunches.clickCounter++;
 
-                                healthBar.chefText.transform.DOShakePosition(0.7f, 12f);                              // Shake the Chef Text
-                                healthBar.chefPanel.transform.DOShakePosition(0.7f, 12f);                             // Shake the Chef Bar
+                                healthBar.chefText.transform.DOShakePosition(0.7f, 12f);                                   // Shake the Chef Text
+                                healthBar.chefPanel.transform.DOShakePosition(0.7f, 12f);                                  // Shake the Chef Bar
 
                                 finalPunches.counterText.GetComponent<Animation>().Play("ScaleIn_CounterText");            // Animate the Counter Text
 
@@ -299,8 +217,8 @@ public class PlayerActions : MonoBehaviour
                                     chefAnimator.SetTrigger("TakeDamage");
                                     finalPunches.clickCounter++;
 
-                                    healthBar.chefText.transform.DOShakePosition(0.7f, 12f);                              // Shake the Chef Text
-                                    healthBar.chefPanel.transform.DOShakePosition(0.7f, 12f);                             // Shake the Chef Bar
+                                    healthBar.chefText.transform.DOShakePosition(0.7f, 12f);                                   // Shake the Chef Text
+                                    healthBar.chefPanel.transform.DOShakePosition(0.7f, 12f);                                  // Shake the Chef Bar
 
                                     finalPunches.counterText.GetComponent<Animation>().Play("ScaleIn_CounterText");            // Animate the Counter Text
 
@@ -310,7 +228,6 @@ public class PlayerActions : MonoBehaviour
                                         isLevelComplete = true;
                                         StartCoroutine(PlayOutroWithDelay());
                                     }
-
                                 }
                             }
                         }
@@ -324,22 +241,14 @@ public class PlayerActions : MonoBehaviour
                         {
                             // Comabattimento durante il gioco
 
-                            if (hit.collider.tag == "ButtonLeft")
-                            {
-                                leftArmAnimator.SetTrigger("Punch");
+                            if (hit.collider.tag == "ButtonLeft"){
                                 hit.collider.gameObject.SetActive(false);
-                                healthBar.ChefDamage("left");
-                                SpawnPlayerInfame();
-
+                                LeftPunch();
                             }
-                            else if (hit.collider.tag == "ButtonRight")
-                            {
-                                rightArmAnimator.SetTrigger("Punch");
+                            else if (hit.collider.tag == "ButtonRight"){
                                 hit.collider.gameObject.SetActive(false);
-                                healthBar.ChefDamage("right");
-                                SpawnPlayerInfame();
+                                RightPunch();
                             }
-
                         }
                         else
                         {
@@ -415,10 +324,92 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
+    // COROUTINES
+
     public IEnumerator WaitBeforeFinalPunches()
     {
         yield return new WaitForSeconds(2.5f);
         canFinalPunches = true;
+    }
+
+    // Audio Pugni
+
+    IEnumerator PunchSoundWithDelay()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        soundManager.PlayPunchHits();
+
+        if (healthBar.chefLife != 0)
+        {
+            yield return new WaitForSeconds(0.5f);
+            if (Random.value > 0.5f)
+                soundManager.PlayChefHits();
+        }
+    }
+
+    // Audio Outro
+
+    IEnumerator PlayOutroWithDelay()
+    {
+        yield return new WaitForSeconds(1);
+        soundManager.PlayOutro();
+    }
+
+    // METHODS
+
+    public void LeftPunch()
+    {
+        leftArmAnimator.SetTrigger("Punch");
+        healthBar.ChefDamage("left");
+        SpawnPlayerInfame();
+    }
+
+    public void RightPunch()
+    {
+        rightArmAnimator.SetTrigger("Punch");
+        healthBar.ChefDamage("right");
+        SpawnPlayerInfame();
+    }
+
+    // Mostra testi infami dello Chef
+
+    public void SpawnPunchInfame()
+    {
+        Instantiate(chefPunch[0], pointPos);
+        soundManager.PlayCounter();
+    }
+
+    public void SpawnChargeInfame()
+    {
+        Instantiate(chefPunch[1], pointPos);
+        soundManager.PlayCharged();
+    }
+
+    // Mostra testi infami del Player
+
+    public void SpawnPlayerInfame()
+    {
+        if (Random.value > 0.5f)
+        {
+            GameObject s = Instantiate(playerPunch[Random.Range(0, playerPunch.Length)], rightPos);
+            s.transform.position += new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
+        }
+        else
+        {
+            GameObject s = Instantiate(playerPunch[Random.Range(0, playerPunch.Length)], leftPos);
+            s.transform.position += new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
+        }
+
+        StartCoroutine(PunchSoundWithDelay());
+    }
+
+    // Mostra il Testo "Parat" (Para il colpo)
+
+    public void SpawnParat()
+    {
+        Instantiate(parata, pointPos);
+        tastoParata.enabled = false;
     }
 }
 
