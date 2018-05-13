@@ -4,40 +4,78 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class LoadingManager : MonoBehaviour {
-
+public class LoadingManager : MonoBehaviour
+{
     public Image[] loadingImages;
     public Text text;
     public int i = 0;
 
-	void Update () {
+    private bool canGoToNextStep = true;
+    private int currentStep = 0;
 
-        loadingImages[i].enabled = true;
+    private void Start()
+    {
+        // Initializing the first tutorial step.
+        GoToLoadingStep(0);
+    }
 
-        if (Input.GetButtonUp("Button Down/Left"))
+    private void Update()
+    {
+        if (Input.GetButtonUp("PS4 X"))
         {
-            i++;
+            if (canGoToNextStep)
+            {
+                GoToLoadingStep(++i);
+            }
         }
 
-        if(i == 0)
+        //// Mouse Version
+        //if (Input.GetMouseButtonUp(0))
+        //{
+        //    if (canGoToNextStep)
+        //    {
+        //        GoToLoadingStep(++i);
+        //    }
+        //}
+    }
+
+    /// <summary>
+    /// Moves to a specific step.
+    /// </summary>
+    /// <param name="step">Number of the step in which move.</param>
+    private void GoToLoadingStep(int step)
+    {
+        // If there is a previous step and the previous step has an image, then its image is disabled.
+        if (currentStep >= 0 && currentStep < loadingImages.Length)
         {
-            text.text = "Quando vedi queste icone premi il tasto corrispondente del tuo controller per attaccare lo chef";
+            loadingImages[currentStep].enabled = false;
         }
 
-        if(i == 1)
+        // Now the current step will be the new step.
+        currentStep = step;
+
+        // If this new step has an image, then its image is enabled.
+        if (step < loadingImages.Length)
         {
-            text.text = "Messaggio 2";
+            loadingImages[step].enabled = true;
         }
 
-        if (i == 2)
+        // Check the step value in order to activate the current text.
+        switch (step)
         {
-            text.text = "Messaggio 3";
+            case 0:
+                text.text = "Quando vedi queste icone premi il tasto corrispondente del tuo controller per attaccare lo chef";
+                break;
+            case 1:
+                text.text = "Messaggio 2";
+                break;
+            case 2:
+                text.text = "Messaggio 3";
+                break;
+            default: // Last state, or a casual number in input.
+                canGoToNextStep = false;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                break;
         }
-
-        if(i == 3)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-
     }
 }
