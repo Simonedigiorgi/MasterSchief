@@ -142,8 +142,8 @@ MonoBehaviour:
   playerText: {fileID: 0}
   chefText: {fileID: 0}
   chefName: Cracco
-  playerLife: 60
-  chefLife: 60
+  playerLife: 80
+  chefLife: 80
   playerDamage: 5
   chefDamage: 5
   isFinalPunches: 0

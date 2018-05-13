@@ -1092,7 +1092,7 @@ Prefab:
     - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
       propertyPath: playerLife
-      value: 60
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 114670328520634788, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
@@ -1107,7 +1107,7 @@ Prefab:
     - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
       propertyPath: chefLife
-      value: 60
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
