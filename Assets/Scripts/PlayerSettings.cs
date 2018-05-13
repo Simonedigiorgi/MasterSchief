@@ -6,6 +6,12 @@ public class PlayerSettings : MonoBehaviour {
 
     public int controls;
 
+    private void Start()
+    {
+        // Initializing with mouse.
+        Mouse();
+    }
+
     public void Controller()
     {
         controls = 0;
