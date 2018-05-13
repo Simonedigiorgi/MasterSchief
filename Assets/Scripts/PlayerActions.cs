@@ -40,7 +40,8 @@ public class PlayerActions : MonoBehaviour
     [HideInInspector] public bool isLevelFailed = false;                                                    // Livello fallito
     private bool isToggle = false;                                                                          // Toggle di animazione tra Pungno sinistro/destro
 
-    [BoxGroup(" Platform Controls")] public bool isMouse;                                                   // Usa il Mouse (Se disattivato usa l'Xbox Controller)
+    [BoxGroup(" Platform Controls")] public bool isPs4Controller;                                           // Usa il Controller PS4
+    [BoxGroup(" Platform Controls")] public bool isMouse;                                                   // Usa il Mouse
 
     [BoxGroup("Debug")] public bool isParrying = false;                                                     // Il Player sta parando
     [BoxGroup("Debug")] public bool isActive = false;                                                       // Attiva il Player
@@ -59,7 +60,7 @@ public class PlayerActions : MonoBehaviour
         settings.LoadData();
 
         if (settings.controls == 0)
-            isMouse = false;
+            isPs4Controller = true;
         else if (settings.controls == 1)
             isMouse = true;
     }
@@ -85,44 +86,43 @@ public class PlayerActions : MonoBehaviour
     {
         // CONTROLLI DEL GIOCATORE
 
-        if (isActive == true)
+        if (isActive)
         {
-            // PS4 Controller
-
-            if (!isMouse)
+            #region PS4 Controller
+            if (isPs4Controller)
             {
                 if (isParrying == false && healthBar.playerLife != 0)
                 {
                     // Left buttons
 
-                    if (Input.GetButtonDown("Button Up/Left") && gameManager.buttonPunch[0].activeSelf){
+                    if (Input.GetButtonDown("PS4 L1") && gameManager.buttonPunch[0].activeSelf){
                         gameManager.buttonPunch[0].gameObject.SetActive(false);
                         LeftPunch();
                     }
 
-                    if (Input.GetButtonDown("Button Middle/Left") && gameManager.buttonPunch[1].activeSelf){
+                    if (Input.GetButtonDown("PS4 Square") && gameManager.buttonPunch[1].activeSelf){
                         gameManager.buttonPunch[1].gameObject.SetActive(false);
                         LeftPunch();
                     }
 
-                    if (Input.GetButtonDown("Button Down/Left") && gameManager.buttonPunch[2].activeSelf){
+                    if (Input.GetButtonDown("PS4 X") && gameManager.buttonPunch[2].activeSelf){
                         gameManager.buttonPunch[2].gameObject.SetActive(false);
                         LeftPunch();
                     }
 
                     // Right buttons
 
-                    if (Input.GetButtonDown("Button Up/Right") && gameManager.buttonPunch[3].activeSelf){
+                    if (Input.GetButtonDown("PS4 R1") && gameManager.buttonPunch[3].activeSelf){
                         gameManager.buttonPunch[3].gameObject.SetActive(false);
                         RightPunch();
                     }
 
-                    if (Input.GetButtonDown("Button Middle/Right") && gameManager.buttonPunch[4].activeSelf){
+                    if (Input.GetButtonDown("PS4 Y") && gameManager.buttonPunch[4].activeSelf){
                         gameManager.buttonPunch[4].gameObject.SetActive(false);
                         RightPunch();
                     }
 
-                    if (Input.GetButtonDown("Button Down/Right") && gameManager.buttonPunch[5].activeSelf){
+                    if (Input.GetButtonDown("PS4 Circle") && gameManager.buttonPunch[5].activeSelf){
                         gameManager.buttonPunch[5].gameObject.SetActive(false);
                         RightPunch();
                     }
@@ -135,7 +135,7 @@ public class PlayerActions : MonoBehaviour
                         StartCoroutine(WaitBeforeFinalPunches());
                         if (canFinalPunches == true)
                         {
-                            if (Input.GetButtonDown("Button Down/Left"))
+                            if (Input.GetButtonDown("PS4 X"))
                             {
                                 // Animazione Hit (Fase di pestaggio finale)
 
@@ -171,19 +171,12 @@ public class PlayerActions : MonoBehaviour
                     }
                 }
 
-                if (Input.GetButtonDown("Parry") && healthBar.playerLife != 0)
-                {
+                if (Input.GetButtonDown("PS4 L3") && healthBar.playerLife != 0)
                     if (canParry)
-                    {
-                        isParrying = true;
-                        canParry = false;
-                        canParryTimer = 0;
-                    }
-                }
+                        Parry();
             }
-
-            // Mouse Controls
-
+            #endregion
+            #region Mouse
             if (isMouse)
             {
                 if (Input.GetMouseButtonDown(0))
@@ -241,31 +234,26 @@ public class PlayerActions : MonoBehaviour
                         {
                             // Comabattimento durante il gioco
 
-                            if (hit.collider.tag == "ButtonLeft"){
+                            if (hit.collider.tag == "ButtonLeft")
+                            {
                                 hit.collider.gameObject.SetActive(false);
                                 LeftPunch();
                             }
-                            else if (hit.collider.tag == "ButtonRight"){
+                            else if (hit.collider.tag == "ButtonRight")
+                            {
                                 hit.collider.gameObject.SetActive(false);
                                 RightPunch();
                             }
                         }
                         else
-                        {
                             chefAnimator.SetTrigger("Punch");
-                        }
                     }
                 }
                 else if (Input.GetMouseButtonDown(1) && healthBar.playerLife != 0)
-                {
                     if (canParry)
-                    {
-                        isParrying = true;
-                        canParry = false;
-                        canParryTimer = 0;
-                    }
-                }
+                        Parry();
             }
+            #endregion
         }
 
         // ANIMAZIONE E CONTROLLO PARATA
@@ -370,6 +358,13 @@ public class PlayerActions : MonoBehaviour
         rightArmAnimator.SetTrigger("Punch");
         healthBar.ChefDamage("right");
         SpawnPlayerInfame();
+    }
+
+    public void Parry()
+    {
+        isParrying = true;
+        canParry = false;
+        canParryTimer = 0;
     }
 
     // Mostra testi infami dello Chef

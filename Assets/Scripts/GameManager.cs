@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
 
         // If Player has Controller Active (Icons Image)
 
-        if (playerAction.isMouse == false)
+        if (playerAction.isPs4Controller)
         {
             buttonPunch[0].transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             buttonPunch[1].transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
