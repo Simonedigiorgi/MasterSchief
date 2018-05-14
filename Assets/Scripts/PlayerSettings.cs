@@ -9,7 +9,7 @@ public class PlayerSettings : MonoBehaviour {
     private void Start()
     {
         // Initializing with mouse.
-        Mouse();
+        //Mouse();
     }
 
     public void Controller()
