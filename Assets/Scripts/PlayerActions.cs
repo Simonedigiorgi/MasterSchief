@@ -303,7 +303,7 @@ public class PlayerActions : MonoBehaviour
 
         // LIVELLO COMPLETATO
 
-        if (isLevelComplete == true)
+        if (isLevelComplete)
         {
             StartCoroutine(gameManager.LevelComplete());
             finalPunches.pressButtonImage.GetComponent<Animation>().Stop("PressButton");
@@ -311,7 +311,7 @@ public class PlayerActions : MonoBehaviour
 
         // LIVELLO FALLITO
 
-        if (isLevelFailed == true)
+        if (isLevelFailed)
         {
             chefAnimator.Play("Idle");
             isActive = false;

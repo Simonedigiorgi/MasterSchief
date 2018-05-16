@@ -30,6 +30,10 @@ public class HealthBar : MonoBehaviour {
     [BoxGroup("Danno dei Colpi")] public float chefDamage = 0;                      // Danno dello Chef
 
     [HideInInspector] public bool isFinalPunches = false;                           // Fase finale
+    private bool isHalfLife;
+
+    [BoxGroup("Cutscene")] public float cutsceneLenght;                             // Cutscene lenght
+    [BoxGroup("Cutscene")] public bool canCutscene;                                 // Can do?
 
 	void Start () {
 
@@ -93,6 +97,15 @@ public class HealthBar : MonoBehaviour {
 
         chefHealth.transform.DOShakePosition(0.7f, 12f);                            // Shake the Player Image
         chefText.transform.DOShakePosition(0.7f, 12f);                              // Shake the Player Text
+
+        // FASE INTERMEZZO
+
+        if(chefLife <= 40 && chefLife > 0 && !isHalfLife && canCutscene)
+        {
+            isHalfLife = true;
+            Debug.Log("Intermediate Fase");
+            gameManager.CutScene(cutsceneLenght);
+        }
 
         // PUGNI FINALI
 

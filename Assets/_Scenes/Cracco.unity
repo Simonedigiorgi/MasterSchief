@@ -958,31 +958,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 114490731152545504, guid: 84f75bb278f5c49429611848ea7403f2,
+    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
-      propertyPath: timerBar
+      propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 414787777}
-    - target: {fileID: 114490731152545504, guid: 84f75bb278f5c49429611848ea7403f2,
+      objectReference: {fileID: 1353090428}
+    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
-      propertyPath: timerPanel
+      propertyPath: chefHealth
       value: 
-      objectReference: {fileID: 1170486377}
-    - target: {fileID: 114490731152545504, guid: 84f75bb278f5c49429611848ea7403f2,
+      objectReference: {fileID: 1085047959}
+    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
-      propertyPath: impiattaloText
+      propertyPath: chefPanel
       value: 
-      objectReference: {fileID: 1495509328}
-    - target: {fileID: 114674260435357308, guid: 84f75bb278f5c49429611848ea7403f2,
+      objectReference: {fileID: 705553220}
+    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
-      propertyPath: counterText
+      propertyPath: playerText
       value: 
-      objectReference: {fileID: 38079641}
-    - target: {fileID: 114674260435357308, guid: 84f75bb278f5c49429611848ea7403f2,
+      objectReference: {fileID: 1794066142}
+    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
-      propertyPath: pressButtonImage
+      propertyPath: chefText
       value: 
-      objectReference: {fileID: 1854962033}
+      objectReference: {fileID: 394744949}
     - target: {fileID: 114670328520634788, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
       propertyPath: buttonPunch.Array.data[0]
@@ -1023,31 +1023,31 @@ Prefab:
       propertyPath: fade
       value: 
       objectReference: {fileID: 439299251}
-    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
+    - target: {fileID: 114674260435357308, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
-      propertyPath: playerHealth
+      propertyPath: counterText
       value: 
-      objectReference: {fileID: 1353090428}
-    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
+      objectReference: {fileID: 38079641}
+    - target: {fileID: 114674260435357308, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
-      propertyPath: chefHealth
+      propertyPath: pressButtonImage
       value: 
-      objectReference: {fileID: 1085047959}
-    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
+      objectReference: {fileID: 1854962033}
+    - target: {fileID: 114490731152545504, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
-      propertyPath: chefPanel
+      propertyPath: timerBar
       value: 
-      objectReference: {fileID: 705553220}
-    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
+      objectReference: {fileID: 414787777}
+    - target: {fileID: 114490731152545504, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
-      propertyPath: playerText
+      propertyPath: timerPanel
       value: 
-      objectReference: {fileID: 1794066142}
-    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
+      objectReference: {fileID: 1170486377}
+    - target: {fileID: 114490731152545504, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
-      propertyPath: chefText
+      propertyPath: impiattaloText
       value: 
-      objectReference: {fileID: 394744949}
+      objectReference: {fileID: 1495509328}
     - target: {fileID: 114456076435982382, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
       propertyPath: pauseMenu
@@ -1058,6 +1058,36 @@ Prefab:
       propertyPath: firstSelection
       value: 
       objectReference: {fileID: 1256120180}
+    - target: {fileID: 114670328520634788, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: buttonDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: playerLife
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: chefLife
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670328520634788, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: buttonEvent
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114674260435357308, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: clickCounter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: isFinalPunches
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 84f75bb278f5c49429611848ea7403f2, type: 2}
   m_IsPrefabParent: 0

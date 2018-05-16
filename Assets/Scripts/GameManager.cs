@@ -195,6 +195,12 @@ public class GameManager : MonoBehaviour
         StopCoroutine(currentCoroutine);
     }
 
+    public void CutScene(float number)
+    {
+        StopCoroutine(currentCoroutine);
+        StartCoroutine(Wait(number));
+    }
+
     // COROUTINES
 
     public IEnumerator LevelFailed()
@@ -211,5 +217,15 @@ public class GameManager : MonoBehaviour
         fade.DOFade(1, 3);
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene(nextScene);
+    }
+
+    public IEnumerator Wait (float number)
+    {
+        yield return new WaitForSeconds(number);
+
+        buttonDelay = 0.5f;
+        buttonEvent = 1;
+
+        StartCoroutine(currentCoroutine);
     }
 }

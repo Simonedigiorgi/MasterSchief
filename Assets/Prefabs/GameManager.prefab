@@ -147,6 +147,7 @@ MonoBehaviour:
   playerDamage: 5
   chefDamage: 5
   isFinalPunches: 0
+  cutsceneLenght: 6
 --- !u!114 &114456076435982382
 MonoBehaviour:
   m_ObjectHideFlags: 1
