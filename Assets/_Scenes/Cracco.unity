@@ -1617,6 +1617,15 @@ Prefab:
       value: 
       objectReference: {fileID: 21300002, guid: e05134aaf815baa4583a16593cecaca8,
         type: 3}
+    - target: {fileID: 212953042558201180, guid: b49156e1bb8ac674ea1dab70813ca104,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886781600623692, guid: b49156e1bb8ac674ea1dab70813ca104, type: 2}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b49156e1bb8ac674ea1dab70813ca104, type: 2}
   m_IsPrefabParent: 0

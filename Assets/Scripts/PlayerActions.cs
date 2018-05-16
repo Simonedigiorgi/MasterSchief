@@ -244,14 +244,22 @@ public class PlayerActions : MonoBehaviour
                                 hit.collider.gameObject.SetActive(false);
                                 RightPunch();
                             }
+                            else if (hit.collider.tag == "Enemy" && !isLevelComplete)
+                            {
+                                if(healthBar.playerLife != 0)
+                                {
+                                    if (canParry)
+                                        Parry();
+                                }
+                            }
                         }
                         else
                             chefAnimator.SetTrigger("Punch");
                     }
                 }
-                else if (Input.GetMouseButtonDown(1) && healthBar.playerLife != 0)
+                /*else if (Input.GetMouseButtonDown(1) && healthBar.playerLife != 0)
                     if (canParry)
-                        Parry();
+                        Parry();*/
             }
             #endregion
         }
@@ -316,7 +324,7 @@ public class PlayerActions : MonoBehaviour
 
     public IEnumerator WaitBeforeFinalPunches()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2f);
         canFinalPunches = true;
     }
 
