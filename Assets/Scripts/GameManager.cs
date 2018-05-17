@@ -34,6 +34,23 @@ public class GameManager : MonoBehaviour
     [InfoBox("Quanti tasti posso apparire insieme")]
     [FoldoutGroup("Controller dei Tasti")] [Range(1, 6)] public int buttonSpawn;                    // Quanti tasti posso apparire insieme
 
+    [InfoBox("Dopo la metà dell'energia dello Chef")]
+    [FoldoutGroup("Fase Incazzata")]
+    [Range(0.1f, 3)]
+    public float buttonDelayAfter = 1;           // Tempo di spawn tra un tasto e l'altro
+    [InfoBox("Quanto tempo i Bottoni rimangono a schermo prima di sparire")]
+    [FoldoutGroup("Fase Incazzata")]
+    [Range(0.5f, 5)]
+    public float buttonTimeAfter = 1;            // Quanto tempo i Bottoni rimangono a schermo prima di sparire
+    [InfoBox("Più vicino allo 0 aumenta la possibilità di Attacco dello Chef")]
+    [FoldoutGroup("Fase Incazzata")]
+    [Range(0, 1)]
+    public float buttonEventAfter;                  // (Più vicino allo 0 aumenta la possibilità di Attacco dello Chef)
+    [InfoBox("Quanti tasti posso apparire insieme")]
+    [FoldoutGroup("Fase Incazzata")]
+    [Range(1, 6)]
+    public int buttonSpawnAfter;                    // Quanti tasti posso apparire insieme
+
     private void Start()
     {
         fade.enabled = true;
@@ -221,10 +238,15 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator Wait (float number)
     {
+        FindObjectOfType<Timer>().impiattaloText.enabled = true;
+        FindObjectOfType<Timer>().impiattaloText.text = "Lo Chef è incazzato";
+        FindObjectOfType<Timer>().impiattaloText.GetComponent<Animation>().Play("MoveFromLeft");
         yield return new WaitForSeconds(number);
 
-        buttonDelay = 0.5f;
-        buttonEvent = 1;
+        buttonDelay = buttonDelayAfter;
+        buttonTime = buttonTimeAfter;
+        buttonEvent = buttonEventAfter;
+        buttonSpawn = buttonSpawnAfter;
 
         StartCoroutine(currentCoroutine);
     }

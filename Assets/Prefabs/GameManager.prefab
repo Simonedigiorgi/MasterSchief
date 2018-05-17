@@ -147,7 +147,8 @@ MonoBehaviour:
   playerDamage: 5
   chefDamage: 5
   isFinalPunches: 0
-  cutsceneLenght: 6
+  cutsceneLenght: 3
+  canCutscene: 1
 --- !u!114 &114456076435982382
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,6 +202,10 @@ MonoBehaviour:
   buttonTime: 1.6
   buttonEvent: 0.6
   buttonSpawn: 6
+  buttonDelayAfter: 1
+  buttonTimeAfter: 1
+  buttonEventAfter: 0
+  buttonSpawnAfter: 1
 --- !u!114 &114674260435357308
 MonoBehaviour:
   m_ObjectHideFlags: 1

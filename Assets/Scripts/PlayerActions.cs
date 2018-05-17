@@ -324,7 +324,7 @@ public class PlayerActions : MonoBehaviour
 
     public IEnumerator WaitBeforeFinalPunches()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.5f);
         canFinalPunches = true;
     }
 

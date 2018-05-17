@@ -73,8 +73,8 @@ public class HealthBar : MonoBehaviour {
         cameraShake.ShakeCamera(5, 0.5f);                                           // Shake Camera             
         playerLife -= chefDamage;                                                   // Take Damage
 
-        playerHealth.transform.DOShakePosition(0.7f, 12f);                          // Shake the Player Image
-        playerText.transform.DOShakePosition(0.7f, 12f);                            // Shake the Player Text
+        //playerHealth.transform.DOShakePosition(0.7f, 12f);                          // Shake the Player Image
+        //playerText.transform.DOShakePosition(0.7f, 12f);                            // Shake the Player Text
 
         // SCONFITTA
 
@@ -95,8 +95,8 @@ public class HealthBar : MonoBehaviour {
         chefLife -= playerDamage;                                                   // Vita dello Chef - Danni del Player
         playerAction.chefAnimator.SetTrigger("TakeDamage");                         // Animazione danno allo Chef
 
-        chefHealth.transform.DOShakePosition(0.7f, 12f);                            // Shake the Player Image
-        chefText.transform.DOShakePosition(0.7f, 12f);                              // Shake the Player Text
+        //chefHealth.transform.DOShakePosition(0.7f, 12f);                            // Shake the Player Image
+        //chefText.transform.DOShakePosition(0.7f, 12f);                              // Shake the Player Text
 
         // FASE INTERMEZZO
 

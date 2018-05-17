@@ -37,6 +37,7 @@ public class Timer : MonoBehaviour {
         if(healthBar.isFinalPunches == true)
         {
             impiattaloText.enabled = true;
+            impiattaloText.text = "Impiattalo e porgi il conto!!";
             impiattaloText.GetComponent<Animation>().Play("MoveFromLeft");
 
             if (playerAction.canFinalPunches == true)
