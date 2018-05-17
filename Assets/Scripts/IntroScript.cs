@@ -116,7 +116,8 @@ public class IntroScript : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
 
         title.enabled = true;
-        title.transform.DOScale(new Vector3(0.5f, 0.5f, 0), 7.6f);
+        title.transform.DOScale(new Vector3(1.2f, 1.2f, 0), 7.6f);
+        title.transform.GetChild(0).GetComponent<Text>().enabled = true;
 
         audioSource.PlayOneShot(masterSchiefAudioClip, 1.2f);
         videoPlayer.Pause();

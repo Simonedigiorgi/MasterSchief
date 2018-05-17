@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 
@@ -10,6 +11,8 @@ public class PauseMenu : MonoBehaviour {
 
     public GameObject pauseMenu;                                                                                    // Pause Menu GameObject
     public GameObject firstSelection;                                                                               // First Button selected
+
+    public Button pauseButton;
 
     private EventSystem system;                                                                                     // Find EventSystem
     private bool isMenu;                                                                                            // Open/Close the Pause Menu Panel
@@ -47,7 +50,14 @@ public class PauseMenu : MonoBehaviour {
 
     public void MainMenu()
     {
-        // Select Main Menu Scene
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void Quit()
+    {
+        Time.timeScale = 1;
+        Application.Quit();
     }
 
     public void SelectLevel()

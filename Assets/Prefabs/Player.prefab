@@ -155,27 +155,21 @@ MonoBehaviour:
     m_Bits: 512
   leftArmAnimator: {fileID: 95666232687958328}
   rightArmAnimator: {fileID: 95214396110882532}
-  enemyAnimator: {fileID: 0}
-  isParrying: 0
-  parryTime: 0.5
-  parryCooldown: 0.7
-  canParry: 1
-  canParryTimer: 0
-  blackFade: {fileID: 0}
-  endGameTime: 30
-  endGameClickAmount: 40
-  nextScene: Bastianich
-  enemiesPunch:
-  - {fileID: 1660545792622842, guid: e2f00525f5f0c9540a88b1e20e5c5dd3, type: 2}
-  - {fileID: 1083350980290208, guid: db81001f2d6e3ca4c900aad698fbdf77, type: 2}
+  chefAnimator: {fileID: 0}
+  parata: {fileID: 0}
+  chefPunch: []
   playerPunch:
   - {fileID: 1328799885881522, guid: 77a35733e4d263f45a5b3aa84203ebcb, type: 2}
   - {fileID: 1155684601657920, guid: 6ee15b03db276c34cb2a49ffc2b666db, type: 2}
   - {fileID: 1651016176384464, guid: 179bf11a7802c63489039d69d9bf4ee4, type: 2}
-  parat: {fileID: 1719233723700842, guid: b81935ffa228a7d479619d0015d59129, type: 2}
-  destra: {fileID: 0}
-  sinistra: {fileID: 0}
-  p: {fileID: 0}
+  isLevelFailed: 0
+  isPs4Controller: 0
+  isMouse: 0
+  isParrying: 0
+  isActive: 0
+  canParry: 1
+  canFinalPunches: 0
+  tastoParata: {fileID: 0}
 --- !u!212 &212843127937794566
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -185,6 +179,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -200,6 +195,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -227,6 +223,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -242,6 +239,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

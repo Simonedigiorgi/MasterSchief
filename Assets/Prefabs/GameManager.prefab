@@ -162,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   firstSelection: {fileID: 0}
+  pauseButton: {fileID: 0}
 --- !u!114 &114490731152545504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -202,10 +203,10 @@ MonoBehaviour:
   buttonTime: 1.6
   buttonEvent: 0.6
   buttonSpawn: 6
-  buttonDelayAfter: 1
-  buttonTimeAfter: 1
-  buttonEventAfter: 0
-  buttonSpawnAfter: 1
+  buttonDelayAfter: 0.5
+  buttonTimeAfter: 0.8
+  buttonEventAfter: 1
+  buttonSpawnAfter: 6
 --- !u!114 &114674260435357308
 MonoBehaviour:
   m_ObjectHideFlags: 1
