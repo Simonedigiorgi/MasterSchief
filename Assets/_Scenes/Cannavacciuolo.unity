@@ -394,7 +394,27 @@ Prefab:
     - target: {fileID: 114855622362741240, guid: 7d55b782acf9298499eea48105e71d05,
         type: 2}
       propertyPath: m_Text
-      value: Pino arancino
+      value: Pino un po' incazzato
+      objectReference: {fileID: 0}
+    - target: {fileID: 224162259464530102, guid: 7d55b782acf9298499eea48105e71d05,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 224162259464530102, guid: 7d55b782acf9298499eea48105e71d05,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 224839380405712266, guid: 7d55b782acf9298499eea48105e71d05,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 224839380405712266, guid: 7d55b782acf9298499eea48105e71d05,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 455
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d55b782acf9298499eea48105e71d05, type: 2}
@@ -1092,7 +1112,7 @@ Prefab:
     - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
       propertyPath: chefName
-      value: Cannavacciuolo
+      value: Cannavacciuolo spezzaspalle
       objectReference: {fileID: 0}
     - target: {fileID: 114670328520634788, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
@@ -1394,6 +1414,21 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: intro.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: outro.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: charged.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4311079063796428, guid: 51bbb576c4759e24bad1c77df9b514d6, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1435,7 +1470,7 @@ Prefab:
         type: 2}
       propertyPath: charged
       value: 
-      objectReference: {fileID: 8300000, guid: 6b8e061e4c83f1a4b85e6f9f063d5a4d, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
         type: 2}
       propertyPath: chefHits.Array.data[0]
@@ -1450,12 +1485,12 @@ Prefab:
         type: 2}
       propertyPath: intro
       value: 
-      objectReference: {fileID: 8300000, guid: 045a31751a205244e888defa0bc5e8f9, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
         type: 2}
       propertyPath: outro
       value: 
-      objectReference: {fileID: 8300000, guid: ae8ce5d1705a5d14a99975708ba51f27, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 82465292281346586, guid: 51bbb576c4759e24bad1c77df9b514d6,
         type: 2}
       propertyPath: m_audioClip
@@ -1516,6 +1551,31 @@ Prefab:
       propertyPath: counterAttack
       value: 
       objectReference: {fileID: 8300000, guid: a8996e5bd24562c45b885299e023ef1d, type: 3}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: charged.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6b8e061e4c83f1a4b85e6f9f063d5a4d, type: 3}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: charged.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 57d0e59595469ee4a9eb6741613c70f4, type: 3}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: intro.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 045a31751a205244e888defa0bc5e8f9, type: 3}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: outro.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: ae8ce5d1705a5d14a99975708ba51f27, type: 3}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: outro.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7b923fc0009af614184f61f673a40c35, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51bbb576c4759e24bad1c77df9b514d6, type: 2}
   m_IsPrefabParent: 0

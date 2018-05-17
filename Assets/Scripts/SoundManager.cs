@@ -10,9 +10,9 @@ public class SoundManager : MonoBehaviour {
 
     [BoxGroup("Voci fuori campo")] public AudioClip getReady;
 
-    [BoxGroup("Voci dello Chef")] public AudioClip intro;
-    [BoxGroup("Voci dello Chef")] public AudioClip outro;
-    [BoxGroup("Voci dello Chef")] public AudioClip charged;
+    [BoxGroup("Voci dello Chef")] public AudioClip[] intro;
+    [BoxGroup("Voci dello Chef")] public AudioClip[] outro;
+    [BoxGroup("Voci dello Chef")] public AudioClip[] charged;
     [BoxGroup("Voci dello Chef")] public AudioClip counter;
     [BoxGroup("Voci dello Chef")] public AudioClip counterAttack;
 
@@ -22,7 +22,7 @@ public class SoundManager : MonoBehaviour {
 
     public void PlayCharged()
     {
-        soundManager.PlayOneShot(charged);
+        soundManager.PlayOneShot(charged[Random.Range(0, charged.Length)]);
     }
 
     public void PlayCounter()
@@ -42,12 +42,12 @@ public class SoundManager : MonoBehaviour {
 
     public void PlayIntro()
     {
-        soundManager.PlayOneShot(intro);
+        soundManager.PlayOneShot(intro[Random.Range(0, intro.Length)]);
     }
 
     public void PlayOutro()
     {
-        soundManager.PlayOneShot(outro);
+        soundManager.PlayOneShot(outro[Random.Range(0, outro.Length)]);
     }
 
     public void PlayGetReady()

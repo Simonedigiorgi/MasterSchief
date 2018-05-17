@@ -523,7 +523,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -547,7 +547,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!114 &963998869 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114794982851483292, guid: 7d55b782acf9298499eea48105e71d05,
@@ -767,7 +767,32 @@ Prefab:
     - target: {fileID: 114855622362741240, guid: 7d55b782acf9298499eea48105e71d05,
         type: 2}
       propertyPath: m_Text
-      value: Pino arancino
+      value: Pino un po' incazzato
+      objectReference: {fileID: 0}
+    - target: {fileID: 224162259464530102, guid: 7d55b782acf9298499eea48105e71d05,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 224162259464530102, guid: 7d55b782acf9298499eea48105e71d05,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755065476891644, guid: 7d55b782acf9298499eea48105e71d05,
+        type: 2}
+      propertyPath: m_Text
+      value: Bastianich pineapple bacon
+      objectReference: {fileID: 0}
+    - target: {fileID: 224839380405712266, guid: 7d55b782acf9298499eea48105e71d05,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 224839380405712266, guid: 7d55b782acf9298499eea48105e71d05,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 457.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d55b782acf9298499eea48105e71d05, type: 2}
@@ -1176,7 +1201,7 @@ Prefab:
     - target: {fileID: 114388691076760436, guid: 84f75bb278f5c49429611848ea7403f2,
         type: 2}
       propertyPath: chefName
-      value: Bastianich
+      value: Bastianich pineapple bacon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 84f75bb278f5c49429611848ea7403f2, type: 2}
@@ -1466,6 +1491,21 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
         type: 2}
+      propertyPath: outro.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: intro.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: charged.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
       propertyPath: chefHits.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -1505,7 +1545,7 @@ Prefab:
         type: 2}
       propertyPath: charged
       value: 
-      objectReference: {fileID: 8300000, guid: cebc9c25392442245aecf50e34270f04, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
         type: 2}
       propertyPath: counter
@@ -1535,12 +1575,12 @@ Prefab:
         type: 2}
       propertyPath: intro
       value: 
-      objectReference: {fileID: 8300000, guid: 3b403826b342e3845ae52b335a79c58e, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
         type: 2}
       propertyPath: outro
       value: 
-      objectReference: {fileID: 8300000, guid: f8bcc042737fb34448d254af28647fd6, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 82465292281346586, guid: 51bbb576c4759e24bad1c77df9b514d6,
         type: 2}
       propertyPath: m_audioClip
@@ -1606,6 +1646,31 @@ Prefab:
       propertyPath: soundManager
       value: 
       objectReference: {fileID: 924435431}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: charged.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: cebc9c25392442245aecf50e34270f04, type: 3}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: charged.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e29bbeadc5bcdb49896c0082b3380bc, type: 3}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: charged.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: f5a3992b4c3f11c4d99001c8d823eba8, type: 3}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: outro.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: f8bcc042737fb34448d254af28647fd6, type: 3}
+    - target: {fileID: 114194013452418238, guid: 51bbb576c4759e24bad1c77df9b514d6,
+        type: 2}
+      propertyPath: intro.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3b403826b342e3845ae52b335a79c58e, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51bbb576c4759e24bad1c77df9b514d6, type: 2}
   m_IsPrefabParent: 0
