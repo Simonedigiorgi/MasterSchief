@@ -153,18 +153,16 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 512
-  leftArmAnimator: {fileID: 95666232687958328}
-  rightArmAnimator: {fileID: 95214396110882532}
   chefAnimator: {fileID: 0}
-  parata: {fileID: 0}
-  chefPunch: []
+  parata: {fileID: 1719233723700842, guid: b81935ffa228a7d479619d0015d59129, type: 2}
+  chefPunch:
+  - {fileID: 1083350980290208, guid: db81001f2d6e3ca4c900aad698fbdf77, type: 2}
+  - {fileID: 1660545792622842, guid: e2f00525f5f0c9540a88b1e20e5c5dd3, type: 2}
   playerPunch:
   - {fileID: 1328799885881522, guid: 77a35733e4d263f45a5b3aa84203ebcb, type: 2}
   - {fileID: 1155684601657920, guid: 6ee15b03db276c34cb2a49ffc2b666db, type: 2}
   - {fileID: 1651016176384464, guid: 179bf11a7802c63489039d69d9bf4ee4, type: 2}
   isLevelFailed: 0
-  isPs4Controller: 0
-  isMouse: 0
   isParrying: 0
   isActive: 0
   canParry: 1

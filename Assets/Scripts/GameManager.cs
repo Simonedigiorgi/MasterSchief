@@ -69,29 +69,12 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(SecondsBeforeStart());
 
-        // If Player has Controller Active (Icons Image)
-
-        if (playerAction.isPs4Controller)
-        {
-            buttonPunch[0].transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-            buttonPunch[1].transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-            buttonPunch[2].transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-            buttonPunch[3].transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-            buttonPunch[4].transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-            buttonPunch[5].transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-        }
-
-        // If Player has Mouse Active (Icons Image)
-
-        if (playerAction.isMouse)
-        {
-            buttonPunch[0].GetComponent<SpriteRenderer>().enabled = true;
-            buttonPunch[1].GetComponent<SpriteRenderer>().enabled = true;
-            buttonPunch[2].GetComponent<SpriteRenderer>().enabled = true;
-            buttonPunch[3].GetComponent<SpriteRenderer>().enabled = true;
-            buttonPunch[4].GetComponent<SpriteRenderer>().enabled = true;
-            buttonPunch[5].GetComponent<SpriteRenderer>().enabled = true;
-        }
+        buttonPunch[0].GetComponent<SpriteRenderer>().enabled = true;
+        buttonPunch[1].GetComponent<SpriteRenderer>().enabled = true;
+        buttonPunch[2].GetComponent<SpriteRenderer>().enabled = true;
+        buttonPunch[3].GetComponent<SpriteRenderer>().enabled = true;
+        buttonPunch[4].GetComponent<SpriteRenderer>().enabled = true;
+        buttonPunch[5].GetComponent<SpriteRenderer>().enabled = true;
     }
 
     public IEnumerator SecondsBeforeStart()
@@ -159,15 +142,6 @@ public class GameManager : MonoBehaviour
     {
         yield return null;
         chefAnimator.SetTrigger("ChargePunch");
-
-        if (playerAction.isMouse)
-        {
-            playerAction.tastoParata.enabled = false;
-        }
-        else
-        {
-            playerAction.tastoParata.enabled = true;
-        }
     }
 
     public IEnumerator CheckIfParrying()

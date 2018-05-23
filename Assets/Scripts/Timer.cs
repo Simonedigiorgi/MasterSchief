@@ -48,15 +48,6 @@ public class Timer : MonoBehaviour {
                 timerBar.enabled = true;                                                                     // Mostra la barra del Counter
                 finalPunches.counterText.enabled = true;                                                     // Mostra il testo del Counter
 
-                if (playerAction.isMouse)
-                {
-                    finalPunches.pressButtonImage.enabled = false;                                                // Nascondi il Tasto
-                }
-                else
-                {
-                    finalPunches.pressButtonImage.enabled = true;                                                // Mostra il Tasto
-                }
-
                 if (finalPunches.clickCounter < finalPunches.punches)
                 {
                     timeLeft -= Time.deltaTime;
