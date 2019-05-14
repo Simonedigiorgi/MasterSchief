@@ -1673,6 +1673,11 @@ Prefab:
       propertyPath: isFinalPunches
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114674260435357308, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: punches
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 82743259909001320, guid: 84f75bb278f5c49429611848ea7403f2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 84f75bb278f5c49429611848ea7403f2, type: 2}

@@ -782,7 +782,7 @@ Prefab:
     - target: {fileID: 114755065476891644, guid: 7d55b782acf9298499eea48105e71d05,
         type: 2}
       propertyPath: m_Text
-      value: Bastianich pineapple bacon
+      value: Bastianich
       objectReference: {fileID: 0}
     - target: {fileID: 224839380405712266, guid: 7d55b782acf9298499eea48105e71d05,
         type: 2}
@@ -1202,6 +1202,11 @@ Prefab:
         type: 2}
       propertyPath: chefName
       value: Bastianich pineapple bacon
+      objectReference: {fileID: 0}
+    - target: {fileID: 114674260435357308, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: punches
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 84f75bb278f5c49429611848ea7403f2, type: 2}

@@ -21,6 +21,9 @@ public class MenuManager : MonoBehaviour {
 
     private Vector3 startPos;                                                   // Posizione 
 
+    public GameObject creditsTab;
+    public GameObject tutorialTab;
+
     void Start () {
 
         source = GetComponent<AudioSource>();
@@ -122,7 +125,8 @@ public class MenuManager : MonoBehaviour {
         gameButtons[1].transform.GetChild(1).GetComponent<Image>().enabled = true;
 
         yield return new WaitForSeconds(1.0f);
-        pivot.DOMoveY(-Screen.height, 0.8f);
+        //pivot.DOMoveY(-Screen.height, 0.8f);
+        tutorialTab.SetActive(true);
         yield return new WaitForSeconds(1.0f);
     }
 
@@ -138,7 +142,8 @@ public class MenuManager : MonoBehaviour {
         gameButtons[2].transform.GetChild(1).GetComponent<Image>().enabled = true;
 
         yield return new WaitForSeconds(1.0f);
-        pivot.DOMoveX(-Screen.width/2, 0.8f);
+        //pivot.DOMoveX(-Screen.width/2, 0.8f);
+        creditsTab.SetActive(true);
         yield return new WaitForSeconds(1.0f);
     }
 
@@ -170,7 +175,8 @@ public class MenuManager : MonoBehaviour {
         gameButtons[1].transform.GetChild(0).GetComponent<Image>().enabled = false;
         gameButtons[1].transform.GetChild(1).GetComponent<Image>().enabled = false;
 
-        pivot.DOMove(startPos,0.8f);
+        //pivot.DOMove(startPos,0.8f);
+        tutorialTab.SetActive(false);
         yield return null;
     }
 
@@ -182,7 +188,8 @@ public class MenuManager : MonoBehaviour {
         gameButtons[2].transform.GetChild(0).GetComponent<Image>().enabled = false;
         gameButtons[2].transform.GetChild(1).GetComponent<Image>().enabled = false;
 
-        pivot.DOMove(startPos, 0.8f);
+        //pivot.DOMove(startPos, 0.8f);
+        creditsTab.SetActive(false);
         yield return null;
     }
     #endregion

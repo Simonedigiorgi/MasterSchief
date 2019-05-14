@@ -560,6 +560,10 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 164310996}
+    - target: {fileID: 1422040038145884, guid: 980117d47573cd9428158a0b690b3181, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 980117d47573cd9428158a0b690b3181, type: 2}
   m_IsPrefabParent: 0
@@ -964,6 +968,11 @@ Prefab:
       propertyPath: chefName
       value: "Cracco focaccia 16\u20AC"
       objectReference: {fileID: 0}
+    - target: {fileID: 114674260435357308, guid: 84f75bb278f5c49429611848ea7403f2,
+        type: 2}
+      propertyPath: punches
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 84f75bb278f5c49429611848ea7403f2, type: 2}
   m_IsPrefabParent: 0
@@ -1127,6 +1136,20 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1952039162754498, guid: 7d55b782acf9298499eea48105e71d05, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114855622362741240, guid: 7d55b782acf9298499eea48105e71d05,
+        type: 2}
+      propertyPath: m_Text
+      value: Nome
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755065476891644, guid: 7d55b782acf9298499eea48105e71d05,
+        type: 2}
+      propertyPath: m_Text
+      value: Carlo Crack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d55b782acf9298499eea48105e71d05, type: 2}

@@ -16,7 +16,12 @@ public class IntroScript : MonoBehaviour
     public Text introText;
     public Text testo1;
     public Text testo2;
+
+    public static string playernamestr;
+    public Text playername;
     public Text testo3;
+
+
     [Space]
     public Image black;
     public Image fade;
