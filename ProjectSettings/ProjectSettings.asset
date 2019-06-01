@@ -118,7 +118,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.3
+  bundleVersion: 0.4
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -154,7 +154,7 @@ PlayerSettings:
     Android: com.simonedigiorgi.MasterSchief
     iOS: com.DBGA_JAM_2018.MasterSchief
   buildNumber: {}
-  AndroidBundleVersionCode: 3
+  AndroidBundleVersionCode: 4
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -243,7 +243,7 @@ PlayerSettings:
   AndroidTargetArchitectures: 7
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/mi0016/Documents/MasterSchief/user.keystore
+  AndroidKeystoreName: C:/Users/Administrator/Documents/MasterSchief/user.keystore
   AndroidKeyaliasName: masteschief
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 1
