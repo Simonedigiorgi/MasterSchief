@@ -19,7 +19,7 @@ public class MenuManager : MonoBehaviour {
     public AudioClip[] audioVoices;                                             // Voci
     public AudioClip[] audioEffects;                                            // Effetti sonori
 
-    private Vector3 startPos;                                                   // Posizione 
+    //private Vector3 startPos;                                                   // Posizione 
 
     public GameObject creditsTab;
     public GameObject tutorialTab;
@@ -30,7 +30,7 @@ public class MenuManager : MonoBehaviour {
 
         fade.enabled = false;
 
-        startPos = pivot.position;
+        //startPos = pivot.position;
     }
 
     #region OnClick

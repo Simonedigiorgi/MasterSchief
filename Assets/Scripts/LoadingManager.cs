@@ -15,7 +15,7 @@ public class LoadingManager : MonoBehaviour
 
     public void StartGame()
     {
-        HealthBar.chefName = playername.text;
+        HealthBar.chefName = "Aspirante Chef " + playername.text;
         SceneManager.LoadSceneAsync("Menu");
     }
 }
