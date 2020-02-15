@@ -68,7 +68,7 @@ public class HealthBar : MonoBehaviour {
 
     public void TakeDamage()
     {
-        playerAction.tastoParata.enabled = false;
+        //playerAction.tastoParata.enabled = false;
 
         cameraShake.ShakeCamera(5, 0.5f);                                           // Shake Camera             
         playerLife -= chefDamage;                                                   // Take Damage

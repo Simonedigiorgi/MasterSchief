@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
     [Range(1, 6)]
     public int buttonSpawnAfter;                    // Quanti tasti posso apparire insieme
 
+    public Text impiattaloText;
+
     private void Start()
     {
         fade.enabled = true;
@@ -153,7 +155,7 @@ public class GameManager : MonoBehaviour
         {
             soundManager.PlayCharged();
             trigger2 = true;
-            playerAction.SpawnParat();
+            //playerAction.SpawnParat();
         }
         else if (!trigger)
         {
@@ -212,9 +214,9 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator Wait (float number)
     {
-        FindObjectOfType<Timer>().impiattaloText.enabled = true;
-        FindObjectOfType<Timer>().impiattaloText.text = "Lo Chef è incazzato";
-        FindObjectOfType<Timer>().impiattaloText.GetComponent<Animation>().Play("MoveFromLeft");
+        impiattaloText.enabled = true;
+        impiattaloText.text = "Lo Chef è incazzato";
+        impiattaloText.GetComponent<Animation>().Play("MoveFromLeft");
         yield return new WaitForSeconds(number);
 
         buttonDelay = buttonDelayAfter;

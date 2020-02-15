@@ -159,8 +159,8 @@ public class PlayerActions : MonoBehaviour
                             }
                         }
                     }
-                    else
-                        chefAnimator.SetTrigger("Punch");
+                    /*else
+                        chefAnimator.SetTrigger("Punch");*/
                 }
             }
         }
@@ -311,10 +311,10 @@ public class PlayerActions : MonoBehaviour
 
     // Mostra il Testo "Parat" (Para il colpo)
 
-    public void SpawnParat()
+    /*public void SpawnParat()
     {
         Instantiate(parata, pointPos);
-        tastoParata.enabled = false;
-    }
+        //tastoParata.enabled = false;
+    }*/
 }
 
